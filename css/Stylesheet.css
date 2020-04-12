@@ -1,0 +1,151 @@
+
+    div.signup{
+        border-radius: 5px;
+        background-color: #FFFFFF;
+        padding: 20px;
+        text-align: center;
+        padding: 70px;
+        margin: 40px;
+        margin-top: 100px; 
+        font-size: 25px;
+        transition: all 2s;
+        font-family: 'East Sea Dokdo', cursive;
+        font-size: 30px
+
+    }
+    .h_signup{
+        text-align: center;
+        font-size: 70px;
+        margin-top: -55px;
+        font-family: 'East Sea Dokdo', cursive;
+        
+    }
+    .Form_input{
+        width: 30%;
+        padding: 6px 20px;
+        margin: 8px 0;
+        border: 3px solid #ccc;
+        outline: none;
+        border-radius: 10px;
+        box-sizing: border-box;
+        
+    }
+    .Form_input::placeholder{
+        font-size: 30px;
+        font-family: 'East Sea Dokdo', cursive;
+
+        
+    }
+    .Form_input:hover{
+        border: 3px solid #F54300;
+     transition: all 1s;
+
+    }
+    .Form_input:focus{
+        border: 3px solid #F5600C;
+        transition: all 0.5s;
+
+    }
+    .Form_input2{
+        width: 30%;
+        background-color: #F5600C;
+        transition: background 0.5s;
+
+        color: white;
+        padding: 10px 20px;
+        margin: 8px 0;
+        border: 1px solid;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 30px;
+        font-family: 'East Sea Dokdo', cursive;
+        
+    }
+    
+    .Form_input2:hover {
+        background: white !important;
+        color: #F54300 !important;
+        border: 1px solid  #F54300 ;
+            transition: background 0.5s;
+    }
+    .signup_P{
+        margin-top: -7px;
+        margin-bottom: -10px;
+    }
+    .span{
+        
+        color: #ccc;
+        
+    }
+    .span:hover{
+        color: 	#F54300 ;
+    }
+    .login_head{
+        margin-top: -20px;
+    }
+    .login2{
+        margin-top: -23px;
+    }
+    .login_p{
+        text-align: center;
+        font-family: 'East Sea Dokdo', cursive;
+        font-size: 30px;
+
+        
+    }
+    
+    .login{
+        float: right;
+        font-size: 30px;
+        border: 2px solid #777 ;
+        border-radius: 10px;
+        text-align: center;
+        margin: 10px;
+        margin-top: 65px;
+        padding: 30px;
+       
+        top: 92px;
+    }
+    .login_input{
+        outline: none;
+        width: 100%;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        transition: all 0.9s;
+        background-color: white;
+        padding: 12px 20px 12px 10px;
+    
+    }
+    .login_input:hover{
+        border: 2px solid #555;
+    }
+    .login_input:focus{
+        border: 2px solid #555;
+    }
+    .checkbox{
+        margin-left: -80px;
+    }
+    .login_input2{
+        width: 100%;
+        background-color:  #778899;
+        color: white;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 25px;
+        font-family: 'East Sea Dokdo', cursive;
+        outline: none;
+        transition: all 0.7s;
+    }
+    .login_input2:hover{
+        background-color: #808080;
+    }
+    
+    .buttons.pull-left{
+        
+        width: 100%
+        
+        
+    }
