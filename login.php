@@ -30,7 +30,6 @@
     <!--here signuo only -->
     <link rel="stylesheet" type="text/css" href="css/Stylesheet.css">
 
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
 <body>
