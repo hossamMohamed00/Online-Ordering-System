@@ -32,7 +32,6 @@
     <link rel="stylesheet" href="css/style.css">
     <!--here signuo only -->
 
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
 <body>
