@@ -346,11 +346,12 @@
                     <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px; margin-top: -120px"   >
                     <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
                         <tr style="background-color:#F54300 ;color:white;"> 
-                        		<th style="text-align: center;"> Id</th>
-                                <th style="text-align: center;"> Name</th>
+                        		<th style="text-align: center;">Id</th>
+                                <th style="text-align: center;">Name</th>
                                 <th style="text-align: center;">User Name</th>
                                 <th style="text-align: center;">Password</th>
-                                <th style="text-align: center;">phone</th>
+                                <th style="text-align: center;">Phone</th>
+                                <th style="text-align: center;">Address</th>
                                 <th style="text-align: center;"> DELETE </th>
 
                             </tr>
@@ -363,7 +364,8 @@
                             <td style='text-align:center'>hossam@mail.com</td>
                             <td style='text-align:center'>123</td>
                             <td style='text-align:center'>01156826636</td>
-                            <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
+                            <td style='text-align:center'>Cairo</td>
+                            <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
                             </tr>
                             
 
@@ -373,7 +375,8 @@
                             <td style='text-align:center'>safa@mail.com</td>
                             <td style='text-align:center'>456</td>
                             <td style='text-align:center'>Non</td>
-                            <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
+                            <td style='text-align:center'>Cairo</td>
+                            <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
                             </tr>
                         	</br>
 
@@ -383,7 +386,8 @@
                             <td style='text-align:center'>ebram@mail.com</td>
                             <td style='text-align:center'>789</td>
                             <td style='text-align:center'>Non</td>
-                            <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
+                            <td style='text-align:center'>Cairo</td>
+                            <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
                             </tr>
                         	</br>
 
@@ -393,7 +397,8 @@
                             <td style='text-align:center'>shrouk@mail.com</td>
                             <td style='text-align:center'>153</td>
                             <td style='text-align:center'>Non</td>
-                            <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
+                            <td style='text-align:center'>Cairo</td>
+                            <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
                             </tr>
                         	</br>
 
@@ -403,7 +408,8 @@
                             <td style='text-align:center'>esraa@mail.com</td>
                             <td style='text-align:center'>486</td>
                             <td style='text-align:center'>Non</td>
-                            <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
+                            <td style='text-align:center'>Cairo</td>
+                            <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
                             </tr>
                         	</br>
 
@@ -413,7 +419,8 @@
                             <td style='text-align:center'>eslam@mail.com</td>
                             <td style='text-align:center'>183</td>
                             <td style='text-align:center'>Non</td>
-                            <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
+                            <td style='text-align:center'>Cairo</td>
+                            <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
                             </tr>
                         	</br>
 
@@ -423,7 +430,8 @@
                             <td style='text-align:center'>esraa@mail.com</td>
                             <td style='text-align:center'>154</td>
                             <td style='text-align:center'>01164541578</td>
-                            <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
+                            <td style='text-align:center'>Cairo</td>
+                            <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
                             </tr>
                         	</br>
 
@@ -433,7 +441,8 @@
                             <td style='text-align:center'>mohamed@mail.com</td>
                             <td style='text-align:center'>114</td>
                             <td style='text-align:center'>01015484154</td>
-                            <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
+                            <td style='text-align:center'>Cairo</td>
+                            <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
                             </tr>
                         	</br>
                         </tbody>
@@ -463,7 +472,6 @@
 			                    <th style="text-align: center;">Order ID</th>
 			                    <th style="text-align: center;">Order Desc.</th>
 			                    <th style="text-align: center;">Customer ID</th>
-			                    <th style="text-align: center;">Address</th>
 			                    <th style="text-align: center;">Date</th>
 			                    <th style="text-align: center;">Total Cost</th>
 			                    <th style="text-align: center;">Statue</th>
@@ -477,7 +485,6 @@
 			                <td style='text-align:center'>1</td>
 			                <td style='text-align:center'>2 of Po(2)</td>
 			                <td style='text-align:center'>7</td>
-			                <td style='text-align:center'>Nasr City</td>
 			                <td style='text-align:center'>25/3/2020</td>
 			                <td style='text-align:center'>30$</td>
                              <td style="width: 19%">
@@ -495,7 +502,6 @@
 			                <td style='text-align:center'>2</td>
 			                <td style='text-align:center'>3 of Po(5)</td>
 			                <td style='text-align:center'>8</td>
-			                <td style='text-align:center'>New Cairo</td>
 			                <td style='text-align:center'>31/3/2020</td>
 			                <td style='text-align:center'>95$</td>
 			                <td style='text-align:center'>delivered</td>
@@ -506,7 +512,6 @@
 			                <td style='text-align:center'>3</td>
 			                <td style='text-align:center'>1 of Po(3) &1 of Po(7) </td>
 			                <td style='text-align:center'>8</td>
-			                <td style='text-align:center'>Helwan</td>
 			                <td style='text-align:center'>25/3/2020</td>
 			                <td style='text-align:center'>47$</td>
 			                <td style='text-align:center'>Delivered</td>
@@ -517,7 +522,6 @@
 			                <td style='text-align:center'>4</td>
 			                <td style='text-align:center'>1 of Po(4)</td>
 			                <td style='text-align:center'>7</td>
-			                <td style='text-align:center'>Ramsis</td>
 			                <td style='text-align:center'>27/3/2020</td>
 			                <td style='text-align:center'>20$</td>
 			                <td style='text-align:center'>Delivered</td>
@@ -528,7 +532,6 @@
 			                <td style='text-align:center'>5</td>
 			                <td style='text-align:center'>4 of Po(2) & 2 of Po(3)</td>
 			                <td style='text-align:center'>7</td>
-			                <td style='text-align:center'>Nasr City</td>
 			                <td style='text-align:center'>25/3/2020</td>
 			                <td style='text-align:center'>103$</td>
 			                <td style='text-align:center'> delivered</td>

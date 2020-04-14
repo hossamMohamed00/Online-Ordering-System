@@ -128,7 +128,7 @@
     <div class="panel panel-default" >
             
         <div class="panel-heading">
-            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-shipping-address" aria-expanded="true"> Step 1: Delivery Details <i class="fa fa-caret-down"></i></a></h4>
+            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-shipping-address" aria-expanded="true">  Delivery Details <i class="fa fa-caret-down"></i></a></h4>
         </div>    
         <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="margin-top: 25px">
                 <div class="panel-body">
@@ -138,35 +138,22 @@
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="Categories">Name</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="email" placeholder="Enter your name here..." name="name" required>
+                            <input type="text" class="form-control" id="email" value="Hossam" name="name" readonly="readonly">
                           </div>
                         </div>
 
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="pwd">Address</label>
                              <div class="col-sm-10">          
-                                <input type="text" class="form-control" id="pwd" placeholder="Rnter your Address here..." name="address" required>
+                                <input type="text" class="form-control" id="pwd" value="Cairo" name="address"  readonly="readonly">
                             </div>
                         </div>
 
-                        <div class="form-group">
-                          <label class="control-label col-sm-2" for="price">City</label>
-                          <div class="col-sm-10">
-                            <input type="text" class="form-control" id="price" placeholder="Enter you City here..." name="city" required>
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label class="control-label col-sm-2" for="description">Postal Code</label>
-                          <div class="col-sm-10">
-                            <input type="text" class="form-control" id="pro_desc" placeholder="Enter your Postal Code here..." name="postCode" required>
-                          </div>
-                        </div>
 
                          <div class="form-group">
                           <label class="control-label col-sm-2" for="description">Phone Number</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="pro_desc" placeholder="Enter your phone number here..." name="mobile" required>
+                            <input type="text" class="form-control" id="pro_desc" value="01156826636" name="mobile"  readonly="readonly">
                           </div>
                         </div>
                         <div class="form-group">
@@ -185,13 +172,23 @@
                         </div>
                         
                     </form>
+
                     <form class="form-horizontal" action="Cart.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">        
                           <div class="col-sm-offset-2 col-sm-10">
                            <button type="submit" class="btn btn-default" style="margin-left:-180px;margin-top: -40px" > Back To Cart</button>
                           </div>
                         </div>
+                    </form>	
+
+					<form class="form-horizontal" action="User_Home.php" method="post" enctype="multipart/form-data">
+                        <div class="form-group">        
+                          <div class="col-sm-offset-2 col-sm-10">
+                           <button type="submit" class="btn btn-default" style="margin-left:290px;margin-top: -110px"  onclick=""> Change Delivery Details </button>
+                          </div>
+                        </div>
                     </form>
+
                 </div>                                           
              </div>
     </div>    

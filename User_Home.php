@@ -130,9 +130,70 @@
 
 <!--All User end -->
 
-<!-- All Orders start -->
+<!-- User Info start -->
 
   <div class="panel panel-default" style="margin-bottom: 50px">
+        <div class="panel-heading">
+            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">User Information <i class="fa fa-caret-down"></i></a></h4>
+        </div>
+            <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="margin-top: 25px">
+                <div class="panel-body">
+
+                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                        
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="Categories">Name</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="email" value="Hossam" name="name" required>
+                          </div>
+                        </div>
+
+
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="pwd">UserName</label>
+                             <div class="col-sm-10">          
+                                <input type="text" class="form-control" id="pwd" value="username" readonly="readonly" name="username" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="price">Password</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="price" value="123"  name="Password" required>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="description">Phone Number</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="pro_desc" value="01156826636" name="pro_desc" required>
+                          </div>
+                        </div>
+
+                         <div class="form-group">
+                          <label class="control-label col-sm-2" for="description">Address</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="pro_desc" value="Cairo" name="Address" required>
+                          </div>
+                        </div>
+
+                        <div class="form-group">        
+                          <div class="col-sm-offset-2 col-sm-10">
+                           <button type="submit" class="btn btn-default">Save Changes</button>
+                          </div>
+                        </div>
+                    </form>
+                </div>                                           
+             </div>
+   </div>
+
+
+<!-- User Info end -->
+
+
+<!-- All Orders start -->
+
+  <div class="panel panel-default" style="margin-bottom: 50px;margin-top: -30px">
         <div class="panel-heading">
             <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History <i class="fa fa-caret-down"></i></a></h4>
         </div>
@@ -144,7 +205,6 @@
                         <tr style="background-color:#F54300 ;color:white;"> 
                                 <th style="text-align: center;">Order ID</th>
                                 <th style="text-align: center;">Order Desc.</th>
-                                <th style="text-align: center;">Address</th>
                                 <th style="text-align: center;">Date</th>
                                 <th style="text-align: center;">Total Cost</th>
                                 <th style="text-align: center;">Statue</th>
@@ -157,7 +217,6 @@
                             <tr class = "tabelrow">
                             <td style='text-align:center'>1</td>
                             <td style='text-align:center'>2 of Po(2)</td>
-                            <td style='text-align:center'>Nasr City</td>
                             <td style='text-align:center'>25/3/2020</td>
                             <td style='text-align:center'>30$</td>
                             <td style='text-align:center'>Delivered</td>
@@ -167,7 +226,6 @@
                             <tr class = "tabelrow">
                             <td style='text-align:center'>2</td>
                             <td style='text-align:center'>3 of Po(5)</td>
-                            <td style='text-align:center'>New Cairo</td>
                             <td style='text-align:center'>31/3/2020</td>
                             <td style='text-align:center'>95$</td>
                             <td style='text-align:center'>Not Delivered yet</td>
@@ -177,7 +235,6 @@
                             <tr class = "tabelrow">
                             <td style='text-align:center'>3</td>
                             <td style='text-align:center'>1 of Po(3) &1 of Po(7) </td>
-                            <td style='text-align:center'>Helwan</td>
                             <td style='text-align:center'>25/3/2020</td>
                             <td style='text-align:center'>47$</td>
                             <td style='text-align:center'>Delivered</td>
@@ -187,7 +244,6 @@
                             <tr class = "tabelrow">
                             <td style='text-align:center'>4</td>
                             <td style='text-align:center'>1 of Po(4)</td>
-                            <td style='text-align:center'>Ramsis</td>
                             <td style='text-align:center'>27/3/2020</td>
                             <td style='text-align:center'>20$</td>
                             <td style='text-align:center'>Delivered</td>
@@ -197,7 +253,6 @@
                             <tr class = "tabelrow">
                             <td style='text-align:center'>5</td>
                             <td style='text-align:center'>4 of Po(2) & 2 of Po(3)</td>
-                            <td style='text-align:center'>Nasr City</td>
                             <td style='text-align:center'>25/3/2020</td>
                             <td style='text-align:center'>103$</td>
                             <td style='text-align:center'>Not Delivered yet</td>
