@@ -84,7 +84,9 @@
                 Phone Number:<br>
                 <input class="Form_input" type="text" name="phonenumber" placeholder="Type your Phone Number..." maxlength="11"  required><br>
                 
-                
+                Address:<br>
+                <input class="Form_input" type="text" name="phonenumber" placeholder="Type your Address..." maxlength="11"  required><br>
+
                 <input class="Form_input2" type="submit" name="Signup" value="Sign up-100% free">
                 <input class="Form_input2" type="reset" name="reset" value="reset all fields">
                 <P class="login_p">Already created an account? <a class="span" href="login.php">Log In</a></P>
