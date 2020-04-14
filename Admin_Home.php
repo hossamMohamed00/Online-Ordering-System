@@ -202,7 +202,7 @@
                         <tr style="background-color:#F54300 ;color:white;"> 
                         	<th style="text-align: center;" >Product Id </th>
                             <th style="text-align: center;"> Name </th>
-                            <th style="text-align: center;"> PRICE:$ </th>
+                            <th style="text-align: center;"> PRICE : $ </th>
                             <th style="text-align: center;"> DESCREPTION </th>
                             <th style="text-align: center;"> DELETE </th>
                             <th style="text-align: center;"> Availability </th>
@@ -224,7 +224,7 @@
                     <td style='text-align:center'><input value="A lean grilled burger patty on a multi grain bread"  name="desc" type="text"  style="width: 90%;border: 0px">
                     </td>
 	                
-                    <td ><a ><img src="img/drop-icon.png" width="35px" style="margin-left: 35px;"></a>
+                    <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
 	                 <td>
                         <div class="col-sm-10">
                             <select name = "Availability" style="width: 130%;height: 35px ;font-family: 'Bellota';font-size: 20px;color: black;margin-right: 100px;border: 0px; ">
@@ -242,7 +242,7 @@
 	                <td style='text-align:center'>Burger Boys</td>
 	                <td style='text-align:center'>5$</td>
 	                <td style='text-align:center'>A lean grilled burger patty on a multi grain bread bun with light buffalo sauce and light cheddar cheese</td>
-	                <td><a ><img src="img/drop-icon.png" width="35px" style="margin-left: 35px;"></a>
+                    <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
                 	 <td style='text-align:center'>Non Avaliable</td>  
 	                </tr>
 
@@ -253,7 +253,7 @@
 	                <td style='text-align:center'>Burger Bizz</td>
 	                <td style='text-align:center'>3$</td>
 	                <td style='text-align:center'>A lean grilled burger patty wrapped in fresh whole romaine lettuce, light buffalo sauce and light cheddar cheese</td>
-	                <td><a ><img src="img/drop-icon.png" width="35px" style="margin-left: 35px;"></a>
+                    <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
                 	 <td style='text-align:center'>NonAvaliable</td>  
 	                </tr>
 
@@ -265,7 +265,7 @@
 	                <td style='text-align:center'>Crackles Burger</td>
 	                <td style='text-align:center'>12$</td>
 	                <td style='text-align:center'>Triple the beef, triple the taste , triple the experience, triple the cheese</td>
-	                <td><a ><img src="img/drop-icon.png" width="35px" style="margin-left: 35px;"></a>
+                    <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
 	                 <td style='text-align:center'>Avaliable</td>  
 	                </tr>
 
@@ -277,7 +277,7 @@
 	                <td style='text-align:center'>Bull Burgers</td>
 	                <td style='text-align:center'>7$</td>
 	                <td style='text-align:center'>Crispy mushroom and bacon with cheddar cheese and creamy buffalo sauce, drizzled with smokey bbq sauce</td>
-	                <td><a ><img src="img/drop-icon.png" width="35px" style="margin-left: 35px;"></a>
+                    <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
 	                 <td style='text-align:center'>Avaliable</td>  
 	                </tr>
 
@@ -289,7 +289,7 @@
 	                <td style='text-align:center'>Rocket Burgers</td>
 	                <td style='text-align:center'>15$</td>
 	                <td style='text-align:center'>The quintessence of burger made with our signature buffalo sauce and clean cut beef patties</td>
-	                <td><a ><img src="img/drop-icon.png" width="35px" style="margin-left: 35px; "></a>
+                    <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
 	                 <td style='text-align:center'>Avaliable</td>  
 	                </tr>
 
@@ -298,11 +298,11 @@
 	                
 	                <tr class = "tabelrow" style="  background-color: white;">
 	                	<td style='text-align:center'>7</td>
-	                <td style='text-align:center'>Smokin Burger</td>
-	                <td style='text-align:center'>11$</td>
-	                <td style='text-align:center'>Mexican jalapeños, spicy buffalo sauce, and cheddar cheese</td>
-	                <td><a ><img src="img/drop-icon.png" width="35px"style="margin-left: 35px;"  ></a>
-	                <td style='text-align:center'>Avaliable</td>  
+    	                <td style='text-align:center'>Smokin Burger</td>
+    	                <td style='text-align:center'>11$</td>
+    	                <td style='text-align:center'>Mexican jalapeños, spicy buffalo sauce, and cheddar cheese</td>
+                        <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
+    	                <td style='text-align:center'>Avaliable</td>  
 	                </tr>
 
 	           		 </br>
@@ -312,7 +312,7 @@
     	                <td style='text-align:center'>Crackles Burger</td>
     	                <td style='text-align:center'>8$</td>
     	                <td style='text-align:center'>Jalapeño cheddar bites on a burger patty with creamy buffalo sauce</td>
-    	                <td><a ><img src="img/drop-icon.png" width="35px"style="margin-left: 35px;"  ></a>
+                        <td style="width: 7%"><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 5px;"></a>
     	                 <td style='text-align:center'>Non Avaliable</td>  
 	                </tr>
 
@@ -348,10 +348,10 @@
                         <tr style="background-color:#F54300 ;color:white;"> 
                         		<th style="text-align: center;">Id</th>
                                 <th style="text-align: center;">Name</th>
-                                <th style="text-align: center;">User Name</th>
+                                <th style="text-align: center;width: 20%">User Name</th>
                                 <th style="text-align: center;">Password</th>
-                                <th style="text-align: center;">Phone</th>
-                                <th style="text-align: center;">Address</th>
+                                <th style="text-align: center;width:16%">Phone</th>
+                                <th style="text-align: center;width:30%">Address</th>
                                 <th style="text-align: center;"> DELETE </th>
 
                             </tr>
