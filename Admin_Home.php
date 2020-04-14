@@ -36,10 +36,6 @@
 
     <!--  -----------------  -->
 
-    
-
-    <!--  -----------------  -->
-
 
 
     <link rel="stylesheet"  href="css/bootstrap2.min.css"/>
@@ -142,31 +138,25 @@
                           </div>
                         </div>
 
-                        <div class="form-group">
-                          <label class="control-label col-sm-2" for="Categories">Categories</label>
-                          <div class="col-sm-10">
-                            <input type="text" class="form-control" id="email" placeholder="" name="cat_name" required>
-                          </div>
-                        </div>
 
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="pwd">Food Name</label>
                          	 <div class="col-sm-10">          
-                            	<input type="text" class="form-control" id="pwd" placeholder="" name="name" required>
+                            	<input type="text" class="form-control" id="pwd" placeholder="Type the food name " name="name" required>
                       		</div>
                         </div>
 
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="price">Price</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="price" placeholder="" name="price" required>
+                            <input type="text" class="form-control" id="price" placeholder="Type it's price here" name="price" required>
                           </div>
                         </div>
 
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="description">Description</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="pro_desc" placeholder="" name="pro_desc" required>
+                            <input type="text" class="form-control" id="pro_desc" placeholder="Type a brief description" name="pro_desc" required>
                           </div>
                         </div>
 
@@ -210,8 +200,7 @@
                 <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px; margin-top: -120px"   >
                     <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
                         <tr style="background-color:#F54300 ;color:white;"> 
-                        	<th style="text-align: center;" > Product Id </th>
-                            <th style="text-align: center;" > CATEGORY </th>
+                        	<th style="text-align: center;" >Product Id </th>
                             <th style="text-align: center;"> Name </th>
                             <th style="text-align: center;"> PRICE:$ </th>
                             <th style="text-align: center;"> DESCREPTION </th>
@@ -220,24 +209,36 @@
                         </tr>
                 	</thead>
 
-                	
 
 	                <tbody>
 	                <tr class = "tabelrow" >
 	                	<td style='text-align:center'>1</td>
-	                <td style='text-align:center'>Burgers</td>
-	                <td style='text-align:center'>Beefy Burgers</td>
-	                <td style='text-align:center'>10$</td>
-	                <td style='text-align:center'>A lean grilled burger patty on a multi grain bread bun with sautéed mushroom, light buffalo sauce and light cheddar cheese</td>
-	                <td ><a ><img src="img/drop-icon.png" width="35px" style="margin-left: 35px;"></a>
-	                 <td style='text-align:center'>Avaliable</td>  
+	                <td  style="padding: 10px;" >
+
+                    <input value="Burger Boys"  name="foodName" type="text"  style="width: 100%;border: 0px" >
+ 
+                    </td>
+
+	                <td style='text-align:center'><input value="10$"  name="price" type="text"  style="width: 35%;border: 0px"></td>
+	               
+                    <td style='text-align:center'><input value="A lean grilled burger patty on a multi grain bread"  name="desc" type="text"  style="width: 90%;border: 0px">
+                    </td>
+	                
+                    <td ><a ><img src="img/drop-icon.png" width="35px" style="margin-left: 35px;"></a>
+	                 <td>
+                        <div class="col-sm-10">
+                            <select name = "Availability" style="width: 130%;height: 35px ;font-family: 'Bellota';font-size: 20px;color: black;margin-right: 100px;border: 0px; ">
+                                  <option >Available</option>
+                                  <option >Not Available</option>
+                            </select>
+                          </div>
+                     </td>  
 	                </tr>
 
 	           		 </br>
-
+                <!-- ------------------------>
 	           		<tr class = "tabelrow" style="  background-color: white;">
 	           			<td style='text-align:center'>2</td>
-	                <td style='text-align:center'>Burgers</td>
 	                <td style='text-align:center'>Burger Boys</td>
 	                <td style='text-align:center'>5$</td>
 	                <td style='text-align:center'>A lean grilled burger patty on a multi grain bread bun with light buffalo sauce and light cheddar cheese</td>
@@ -249,7 +250,6 @@
 
 	                <tr class = "tabelrow" style="  background-color: white;">
 	                	<td style='text-align:center'>3</td>
-	                <td style='text-align:center;'>Burgers</td>
 	                <td style='text-align:center'>Burger Bizz</td>
 	                <td style='text-align:center'>3$</td>
 	                <td style='text-align:center'>A lean grilled burger patty wrapped in fresh whole romaine lettuce, light buffalo sauce and light cheddar cheese</td>
@@ -262,7 +262,6 @@
 	                
 	                <tr class = "tabelrow" style="  background-color: white;">
 	                	<td style='text-align:center'>4</td>
-	                <td style='text-align:center'>Burgers</td>
 	                <td style='text-align:center'>Crackles Burger</td>
 	                <td style='text-align:center'>12$</td>
 	                <td style='text-align:center'>Triple the beef, triple the taste , triple the experience, triple the cheese</td>
@@ -275,7 +274,6 @@
 	                
 	                <tr class = "tabelrow" style="  background-color: white;">
 	                	<td style='text-align:center'>5</td>
-	                <td style='text-align:center'>Burgers</td>
 	                <td style='text-align:center'>Bull Burgers</td>
 	                <td style='text-align:center'>7$</td>
 	                <td style='text-align:center'>Crispy mushroom and bacon with cheddar cheese and creamy buffalo sauce, drizzled with smokey bbq sauce</td>
@@ -288,7 +286,6 @@
 	                
 	                <tr class = "tabelrow" style="  background-color: white;">
 	                	<td style='text-align:center'>6</td>
-	                <td style='text-align:center'>Burgers</td>
 	                <td style='text-align:center'>Rocket Burgers</td>
 	                <td style='text-align:center'>15$</td>
 	                <td style='text-align:center'>The quintessence of burger made with our signature buffalo sauce and clean cut beef patties</td>
@@ -301,7 +298,6 @@
 	                
 	                <tr class = "tabelrow" style="  background-color: white;">
 	                	<td style='text-align:center'>7</td>
-	                <td style='text-align:center'>Burgers</td>
 	                <td style='text-align:center'>Smokin Burger</td>
 	                <td style='text-align:center'>11$</td>
 	                <td style='text-align:center'>Mexican jalapeños, spicy buffalo sauce, and cheddar cheese</td>
@@ -311,20 +307,26 @@
 
 	           		 </br>
 
-	           		   <tr class = "tabelrow" style="  background-color: white;" >
-	           		   	<td style='text-align:center'>8</td>
-	                <td style='text-align:center'>Burgers</td>
-	                <td style='text-align:center'>Crackles Burger</td>
-	                <td style='text-align:center'>8$</td>
-	                <td style='text-align:center'>Jalapeño cheddar bites on a burger patty with creamy buffalo sauce</td>
-	                <td><a ><img src="img/drop-icon.png" width="35px"style="margin-left: 35px;"  ></a>
-	                 <td style='text-align:center'>Non Avaliable</td>  
+           		   <tr class = "tabelrow" style="  background-color: white;" >
+               		   	<td style='text-align:center'>8</td>
+    	                <td style='text-align:center'>Crackles Burger</td>
+    	                <td style='text-align:center'>8$</td>
+    	                <td style='text-align:center'>Jalapeño cheddar bites on a burger patty with creamy buffalo sauce</td>
+    	                <td><a ><img src="img/drop-icon.png" width="35px"style="margin-left: 35px;"  ></a>
+    	                 <td style='text-align:center'>Non Avaliable</td>  
 	                </tr>
 
 	           		 </br>
                      
         			</tbody>
     			</TABLE>
+
+                     </br> 
+                <div class="form-group">        
+                          <div class="col-sm-offset-2 col-sm-10" style="margin-left: 650px">
+                           <button type="submit" class="btn btn-default">Save Changes</button>
+                          </div>
+                </div>
 
    		 	</div>
     	</div>
@@ -349,7 +351,6 @@
                                 <th style="text-align: center;">User Name</th>
                                 <th style="text-align: center;">Password</th>
                                 <th style="text-align: center;">phone</th>
-                                <th style="text-align: center;">Type</th>
                                 <th style="text-align: center;"> DELETE </th>
 
                             </tr>
@@ -362,7 +363,6 @@
                             <td style='text-align:center'>hossam@mail.com</td>
                             <td style='text-align:center'>123</td>
                             <td style='text-align:center'>01156826636</td>
-                            <td style='text-align:center'>Admin</td>
                             <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
                             </tr>
                             
@@ -373,7 +373,6 @@
                             <td style='text-align:center'>safa@mail.com</td>
                             <td style='text-align:center'>456</td>
                             <td style='text-align:center'>Non</td>
-                            <td style='text-align:center'>Admin</td>
                             <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
                             </tr>
                         	</br>
@@ -384,7 +383,6 @@
                             <td style='text-align:center'>ebram@mail.com</td>
                             <td style='text-align:center'>789</td>
                             <td style='text-align:center'>Non</td>
-                            <td style='text-align:center'>Admin</td>
                             <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
                             </tr>
                         	</br>
@@ -395,7 +393,6 @@
                             <td style='text-align:center'>shrouk@mail.com</td>
                             <td style='text-align:center'>153</td>
                             <td style='text-align:center'>Non</td>
-                            <td style='text-align:center'>Admin</td>
                             <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
                             </tr>
                         	</br>
@@ -406,7 +403,6 @@
                             <td style='text-align:center'>esraa@mail.com</td>
                             <td style='text-align:center'>486</td>
                             <td style='text-align:center'>Non</td>
-                            <td style='text-align:center'>Admin</td>
                             <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
                             </tr>
                         	</br>
@@ -417,7 +413,6 @@
                             <td style='text-align:center'>eslam@mail.com</td>
                             <td style='text-align:center'>183</td>
                             <td style='text-align:center'>Non</td>
-                            <td style='text-align:center'>Admin</td>
                             <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
                             </tr>
                         	</br>
@@ -428,7 +423,6 @@
                             <td style='text-align:center'>esraa@mail.com</td>
                             <td style='text-align:center'>154</td>
                             <td style='text-align:center'>01164541578</td>
-                            <td style='text-align:center'>User</td>
                             <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
                             </tr>
                         	</br>
@@ -439,7 +433,6 @@
                             <td style='text-align:center'>mohamed@mail.com</td>
                             <td style='text-align:center'>114</td>
                             <td style='text-align:center'>01015484154</td>
-                            <td style='text-align:center'>Admin</td>
                             <td ><a ><img src="img/drop-icon.png" title="delete User" width="35px" style="margin-left: 35px;"></a>
                             </tr>
                         	</br>
