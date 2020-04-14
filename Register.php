@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.php">
+                                <a href="Register.php">
                                     <img src="img/logo.png" alt="">
                                 </a>
                             </div>

@@ -115,43 +115,16 @@
             <div class="entry">
 
 
-               <!-------     
-                <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px; margin-top: -120px"   >
-                    <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
-                        <tr style="background-color:#F54300 ;color:white;"> 
-                            <th style="text-align: center;" > Product Id </th>
-                            <th style="text-align: center;" > CATEGORY </th>
-                            <th style="text-align: center;"> Name </th>
-                            <th style="text-align: center;"> PRICE:$ </th>
-                            <th style="text-align: center;"> DESCREPTION </th>
-                            <th style="text-align: center;"> DELETE </th>
-                            <th style="text-align: center;"> Availability </th>
-                        </tr>
-                    </thead>
+               
 
-                    
-
-                    <tbody>
-                    <tr class = "tabelrow" >
-                        <td style='text-align:center'>1</td>
-                    <td style='text-align:center'>Burgers</td>
-                    <td style='text-align:center'>Beefy Burgers</td>
-                    <td style='text-align:center'>10$</td>
-                    <td style='text-align:center'>A lean grilled burger patty on a multi grain bread bun with sautéed mushroom, light buffalo sauce and light cheddar cheese</td>
-                    <td ><a ><img src="img/drop-icon.png" width="35px" style="margin-left: 35px;"></a>
-                     <td style='text-align:center'>Avaliable</td>  
-                    </tr>
-
-                     </br>
-
-                     -->     
+                      
          <table border="2"   style="border-color:#F54300 ; width:1200px ; text-align: center; margin-left: 180px; margin-top: -80px;border-radius: 40px;">
                     <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
                         <tr style="background-color:#F54300 ;color:white;"> 
                             <th style="text-align: center;" > No</th>
-                            <th style="text-align: center;" > CATEGORY </th>
                             <th style="text-align: center;"> Product </th>
-                            <th style="text-align: center;"> Quantity </th>
+                            <th style="text-align: center;"> Description </th>
+                            <th style="text-align: center;width: 10%"> Quantity </th>
                             <th style="text-align: center;"> Price </th>
                             <th style="text-align: center;"> DELETE </th>
                         </tr>
@@ -160,9 +133,9 @@
                     <tbody>
                         <tr class = "tabelrow" >
                              <td style='text-align:center'>1</td>
-                            <td style='text-align:center'>Burgers</td>
                             <td style='text-align:center'>Beefy Burgers</td>
-                            <td> <input style="border:none ;text-align:center" type="number" size="100" value="1" name="">
+                            <td style='text-align:center'>Description Must be Here</td>
+                            <td> <input style="border:none ;text-align:center;" type="number" size="100" value="1" name="">
 
                             <td style='text-align:center'>10 $</td>   
                             <td> <a href=""><img src="img/delete-icon.png" width=22px></a>
@@ -170,8 +143,9 @@
                         </br>
                          <tr class = "tabelrow" >
                              <td style='text-align:center'>2</td>
-                            <td style='text-align:center'> Burgers</td>
                             <td style='text-align:center'>Crackles Burger</td>
+                            <td style='text-align:center'>Description Must be Here</td>
+
                             <td> <input style="border:none ;text-align:center" type="number" size="100" value="1" name="">
 
                             <td style='text-align:center'>25 $</td>   
