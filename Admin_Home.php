@@ -322,10 +322,10 @@
     			</TABLE>
 
                      </br> 
-                <div class="form-group">        
-                          <div class="col-sm-offset-2 col-sm-10" style="margin-left: 650px">
-                           <button type="submit" class="btn btn-default">Save Changes</button>
-                          </div>
+                    <div class="form-group">        
+                              <div class="col-sm-offset-2 col-sm-10" style="margin-left: 650px">
+                               <button type="submit" class="btn btn-default">Save Changes</button>
+                    </div>
                 </div>
 
    		 	</div>
@@ -452,12 +452,12 @@
 
   <div class="panel panel-default">
         <div class="panel-heading">
-            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History<i class="fa fa-caret-down"></i></a></h4>
+            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">ORDERS <i class="fa fa-caret-down"></i></a></h4>
         </div>
 	        <div id="collapse-checkout-confirm" class="panel-collapse collapse in" aria-expanded="true" style="">
 	            <div class="panel-body">
 
-	                <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px; margin-top: -90px"   >
+                <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px; margin-top: -90px"   >
                     <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
                         <tr style="background-color:#F54300 ;color:white;"> 
 			                    <th style="text-align: center;">Order ID</th>
@@ -480,7 +480,14 @@
 			                <td style='text-align:center'>Nasr City</td>
 			                <td style='text-align:center'>25/3/2020</td>
 			                <td style='text-align:center'>30$</td>
-			                <td style='text-align:center'>Delivered</td>
+                             <td style="width: 19%">
+                                <div class="col-sm-10" style="padding: px">
+                                    <select name = "Statue" style="width: 120%;height: 35px ;font-family: 'Bellota';font-size: 20px;color: black;border: 0px; ">
+                                          <option >Delivered</option>
+                                          <option >Yet to be delivered</option>
+                                    </select>
+                                </div>
+                            </td>
 			                </tr>
 			            	</br>
 
@@ -491,7 +498,7 @@
 			                <td style='text-align:center'>New Cairo</td>
 			                <td style='text-align:center'>31/3/2020</td>
 			                <td style='text-align:center'>95$</td>
-			                <td style='text-align:center'>Yet to be delivered</td>
+			                <td style='text-align:center'>delivered</td>
 			                </tr>
 			            	</br>
 
@@ -524,14 +531,23 @@
 			                <td style='text-align:center'>Nasr City</td>
 			                <td style='text-align:center'>25/3/2020</td>
 			                <td style='text-align:center'>103$</td>
-			                <td style='text-align:center'>Yet to be delivered</td>
+			                <td style='text-align:center'> delivered</td>
 			                </tr>
 			            	</br>
 
 			            </tbody>	
-
 	                </table>
+
+                    </br> 
+                    <div class="form-group">        
+                              <div class="col-sm-offset-2 col-sm-10" style="margin-left: 650px">
+                               <button type="submit" class="btn btn-default">Save Changes</button>
+                           </div>
+                    </div>
+
+
 	            </div>
+
 			</div>
    </div>
 
