@@ -36,6 +36,18 @@
 
     <!--  -----------------  -->
 
+    <script>
+    	
+    	function hide(){
+			  document.getElementById('MyForm').style.display ='none';
+			}
+		function show(){
+			  document.getElementById('MyForm').style.display = 'block';
+			}
+
+
+    </script>
+
     
 
     <!--  -----------------  -->
@@ -128,7 +140,7 @@
     <div class="panel panel-default" >
             
         <div class="panel-heading">
-            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-shipping-address" aria-expanded="true">  Delivery Details <i class="fa fa-caret-down"></i></a></h4>
+            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-shipping-address" aria-expanded="true">  Step 1 : Delivery Details <i class="fa fa-caret-down"></i></a></h4>
         </div>    
         <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="margin-top: 25px">
                 <div class="panel-body">
@@ -156,23 +168,89 @@
                             <input type="text" class="form-control" id="pro_desc" value="01156826636" name="mobile"  readonly="readonly">
                           </div>
                         </div>
-                        <div class="form-group">
-                          <label class="control-label col-sm-2" for="description">PAYMENT METHOD</label>
-                          <div class="col-sm-10">
-                              <label  style="margin-top: 15px;margin-bottom: 60px;font-size: 25px;color:black ;font-family: 'Bellota', cursive;">Cash on delivery (COD)</label>
+                 
+                    </form>
 
-                          </div>
-                        </div>
-
-
+                    <form class="form-horizontal" action="User_Home.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">        
                           <div class="col-sm-offset-2 col-sm-10">
-                           <button type="submit" class="btn btn-default"  style="margin-left:760px;margin-bottom: -30px">Place Order</button>
+                           <button type="submit" class="btn btn-default"  style="margin-left: 750px"> Change Delivery Details </button>
+                          </div>
+                        </div>
+                    </form>	
+                    
+
+                </div>                                           
+             </div>
+    </div>    
+    <!--add food end-->
+    <!-- -----------------------------------------  -->
+    <!-- Payment Method start-->
+
+    
+
+    <div class="panel panel-default" >
+            
+        <div class="panel-heading">
+            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-shipping-address" aria-expanded="true">Step 2 : Payment Method <i class="fa fa-caret-down"></i></a></h4>
+        </div>    
+        <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="margin-top: 25px">
+                <div class="panel-body">
+
+					<div class="col-sm-10">
+                		<input type="radio" value="igotnone" name="payment"  onclick="hide()">
+                	
+                      	<label  style="margin-top: 15px;margin-bottom: 60px;margin-left: 20px; font-size: 22px;color:black ;font-family: 'Bellota', cursive;">Cash on delivery (COD)</label>
+                    </div>
+
+                    
+                	<div class="col-sm-10">
+                		<input type="radio" value="igotnone" checked="checked" name="payment" onclick="show()">
+
+                      	<label  style="margin-top: 15px;margin-bottom: 60px;margin-left: 20px;font-size: 22px;color:black ;font-family: 'Bellota', cursive;">Credit or Debit Cards</label>
+                    </div>
+
+                    <form class="form-horizontal"  action="ThanksPage.php" method="post" enctype="multipart/form-data">
+                    	<div id ="MyForm">
+	                        <img src="img/paypal.png" width="800px" height="80px" style="margin-left: 250px;margin-bottom: 50px">
+	                        <div class="form-group">
+	                          <label class="control-label col-sm-2" for="Categories">Card number</label>
+	                          <div class="col-sm-10">
+	                            <input type="text" class="form-control" id="email" placeholder="Enter Card Number Here " name="Card_number" required>
+	                          </div>
+	                        </div>
+
+	                        <div class="form-group">
+	                          <label class="control-label col-sm-2" for="pwd">Holder's name </label>
+	                             <div class="col-sm-10">          
+	                            <input type="text" class="form-control" id="email" placeholder="Enter Card holder's name Here " name="Card_holder_name" required>
+	                            </div>
+	                        </div>
+
+
+	                         <div class="form-group">
+	                          <label class="control-label col-sm-2" for="description">Card verification code</label>
+	                          <div class="col-sm-10">
+	                            <input type="password" class="form-control" id="pro_desc" placeholder="Enter Card verification code Here" name="Card_Code"  required>
+	                          </div>
+	                        </div>
+
+	                        <div class="form-group">
+	                          <label class="control-label col-sm-2" for="description">Expir date</label>
+	                          <div class="col-sm-10" style="width: 30%" >
+	                            <input type="date" class="form-control" id="pro_desc" name="Expir_date"   required >
+	                          </div>
+	                        </div>
+	                        
+	                    </div>    	
+	                        <div class="form-group">        
+	                          <div class="col-sm-offset-2 col-sm-10">
+	                           <button type="submit" class="btn btn-default"  style="margin-left:760px;margin-bottom: -30px">Place Order</button>
                           </div>
                         </div>
                         
                     </form>
-
+				
                     <form class="form-horizontal" action="Cart.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">        
                           <div class="col-sm-offset-2 col-sm-10">
@@ -180,20 +258,21 @@
                           </div>
                         </div>
                     </form>	
-
-					<form class="form-horizontal" action="User_Home.php" method="post" enctype="multipart/form-data">
-                        <div class="form-group">        
-                          <div class="col-sm-offset-2 col-sm-10">
-                           <button type="submit" class="btn btn-default" style="margin-left:290px;margin-top: -110px"  onclick=""> Change Delivery Details </button>
-                          </div>
-                        </div>
-                    </form>
+                  
+					
 
                 </div>                                           
              </div>
     </div>    
-    <!--add food end-->
-    <!-- -----------------------------------------  -->
+
+
+
+
+
+
+    <!--Payment Method end  -->
+
+
 
     <!-- Footer start  -->
     <footer class="footer" style="margin-top: 150px">
