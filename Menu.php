@@ -113,7 +113,7 @@
     <!-- bradcam_area_end -->
 
     <!-- best_burgers_area_start  -->
-    <div class="best_burgers_area">
+    <div class="best_burgers_area" style="margin-top: -90px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -127,7 +127,7 @@
                 <div class="col-xl-6 col-md-6 col-lg-6">
                     <div class="single_delicious d-flex align-items-center">
                         <div class="thumb">
-                            <img src="img/burger/1.png" alt="">
+                            <img src="img/burger/1.png" alt="Burgers">
                         </div>
                         <div class="info">
                             <h3>Beefy Burgers</h3>
