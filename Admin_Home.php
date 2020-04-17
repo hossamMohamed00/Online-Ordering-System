@@ -142,14 +142,14 @@
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="pwd">Food Name</label>
                          	 <div class="col-sm-10">          
-                            	<input type="text" class="form-control" id="pwd" placeholder="Type the food name " name="name" required>
+                            	<input type="text" class="form-control" id="pwd" placeholder="Type the food name " name="foodName" required>
                       		</div>
                         </div>
 
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="price">Price</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="price" placeholder="Type it's price here" name="price" required>
+                            <input type="number" class="form-control" id="price" placeholder="Type it's price here" name="price" required>
                           </div>
                         </div>
 
@@ -163,7 +163,7 @@
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="email">Photo Of Food</label>
                           <div class="col-sm-10">
-                            <input type="file" class="form-control"   name="image" >
+                            <input type="file" class="form-control" name="image" >
                           </div>
                         </div>
 

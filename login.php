@@ -68,7 +68,7 @@
                 Password:<br>
                 <input class="Form_input" type="password" name="password" placeholder="Type your password..." required><br>
                 
-                <input class="Form_input2" type="submit" name="Signup" value="Login">
+                <input class="Form_input2" type="submit" name="login" value="Login">
                 <P class="login_p">If you don't have an account? <a class="span" href="Register.php">Create Now</a></P>
             </form>
             
