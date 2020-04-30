@@ -277,7 +277,7 @@
             <div class="Burger_President_here">
                 <div class="single_Burger_President">
                     <div class="room_thumb">
-                        <img src="<?= $img ?>burgers/1.png" alt="">
+                        <img src="<?= $img ?>burger/S1.png" alt="">
                         <div class="room_heading d-flex justify-content-between align-items-center">
                             <div class="room_heading_inner">
                                 <span>$20</span>
@@ -291,7 +291,7 @@
                 </div>
                 <div class="single_Burger_President">
                     <div class="room_thumb">
-                        <img src="<?= $img ?>burgers/2.png" alt="">
+                        <img src="<?= $img ?>burger/S2.png" alt="">
                         <div class="room_heading d-flex justify-content-between align-items-center">
                             <div class="room_heading_inner">
                                 <span>$20</span>
