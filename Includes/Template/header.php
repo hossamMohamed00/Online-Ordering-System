@@ -3,7 +3,6 @@
     session_start();
     if(!isset($_SESSION['Id']))
     {
-        
         header("Location: login.php");
     }
 ?>
@@ -44,7 +43,6 @@
             default :
                 echo 'Online Food System';    
         }
-    
     ?>
     </title>
     <meta name="description" content="">

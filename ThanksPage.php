@@ -1,11 +1,17 @@
-<?php include 'init.php'; ?>
+<?php include 'init.php'; 
+        session_start();
+        if(!isset($_SESSION['Id']))
+        {
+            header("Location: login.php");
+        }
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Confirmation</title>
+    <title>All Done</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -30,21 +36,12 @@
     <link rel="stylesheet" href="<?= $css ?>style.css">
     <link rel="stylesheet"  href="<?= $css ?>bootstrap.min2.css"/>
 
-        <link rel="stylesheet" type="text/css" href="<?= $css ?>style2.css"/> 
-        <link rel="stylesheet" href="<?= $css ?>owl-carousel.css"/>
-
-        
-
-    <!--  -----------------  -->
-
-    
-
-    <!--  -----------------  -->
-
+    <link rel="stylesheet" type="text/css" href="<?= $css ?>style2.css"/> 
+    <link rel="stylesheet" href="<?= $css ?>owl-carousel.css"/>
 
 
     <link rel="stylesheet"  href="<?= $css ?>bootstrap2.min.css"/>
-        <link rel="stylesheet"  href="<?= $css ?>AdminStyle.css"/> 
+    <link rel="stylesheet"  href="<?= $css ?>AdminStyle.css"/> 
     <!-- <link rel="stylesheet" href="<?= $css ?>responsive.css"> -->
     <link rel="stylesheet" type="text/css" href="<?= $css ?>Stylesheet.css">
 
@@ -106,7 +103,7 @@
                                     <a class="towHomeBtn" href="User_Home.php">MyAccount</a>
                                 </div>
                                 <div class="book_btn d-none d-xl-block">
-                                    <a class="towHomeBtn" href="login.php">Log Out</a>
+                                    <a class="towHomeBtn" href="logout.php">Log Out</a>
                                 </div>
                             </div>
                         </div>
