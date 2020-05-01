@@ -1,4 +1,43 @@
-<?php include 'init.php'; ?>
+<?php 
+ require_once 'init.php';
+        session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    
+    $eror='';
+if (isset($_POST['username'])&& !empty($_POST['password']) && isset($_POST['password']) && !empty($_POST['username'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $user = new User();
+    $userdata = $user ->getUserForLogin($username,$password);
+    if (!empty($userdata)) {
+        $_SESSION['Name']=$userdata['Name'];
+        $_SESSION['Id']=$userdata['Id'];
+        $_SESSION['User_Name']=$userdata['User_Name'];
+        $_SESSION['Password']=$userdata['Password'];
+        $_SESSION['Phone']=$userdata['Phone'];
+        $_SESSION['Address']=$userdata['Address'];
+        $_SESSION['User_Type_Id ']=$userdata['User_Type_Id '];
+
+    
+    if ($userdata['User_Type_Id'] == 1) {
+        header("location:".$adminHome);
+
+    }
+    elseif ($userdata['User_Type_Id'] == 2) {
+        header("location:".$userHome);
+
+    }
+}
+    else  {
+        header("location:login.php");
+    }    
+}
+}
+
+?>
+
+
 
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -62,7 +101,7 @@
     <!-- sign up -start -->
     <div class="signup" >
             <h2 class="h_signup">Log In</h2>
-            <form action="index.php" target="_self" method="post">
+            <form action="login.php"  method="POST">
                 
                 User Name:<br>
                 <input class="Form_input" type="text" name="username" placeholder="Type your username..." required><br>
@@ -70,6 +109,9 @@
                 <input class="Form_input" type="password" name="password" placeholder="Type your password..." required><br>
                 
                 <input class="Form_input2" type="submit" name="login" value="Login">
+                
+                   
+                 
                 <P class="login_p">If you don't have an account? <a class="span" href="Register.php">Create Now</a></P>
             </form>
             
