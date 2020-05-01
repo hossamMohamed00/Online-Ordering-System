@@ -31,10 +31,8 @@
     <link rel="stylesheet" href="<?= $css ?>animate.css">
     <link rel="stylesheet" href="<?= $css ?>slicknav.css">
     <link rel="stylesheet" href="<?= $css ?>style.css">
-    <!--here signuo only -->
-
-    <!-- <link rel="stylesheet" href="<?= $css ?>responsive.css"> -->
-</head>
+    
+    </head>
 
 <body>
 
