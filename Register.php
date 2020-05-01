@@ -6,12 +6,12 @@ session_start();
     if ($_SERVER['REQUEST_METHOD'] == "POST") 
     {
         //Validation
-        if(! (isset($_POST['name']) && !empty($_POST['name'])) && !is_numeric($_POST['name'])) 
+        if(! (isset($_POST['name']) &&  preg_match("/^[a-zA-Z ]*$/", $_POST['name']) && strlen($_POST['name']) >= 3))
         {
             $arr_error[] = "name";
         }
 
-        if(! (isset($_POST['username']) && !empty($_POST['username'])))
+        if(! (isset($_POST['username']) && filter_var($_POST['username'], FILTER_VALIDATE_EMAIL)))
         {
             $arr_error[]="username";
         }
@@ -135,7 +135,7 @@ session_start();
             <form action="Register.php"  method="post">
                 Name: <br>
                 <input class="Form_input" type="text" name="name" placeholder="Type your Name..." value="<?= (isset($_POST['name']))? $_POST['name'] : ''?>" ><br>
-                <?php if(in_array("name" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid Name </P>" ?>
+                <?php if(in_array("name" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid Name [must be > 3 char] </P>" ?>
                 
                 User Name:<br>
                 <input class="Form_input" type="text" name="username" placeholder="Choose you own user name..." value="<?= (isset($_POST['username']))? $_POST['username'] : ''?>" ><br>
@@ -154,7 +154,6 @@ session_start();
                 <?php if(in_array("Address" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid address</P>" ?>
 
                 <input class="Form_input2" type="submit" name="Signup" value="Sign up-100% free">
-                <input class="Form_input2" type="reset" name="reset" value="reset all fields">
                 <P class="login_p">Already created an account? <a class="span" href="login.php">Log In</a></P>
             </form>
             
