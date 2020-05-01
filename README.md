@@ -9,7 +9,8 @@ Software Engineering Project
       - Products that are Not Avaliable will not added to the index.php or Menu.php 
               - (products that have Pro_Statue column == 0 means not avaliable)
                       
-  - Shrouk Task  Must Implement Edit_Product.php front end and back end 
+  - Shrouk Task  
+     - Must Implement Edit_Product.php front end and back end 
      - Every edit icon beside every product on Admin_Home.php must lead to Edit_Product.php 
      - this Page must have 2 button (Save && Back)
      - this Page must have 4 Textfields (Name ,  Desc , Price , Avaliability(option tag)) only 
