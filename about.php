@@ -88,7 +88,7 @@
                                     <a class="towHomeBtn" href="User_Home.php">MyAccount</a>
                                 </div>
                                 <div class="book_btn d-none d-xl-block">
-                                    <a class="towHomeBtn" href="login.php">Log Out</a>
+                                    <a class="towHomeBtn" href="logout.php">Log Out</a>
                                 </div>
                             </div>
                         </div>
