@@ -1,4 +1,48 @@
-<?php include 'init.php'; ?>
+<?php 
+
+require_once 'init.php';
+ session_start();
+ $arr_error= array();
+if ($_SERVER['REQUEST_METHOD'] == "POST") 
+{
+   if (!isset($_POST['name'])) {
+        $arr_error[]="name";
+    }
+
+    if (!isset($_POST['username'])) {
+        $arr_error[]="username";
+    }
+    if (!isset($_POST['password'])) {
+        $arr_error[]="password";
+    }
+    if (!isset($_POST['phonenumber'])) {
+        $arr_error[]="phonenumber";
+    }
+    if (!isset($_POST['Address'])) {
+        $arr_error[]="Address";
+    }
+
+    if (!$arr_error) {
+    $add=new Admin();
+        $Name=$_POST['name'];
+        $Username=$_POST['username'];
+        $Password=$_POST['password'];
+        $Phonenumber=$_POST['phonenumber'];
+        $Address=$_POST['Address'];
+        $User_Type_Id =2;
+        if ($add->checkUserName($Username)) {
+            $info = array('Name' =>$Name,'User_Name'=>$Username ,'Password'=>$Password ,'Phone'=>$Phonenumber,'Address'=>$Address,'User_Type_Id'=> $User_Type_Id );
+
+        }
+        if ($add->addUser($info)) {
+            header("location: login.php");
+
+            # code...
+        }
+}
+}
+
+ ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -73,20 +117,20 @@
     <!-- sign up -start -->
     <div class="signup" >
             <h2 class="h_signup">Sign Up</h2>
-            <form action="" target="_blank" method="post">
+            <form action="Register.php"  method="post">
                 Name: <br>
-                <input class="Form_input" type="text" name="firstname" placeholder="Type your Name..." required><br>
+                <input class="Form_input" type="text" name="name" placeholder="Type your Name..." value="<?= (isset($_POST['name']))? $_POST['name'] : ''?>" required><br>
                 
                 User Name:<br>
-                <input class="Form_input" type="text" name="username" placeholder="Choose you own user name..." required><br>
+                <input class="Form_input" type="text" name="username" placeholder="Choose you own user name..." value="<?= (isset($_POST['username']))? $_POST['username'] : ''?>" required><br>
                 Password:<br>
-                <input class="Form_input" type="password" name="password" placeholder="Choose you own Password..."  required><br>
+                <input class="Form_input" type="password" name="password" placeholder="Choose you own Password..."  value="<?= (isset($_POST['password']))? $_POST['password'] : ''?>" required><br>
                 
                 Phone Number:<br>
-                <input class="Form_input" type="text" name="phonenumber" placeholder="Type your Phone Number..." maxlength="11"  required><br>
+                <input class="Form_input" type="text" name="phonenumber" placeholder="Type your Phone Number..." maxlength="11"  value="<?= (isset($_POST['phonenumber']))? $_POST['phonenumber'] : ''?>" required><br>
                 
                 Address:<br>
-                <input class="Form_input" type="text" name="Address" placeholder="Type your Address..." maxlength="11"  required><br>
+                <input class="Form_input" type="text" name="Address" placeholder="Type your Address..." maxlength="11"  value="<?= (isset($_POST['Address']))? $_POST['Address'] : ''?>" required><br>
 
                 <input class="Form_input2" type="submit" name="Signup" value="Sign up-100% free">
                 <input class="Form_input2" type="reset" name="reset" value="reset all fields">
