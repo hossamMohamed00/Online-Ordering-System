@@ -6,7 +6,7 @@ session_start();
     if ($_SERVER['REQUEST_METHOD'] == "POST") 
     {
         //Validation
-        if(! (isset($_POST['name']) && !empty($_POST['name'])) && !is_numeric($_POST['name'])) 
+        if(! (isset($_POST['name']) && preg_match("/^[a-zA-Z ]*$/", $_POST['name']) && strlen($_POST['name']) >= 3)) 
         {
             $arr_error[] = "name";
         }
