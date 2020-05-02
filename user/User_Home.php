@@ -206,41 +206,16 @@
                         </thead>
 
                         <tbody> 
-                            <?php
-                                $user_id = $_SESSION['Id'];
-                                $order = new orders();
-
-                                $all_orders = $order->getOrders($user_id);
-                                
-                                if(!empty($all_orders))
-                                {
-                                     //loop the data 
-                                     foreach($all_orders as $row)
-                                     {
-                            ?>
+                            
                             <tr class = "tabelrow">
-                            <td style='text-align:center'><?= $row['Order_Id'] ?></td>
-                            <td style='text-align:center'><?= $row['Order_Desc'] ?></td>
-                            <td style='text-align:center'><?= $row['Order_Date'] ?></td>
-                            <td style='text-align:center'><?= $row['Total_Cost'] ?> $</td>
-                            <td style='text-align:center'><?= $row['Order_Statue'] ?></td>
+                            <td style='text-align:center'>1</td>
+                            <td style='text-align:center'>1</td>
+                            <td style='text-align:center'>1</td>
+                            <td style='text-align:center'>1 $</td>
+                            <td style='text-align:center'>1</td>
                             </tr>
                             </br>
-                            <?php
-                                }
-                                }else
-                                {
-
-                            ?>
                             
-                            <div>
-                                <tr class = "tabelrow" > 
-                                    <td colspan="7" >NO ORDERS TO SHOW</td>       
-                                </tr>
-                            </div>
-                            <?php
-                            }
-                           ?>
                         </tbody>    
 
                     </table>

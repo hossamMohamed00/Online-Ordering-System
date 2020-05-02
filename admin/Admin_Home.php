@@ -372,7 +372,102 @@
 
 <!--All User end -->
 
+<!-- Wating Orders start -->
 
+<div class="panel panel-default" >
+        <div class="panel-heading">
+            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Wating Orders<i class="fa fa-caret-down"></i></a></h4>
+        </div>
+
+	        <div id="collapse-checkout-confirm" class="panel-collapse collapse in" aria-expanded="true" >
+	            <div class="panel-body">
+
+                <p style="color: orange" class="login_p"> *Here You can Show Waiting Orders and change it's statue from dropdown list* </p>
+
+                <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px ;margin-top: -30px"   >
+                    <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
+                        <tr style="background-color:#F54300 ;color:white;"> 
+                                <th style="text-align: center;width: 5px">Order ID</th>
+                                <th style="text-align: center;width: 5px">Customer ID</th>
+			                    <th style="text-align: center;">Order Desc.</th>
+			                    <th style="text-align: center;">Date</th>
+			                    <th style="text-align: center;">Total Cost</th>
+			                    <th style="text-align: center;">Statue</th>
+			                </tr>
+			            </thead>
+
+		                <tbody>
+			                <tr class = "tabelrow">
+                                <td style='text-align:center'>1</td>
+                                <td style='text-align:center'>1</td>
+                                <td style='text-align:center'>1</td>
+                                <td style='text-align:center'>1</td>
+                                <td style='text-align:center'>1 $</td>
+                                <td style="width: 19%">
+	                                <div class="col-sm-10" style="padding: px">
+	                                    <select name = "Statue" id = "Statue" style="width: 120%;height: 35px ;font-family: 'Bellota';font-size: 20px;color: black;border: 0px; ">
+	                                            <option value="Waiting" disabled selected >Waiting</option>
+	                                            <option value="Delivered" >Delivered</option>
+	                                            <option value="Canceled" >Canceled</option>
+	                                    </select>
+	                                </div>
+                            	</td>
+			                </tr>
+                            </br>      
+                            
+                        </tbody>	
+                    </table>
+                    </br> 
+	            </div>
+
+			</div>
+   </div>
+
+
+<!-- Wating orders end -->
+
+<!-- All Orders start -->
+
+  <div class="panel panel-default" style="margin-bottom: 50px ">
+        <div class="panel-heading">
+            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History<i class="fa fa-caret-down"></i></a></h4>
+        </div>
+	        <div id="collapse-checkout-confirm" class="panel-collapse collapse in" aria-expanded="true" >
+	            <div class="panel-body">
+                 
+                <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px ;margin-top: 0px"   >
+                    <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
+                        <tr style="background-color:#F54300 ;color:white;"> 
+                                <th style="text-align: center;width: 5px">Order ID</th>
+                                <th style="text-align: center;width: 5px">Customer ID</th>
+			                    <th style="text-align: center;">Order Desc.</th>
+			                    <th style="text-align: center;">Date</th>
+			                    <th style="text-align: center;">Total Cost</th>
+			                    <th style="text-align: center;">Statue</th>
+
+			                </tr>
+			            </thead>
+
+		                <tbody>
+			                <tr class = "tabelrow">
+                                <td style='text-align:center'>1</td>
+                                <td style='text-align:center'>1</td>
+                                <td style='text-align:center'>1</td>
+                                <td style='text-align:center'>1</td>
+                                <td style='text-align:center'>1 $</td>
+			                    <th style="text-align: center;">Statue</th>
+			                </tr>
+                        </tbody>	
+	                </table>
+                           
+                    </br> 
+	            </div>
+
+			</div>
+   </div>
+
+
+<!-- All orders end -->
 
     <!-- -----------------------------------------  -->
 
