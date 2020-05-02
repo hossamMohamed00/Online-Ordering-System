@@ -1,7 +1,11 @@
 <?php 
       require 'init.php' ;
       session_start();
-
+      //to show product added or not
+      if(!isset($_SESSION['Stat']))
+      {
+        $_SESSION['Stat'] = '';
+      }
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -117,9 +121,6 @@
     </header>
 <!-- header-end -->
 
-
-
-
 <h2 class="helloAdmin" >Welcome Admin</h2>
 
     <div class="panel panel-default">
@@ -174,7 +175,7 @@
                           <label class="control-label col-sm-2" for="price">Availability</label>
                           <div class="col-sm-10">
                             <select name = "Availability" style="width: 100%;height: 35px ;font-family: 'Bellota';font-size: 20px;color: black">
-			                      <option >Available</option>
+			                      <option selected>Available</option>
 			                      <option >Not Available</option>
                    	 		</select>
                           </div>
@@ -183,7 +184,7 @@
                         <div class="form-group">        
                           <div class="col-sm-offset-2 col-sm-10">
                            <button type="submit" class="btn btn-default">Submit</button>
-                           
+                           <p class="login_p" style="color: red;margin-left:-190px;margin-top: 20px;font-size: 50px "><?= $_SESSION['Stat']; unset($_SESSION['Stat']);?></p>
                           </div>
                         </div>
                     </form>
