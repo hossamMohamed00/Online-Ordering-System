@@ -1,7 +1,7 @@
 # Online-Ordering-System
 Software Engineering Project
 
-## Project  Notes -
+## Project  Notes 
   
   - Eslam Task 
       - Index.php must have 6 products only of the products ,, Menu.php Must have All Products. 
@@ -20,6 +20,15 @@ Software Engineering Project
      - show popup message that confirm admin to delete (using JS)
             
   - Safa && Ebramm --> no notes till now
+  
+  ## Tasks Statue
+  
+     Task 1
+      - Ebraam delivered his task.
+      - Eslam apologized about his task.
+      - Safa not delivered yet.
+      - Essraa not delivered yet.
+      - Shrouk not delivered yet.
                
                
 
