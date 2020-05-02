@@ -26,9 +26,9 @@ Software Engineering Project
      Task 1
       - Ebraam delivered his task.
       - Eslam apologized about his task.
-      - Safa not delivered yet.
+      - Safa delivered her task.
       - Essraa not delivered yet.
-      - Shrouk not delivered yet.
+      - Shrouk delivered her task..
                
                
 
