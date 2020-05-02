@@ -248,7 +248,7 @@
 
                             <td style='text-align:center'> <?= ($row['Special']) ? 'Yes' : 'No' ?> </td>
 
-                            <td style="width: 7%"><a href=""><img src="<?= $img ?>edit.png" title="Edit this Product" width="55px" style="margin-left: 5px;"></a>
+                            <td style="width: 7%"><a href="Edit_Pro.php?id=<?=$row['Pro_Id']; ?>"><img src="<?= $img ?>edit.png" title="Edit this Product" width="55px" style="margin-left: 5px;"></a>
 
                             <td style="width: 7%"><a  onclick="" ><img src="<?= $img ?>drop-icon.png" title="" width="35px" style="margin-left: 5px;"></a>
 
