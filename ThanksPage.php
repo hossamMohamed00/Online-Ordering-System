@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>All Done</title>
+    <title>The End</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -36,17 +36,15 @@
     <link rel="stylesheet" href="<?= $css ?>style.css">
     <link rel="stylesheet"  href="<?= $css ?>bootstrap.min2.css"/>
 
-    <link rel="stylesheet" type="text/css" href="<?= $css ?>style2.css"/> 
-    <link rel="stylesheet" href="<?= $css ?>owl-carousel.css"/>
+        <link rel="stylesheet" type="text/css" href="<?= $css ?>style2.css"/> 
+        <link rel="stylesheet" href="<?= $css ?>owl-carousel.css"/>
 
-
+        
     <link rel="stylesheet"  href="<?= $css ?>bootstrap2.min.css"/>
     <link rel="stylesheet"  href="<?= $css ?>AdminStyle.css"/> 
-    <!-- <link rel="stylesheet" href="<?= $css ?>responsive.css"> -->
     <link rel="stylesheet" type="text/css" href="<?= $css ?>Stylesheet.css">
 
 </head>
-
 <body>
     <!-- header-start -->
     <header>
@@ -100,7 +98,18 @@
                                     </ul>
                                 </div>
                                 <div class="book_btn d-none d-xl-block" style="margin-right: 1px">
-                                    <a class="towHomeBtn" href="User_Home.php">MyAccount</a>
+                                <?php
+                                    if($_SESSION['User_Type_Id'] == 1) 
+                                    { ?>
+                                        <a class="towHomeBtn" style="margin: 40px" href="<?=$adminHome ?>">Admin</a>
+                                   <?php
+                                   }else
+                                   { ?>
+                                    <a class="towHomeBtn"  href="<?=$userHome ?>">MyAccount</a>
+                                  <?php
+                                   }
+
+                                ?>
                                 </div>
                                 <div class="book_btn d-none d-xl-block">
                                     <a class="towHomeBtn" href="logout.php">Log Out</a>
@@ -117,23 +126,20 @@
     </header>
 <!-- header-end -->
 
-
-
-
 <!--           -->
         <h2 class="helloAdmin" style="font-size: 85px;margin-bottom: -120px">Ordering Done</h2>
         </br></br></br>
 
         <h2 class="helloAdmin" style="font-size: 45px;font-family: 'Bellota'">Thanks for your order</h2>
     </br></br></br>
-        <h2 class="helloAdmin" style="font-size: 45px;font-family: 'Bellota'">Your order id is 1</h2>
+        <h2 class="helloAdmin" style="font-size: 45px;font-family: 'Bellota'">Your order id is <?= $_SESSION['Order_Id'] ?></h2>
 
         <h2 class="helloAdmin" style="font-size: 30px;padding-top: 60px;font-family: 'Bellota'">It will be delivered to you as soon as possible</h2>
 
         </br></br></br>
 
          <div class="form-group">
-                    <form class="form-horizontal" action="User_Home.php" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?=($_SESSION['User_Type_Id'] == 2) ? 'user/User_Home.php' : 'admin/Admin_Home.php'?>" method="post" enctype="multipart/form-data">
         
                           <div class="col-sm-offset-2 col-sm-10">
                            <button type="submit" class="btn btn-default"  style="margin-left:760px;margin-top: 120px">Track your Orders</button>

@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2020 at 10:25 PM
+-- Generation Time: May 02, 2020 at 03:54 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -29,6 +30,8 @@ USE `online_order_food`;
 --
 -- Table structure for table `links`
 --
+-- Creation: May 01, 2020 at 08:33 PM
+--
 
 CREATE TABLE IF NOT EXISTS `links` (
   `ID` int(11) NOT NULL,
@@ -42,40 +45,66 @@ CREATE TABLE IF NOT EXISTS `links` (
 --
 -- Table structure for table `orders`
 --
-
+-- Creation: May 02, 2020 at 01:08 PM
+-- Last update: May 02, 2020 at 01:37 PM
+--
 
 CREATE TABLE IF NOT EXISTS `orders` (
   `Order_Id` int(11) NOT NULL AUTO_INCREMENT,
   `Order_Desc` text NOT NULL,
   `Order_Date` datetime NOT NULL DEFAULT current_timestamp(),
-  `Order_Statue` enum('Delivered','Not Delivered Yet') NOT NULL DEFAULT 'Not Delivered Yet',
+  `Order_Statue` enum('Delivered','Waiting','Canceled') NOT NULL DEFAULT 'Waiting',
   `Total_Cost` float NOT NULL,
   `Cust_Id` int(11) NOT NULL,
-  `Details_Id` int(11) NOT NULL,
   PRIMARY KEY (`Order_Id`),
-  KEY `Cust_Id` (`Cust_Id`),
-  KEY `Details_Id` (`Details_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  KEY `Cust_Id` (`Cust_Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+UPDATE `orders` SET `Order_Id` = 1,`Order_Desc` = '3 Of The Burger King  , 1 Of The Burger President , ',`Order_Date` = '2020-05-02 07:51:41',`Order_Statue` = 'Delivered',`Total_Cost` = 639,`Cust_Id` = 29 WHERE `orders`.`Order_Id` = 1;
+UPDATE `orders` SET `Order_Id` = 2,`Order_Desc` = '5 Of Mushroom Burger , ',`Order_Date` = '2020-05-02 07:55:31',`Order_Statue` = 'Delivered',`Total_Cost` = 295,`Cust_Id` = 29 WHERE `orders`.`Order_Id` = 2;
+UPDATE `orders` SET `Order_Id` = 3,`Order_Desc` = '1 Of The Burger King  , ',`Order_Date` = '2020-05-02 07:57:14',`Order_Statue` = 'Canceled',`Total_Cost` = 160,`Cust_Id` = 19 WHERE `orders`.`Order_Id` = 3;
+UPDATE `orders` SET `Order_Id` = 4,`Order_Desc` = '2 Of Chili Cheese Burger , 3 Of Lettuce Wrap Burger , ',`Order_Date` = '2020-05-02 08:12:33',`Order_Statue` = 'Canceled',`Total_Cost` = 365,`Cust_Id` = 29 WHERE `orders`.`Order_Id` = 4;
+UPDATE `orders` SET `Order_Id` = 5,`Order_Desc` = '1 Of Bacon Burger , ',`Order_Date` = '2020-05-02 08:18:23',`Order_Statue` = 'Delivered',`Total_Cost` = 67,`Cust_Id` = 19 WHERE `orders`.`Order_Id` = 5;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `orders_details`
 --
+-- Creation: May 02, 2020 at 05:49 AM
+--
 
 CREATE TABLE IF NOT EXISTS `orders_details` (
-  `ID` int(11) NOT NULL,
   `Order_Id` int(11) NOT NULL,
   `Pro_Id` int(11) NOT NULL,
-  PRIMARY KEY (`ID`,`Order_Id`,`Pro_Id`),
-  KEY `Order_Id` (`Order_Id`),
-  KEY `Pro_Id` (`Pro_Id`)
+  `Quantity` int(11) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`Order_Id`,`Pro_Id`),
+  KEY `Foreign key_ProID` (`Pro_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders_details`
+--
+
+UPDATE `orders_details` SET `Order_Id` = 1,`Pro_Id` = 9,`Quantity` = 1 WHERE `orders_details`.`Order_Id` = 1 AND `orders_details`.`Pro_Id` = 9;
+UPDATE `orders_details` SET `Order_Id` = 1,`Pro_Id` = 10,`Quantity` = 3 WHERE `orders_details`.`Order_Id` = 1 AND `orders_details`.`Pro_Id` = 10;
+UPDATE `orders_details` SET `Order_Id` = 2,`Pro_Id` = 2,`Quantity` = 5 WHERE `orders_details`.`Order_Id` = 2 AND `orders_details`.`Pro_Id` = 2;
+UPDATE `orders_details` SET `Order_Id` = 3,`Pro_Id` = 10,`Quantity` = 1 WHERE `orders_details`.`Order_Id` = 3 AND `orders_details`.`Pro_Id` = 10;
+UPDATE `orders_details` SET `Order_Id` = 4,`Pro_Id` = 4,`Quantity` = 2 WHERE `orders_details`.`Order_Id` = 4 AND `orders_details`.`Pro_Id` = 4;
+UPDATE `orders_details` SET `Order_Id` = 4,`Pro_Id` = 6,`Quantity` = 3 WHERE `orders_details`.`Order_Id` = 4 AND `orders_details`.`Pro_Id` = 6;
+UPDATE `orders_details` SET `Order_Id` = 5,`Pro_Id` = 3,`Quantity` = 1 WHERE `orders_details`.`Order_Id` = 5 AND `orders_details`.`Pro_Id` = 3;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `products`
+--
+-- Creation: May 02, 2020 at 05:00 AM
+-- Last update: May 02, 2020 at 01:39 PM
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
@@ -93,21 +122,22 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`Pro_Id`, `Pro_Name`, `Pro_Desc`, `Pro_Price`, `Pro_Img`, `Pro_Statue`, `Special`) VALUES
-(1, 'Classic Burger', 'Beef burger patty, lettuce, tomatoes, onions, cheddar cheese and special sauce', 45, '1.png', 1, 0),
-(2, 'Mushroom Burger', 'Beef burger patty, mushroom, lettuce, tomatoes, caramelized onions, cheddar cheese and special sauce', 59, '2.png', 1, 0),
-(3, 'Bacon Burger', 'Beef burger patty, beef bacon, lettuce, tomatoes, caramelized onions, cheddar cheese and special sauce', 67, '3.png', 1, 0),
-(4, 'Chili Cheese Burger', 'Beef burger patty, minced meat, lettuce, American cheese, spicy chili sauce and special sauce', 79, '4.png', 1, 0),
-(6, 'Lettuce Wrap Burger', 'Beef burger patty and light American cheese, wrapped in lettuce', 69, '6.png', 1, 0),
-(7, 'Cheese Bomb Burger', 'Stuffed beef burger patty with American cheese, lettuce, onions, tomatoes, pickles and special sauce', 103, '7.png', 1, 0),
-(8, 'Double Double Beef Burger', '2 Beef burger patties, lettuce, tomatoes, onions, pickled cucumber, double cheddar cheese and special sauce', 133, '8.png', 1, 0),
-(9, 'The Burger President', 'Beef burger patty, lettuce, tomatoes, cheddar cheese, Buffalo sauce and special sauce', 159, 'S1.png', 1, 1),
-(10, 'The Burger King ', 'Fire-grilled beef, topped with thick-cut smoked bacon, melted American cheese, freshly cut iceberg lettuce, creamy mayo, ripe tomatoes, ketchup', 160, 'S2.png', 1, 1);
+UPDATE `products` SET `Pro_Id` = 1,`Pro_Name` = 'Classic Burger',`Pro_Desc` = 'Beef burger patty, lettuce, tomatoes, onions, cheddar cheese and special sauce',`Pro_Price` = 45,`Pro_Img` = '1.png',`Pro_Statue` = 1,`Special` = 0 WHERE `products`.`Pro_Id` = 1;
+UPDATE `products` SET `Pro_Id` = 2,`Pro_Name` = 'Mushroom Burger',`Pro_Desc` = 'Beef burger patty, mushroom, lettuce, tomatoes, caramelized onions, cheddar cheese and special sauce',`Pro_Price` = 59,`Pro_Img` = '2.png',`Pro_Statue` = 1,`Special` = 0 WHERE `products`.`Pro_Id` = 2;
+UPDATE `products` SET `Pro_Id` = 3,`Pro_Name` = 'Bacon Burger',`Pro_Desc` = 'Beef burger patty, beef bacon, lettuce, tomatoes, caramelized onions, cheddar cheese and special sauce',`Pro_Price` = 67,`Pro_Img` = '3.png',`Pro_Statue` = 1,`Special` = 0 WHERE `products`.`Pro_Id` = 3;
+UPDATE `products` SET `Pro_Id` = 4,`Pro_Name` = 'Chili Cheese Burger',`Pro_Desc` = 'Beef burger patty, minced meat, lettuce, American cheese, spicy chili sauce and special sauce',`Pro_Price` = 79,`Pro_Img` = '4.png',`Pro_Statue` = 1,`Special` = 0 WHERE `products`.`Pro_Id` = 4;
+UPDATE `products` SET `Pro_Id` = 6,`Pro_Name` = 'Lettuce Wrap Burger',`Pro_Desc` = 'Beef burger patty and light American cheese, wrapped in lettuce',`Pro_Price` = 69,`Pro_Img` = '6.png',`Pro_Statue` = 1,`Special` = 0 WHERE `products`.`Pro_Id` = 6;
+UPDATE `products` SET `Pro_Id` = 7,`Pro_Name` = 'Cheese Bomb Burger',`Pro_Desc` = 'Stuffed beef burger patty with American cheese, lettuce, onions, tomatoes, pickles and special sauce',`Pro_Price` = 103,`Pro_Img` = '7.png',`Pro_Statue` = 1,`Special` = 0 WHERE `products`.`Pro_Id` = 7;
+UPDATE `products` SET `Pro_Id` = 8,`Pro_Name` = 'Double Double Beef Burger',`Pro_Desc` = '2 Beef burger patties, lettuce, tomatoes, onions, pickled cucumber, double cheddar cheese and special sauce',`Pro_Price` = 133,`Pro_Img` = '8.png',`Pro_Statue` = 1,`Special` = 0 WHERE `products`.`Pro_Id` = 8;
+UPDATE `products` SET `Pro_Id` = 9,`Pro_Name` = 'The Burger President',`Pro_Desc` = 'Beef burger patty, lettuce, tomatoes, cheddar cheese, Buffalo sauce and special sauce',`Pro_Price` = 159,`Pro_Img` = 'S1.png',`Pro_Statue` = 1,`Special` = 1 WHERE `products`.`Pro_Id` = 9;
+UPDATE `products` SET `Pro_Id` = 10,`Pro_Name` = 'The Burger King ',`Pro_Desc` = 'Fire-grilled beef, topped with thick-cut smoked bacon, melted American cheese, freshly cut iceberg lettuce, creamy mayo, ripe tomatoes, ketchup',`Pro_Price` = 160,`Pro_Img` = 'S2.png',`Pro_Statue` = 1,`Special` = 1 WHERE `products`.`Pro_Id` = 10;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `type_links`
+--
+-- Creation: May 01, 2020 at 08:33 PM
 --
 
 CREATE TABLE IF NOT EXISTS `type_links` (
@@ -122,7 +152,8 @@ CREATE TABLE IF NOT EXISTS `type_links` (
 --
 -- Table structure for table `users`
 --
-
+-- Creation: May 01, 2020 at 08:33 PM
+--
 
 CREATE TABLE IF NOT EXISTS `users` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
@@ -135,23 +166,24 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`Id`),
   UNIQUE KEY `User_Name` (`User_Name`),
   KEY `Foreign key` (`User_Type_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`Id`, `Name`, `User_Name`, `Password`, `Phone`, `Address`, `User_Type_Id`) VALUES
-(19, 'Hossam', 'hossam@mail.com', '1234', '1156826636', 'Nasr City , Cairo, Egypt', 1),
-(20, 'Safa', 'safa@mail.com', '1234', '1128803117', 'Ramsis ,Cairo', 1),
-(29, 'Kaboo', 'Kaboo@mail.com', '1234', '1156826636', 'Cairo', 2);
+UPDATE `users` SET `Id` = 19,`Name` = 'Hossam',`User_Name` = 'hossam@mail.com',`Password` = '1234',`Phone` = '01156826636',`Address` = 'Nasr City , Cairo, Egypt',`User_Type_Id` = 1 WHERE `users`.`Id` = 19;
+UPDATE `users` SET `Id` = 20,`Name` = 'Safa',`User_Name` = 'safa@mail.com',`Password` = '1234',`Phone` = '01128803117',`Address` = 'Ramsis ,Cairo',`User_Type_Id` = 1 WHERE `users`.`Id` = 20;
+UPDATE `users` SET `Id` = 29,`Name` = 'kaboo',`User_Name` = 'Kaboo@mail.com',`Password` = '1234',`Phone` = '1156826636',`Address` = 'Cairo',`User_Type_Id` = 2 WHERE `users`.`Id` = 29;
+UPDATE `users` SET `Id` = 30,`Name` = 'Ebraam',`User_Name` = 'ebraam@mail.com',`Password` = '1234',`Phone` = '01218545154',`Address` = 'Ain Shams ,  Cairo',`User_Type_Id` = 2 WHERE `users`.`Id` = 30;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `user_type`
 --
-
+-- Creation: May 01, 2020 at 08:33 PM
+--
 
 CREATE TABLE IF NOT EXISTS `user_type` (
   `ID` int(11) NOT NULL,
@@ -164,9 +196,8 @@ CREATE TABLE IF NOT EXISTS `user_type` (
 -- Dumping data for table `user_type`
 --
 
-INSERT INTO `user_type` (`ID`, `Type_Name`) VALUES
-(1, 'ADMIN'),
-(2, 'USER');
+UPDATE `user_type` SET `ID` = 1,`Type_Name` = 'ADMIN' WHERE `user_type`.`ID` = 1;
+UPDATE `user_type` SET `ID` = 2,`Type_Name` = 'USER' WHERE `user_type`.`ID` = 2;
 
 --
 -- Constraints for dumped tables
@@ -176,15 +207,14 @@ INSERT INTO `user_type` (`ID`, `Type_Name`) VALUES
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Cust_Id`) REFERENCES `users` (`Id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`Details_Id`) REFERENCES `orders_details` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `Foreign key_Cust_Id` FOREIGN KEY (`Cust_Id`) REFERENCES `users` (`Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `orders_details`
 --
 ALTER TABLE `orders_details`
-  ADD CONSTRAINT `orders_details_ibfk_1` FOREIGN KEY (`Order_Id`) REFERENCES `orders` (`Order_Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_details_ibfk_2` FOREIGN KEY (`Pro_Id`) REFERENCES `products` (`Pro_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `Foreign key_OrderID` FOREIGN KEY (`Order_Id`) REFERENCES `orders` (`Order_Id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `Foreign key_ProID` FOREIGN KEY (`Pro_Id`) REFERENCES `products` (`Pro_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `type_links`
@@ -198,6 +228,7 @@ ALTER TABLE `type_links`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `Foreign key` FOREIGN KEY (`User_Type_Id`) REFERENCES `user_type` (`ID`) ON UPDATE CASCADE;
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

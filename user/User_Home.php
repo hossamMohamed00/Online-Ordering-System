@@ -1,4 +1,12 @@
-<?php include 'init.php' ?>
+<?php 
+    require 'init.php' ;
+    session_start();
+    if(!isset($_SESSION['Id']))
+    {
+        header("Location: ../login.php");
+    }
+
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -33,16 +41,8 @@
         <link rel="stylesheet" type="text/css" href="<?= $css ?>style2.css"/> 
         <link rel="stylesheet" href="<?= $css ?>owl-carousel.css"/>
 
-        
-
     <!--  -----------------  -->
-
-    
-
     <!--  -----------------  -->
-
-
-
     <link rel="stylesheet"  href="<?= $css ?>bootstrap2.min.css"/>
         <link rel="stylesheet"  href="<?= $css ?>AdminStyle.css"/> 
     <!-- <link rel="stylesheet" href="<?= $css ?>responsive.css"> -->
@@ -61,17 +61,17 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a  href="index.PHP">Home</a></li>
-                                        <li><a href="Menu.PHP">Menu</a></li>
-                                        <li><a href="about.php">About</a></li>
-                                        <li><a href="contact.php">Contact</a></li>
+                                        <li><a  href="../index.php">Home</a></li>
+                                        <li><a href="../Menu.php">Menu</a></li>
+                                        <li><a href="../about.php">About</a></li>
+                                        <li><a href="../contact.php">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.php">
+                                <a href="../index.php">
                                     <img src="<?= $img ?>logo.png" alt="">
                                 </a>
                             </div>
@@ -106,7 +106,7 @@
                                     <a class="towHomeBtn" href="User_Home.php">My Account</a>
                                 </div>
                                 <div class="book_btn d-none d-xl-block">
-                                    <a class="towHomeBtn" href="../login.php">Log Out</a>
+                                    <a class="towHomeBtn" href="../logout.php">Log Out</a>
                                 </div>
                             </div>
                         </div>
@@ -121,8 +121,7 @@
 <!-- header-end -->
 
 <!--     Greeting Msg      -->
-        <h2 class="helloAdmin" >Welcome User</h2>
-
+        <h2 class="helloAdmin" >Welcome <?=$_SESSION['Name'] ?></h2>
 <!-- User Info start -->
 
   <div class="panel panel-default" style="margin-bottom: 50px">
@@ -131,50 +130,51 @@
         </div>
             <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="margin-top: 25px">
                 <div class="panel-body">
-
-                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                    
+                    <form class="form-horizontal" action="Edit_User.php?id=<?=$_SESSION['Id'] ?>" method="POST" >
                         
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="Categories">Name</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="email" value="Hossam" name="name" required>
+                            <input type="text" class="form-control" id="Name" value="<?= $_SESSION['Name'] ?>" name="name" require>
+
                           </div>
                         </div>
 
-
                         <div class="form-group">
-                          <label class="control-label col-sm-2" for="pwd">UserName</label>
+                          <label class="control-label col-sm-2" for="UserName">UserName</label>
                              <div class="col-sm-10">          
-                                <input type="text" class="form-control" id="pwd" value="username" readonly="readonly" name="username" required>
+                                <input type="text" class="form-control" id="pwd" value="<?= $_SESSION['User_Name'] ?>" readonly="readonly" name="username" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                          <label class="control-label col-sm-2" for="price">Password</label>
+                          <label class="control-label col-sm-2" for="Password">Password</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="price" value="123"  name="Password" required>
+                            <input type="text" class="form-control"  value="<?= $_SESSION['Password'] ?>"  name="password" required>
                           </div>
                         </div>
 
                         <div class="form-group">
-                          <label class="control-label col-sm-2" for="description">Phone Number</label>
+                          <label class="control-label col-sm-2" for="Phone">Phone Number</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="pro_desc" value="01156826636" name="pro_desc" required>
+                            <input type="text" class="form-control" id="Phone" value="<?= $_SESSION['Phone'] ?>" name="phone" required>
                           </div>
                         </div>
 
                          <div class="form-group">
-                          <label class="control-label col-sm-2" for="description">Address</label>
+                          <label class="control-label col-sm-2" for="Address">Address</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="pro_desc" value="Cairo" name="Address" required>
+                            <input type="text" class="form-control" value="<?= $_SESSION['Address'] ?>" name="address" required>
                           </div>
                         </div>
-
+                           
                         <div class="form-group">        
                           <div class="col-sm-offset-2 col-sm-10">
                            <button type="submit" class="btn btn-default">Save Changes</button>
                           </div>
                         </div>
+                  
                     </form>
                 </div>                                           
              </div>
@@ -190,10 +190,10 @@
         <div class="panel-heading">
             <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History <i class="fa fa-caret-down"></i></a></h4>
         </div>
-            <div id="collapse-checkout-confirm" class="panel-collapse collapse in" aria-expanded="true" style="">
+            <div id="collapse-checkout-confirm" class="panel-collapse collapse in" aria-expanded="true" >
                 <div class="panel-body">
 
-                    <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px; margin-top: -90px"   >
+                    <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px; margin-top: 0px"   >
                     <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
                         <tr style="background-color:#F54300 ;color:white;"> 
                                 <th style="text-align: center;">Order ID</th>
@@ -205,53 +205,42 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody> 
+                            <?php
+                                $user_id = $_SESSION['Id'];
+                                $order = new orders();
 
+                                $all_orders = $order->getOrders($user_id);
+                                
+                                if(!empty($all_orders))
+                                {
+                                     //loop the data 
+                                     foreach($all_orders as $row)
+                                     {
+                            ?>
                             <tr class = "tabelrow">
-                            <td style='text-align:center'>1</td>
-                            <td style='text-align:center'>2 of Po(2)</td>
-                            <td style='text-align:center'>25/3/2020</td>
-                            <td style='text-align:center'>30$</td>
-                            <td style='text-align:center'>Delivered</td>
+                            <td style='text-align:center'><?= $row['Order_Id'] ?></td>
+                            <td style='text-align:center'><?= $row['Order_Desc'] ?></td>
+                            <td style='text-align:center'><?= $row['Order_Date'] ?></td>
+                            <td style='text-align:center'><?= $row['Total_Cost'] ?> $</td>
+                            <td style='text-align:center'><?= $row['Order_Statue'] ?></td>
                             </tr>
                             </br>
+                            <?php
+                                }
+                                }else
+                                {
 
-                            <tr class = "tabelrow">
-                            <td style='text-align:center'>2</td>
-                            <td style='text-align:center'>3 of Po(5)</td>
-                            <td style='text-align:center'>31/3/2020</td>
-                            <td style='text-align:center'>95$</td>
-                            <td style='text-align:center'>Not Delivered yet</td>
-                            </tr>
-                            </br>
-
-                            <tr class = "tabelrow">
-                            <td style='text-align:center'>3</td>
-                            <td style='text-align:center'>1 of Po(3) &1 of Po(7) </td>
-                            <td style='text-align:center'>25/3/2020</td>
-                            <td style='text-align:center'>47$</td>
-                            <td style='text-align:center'>Delivered</td>
-                            </tr>
-                            </br>
-
-                            <tr class = "tabelrow">
-                            <td style='text-align:center'>4</td>
-                            <td style='text-align:center'>1 of Po(4)</td>
-                            <td style='text-align:center'>27/3/2020</td>
-                            <td style='text-align:center'>20$</td>
-                            <td style='text-align:center'>Delivered</td>
-                            </tr>
-                            </br>
-
-                            <tr class = "tabelrow">
-                            <td style='text-align:center'>5</td>
-                            <td style='text-align:center'>4 of Po(2) & 2 of Po(3)</td>
-                            <td style='text-align:center'>25/3/2020</td>
-                            <td style='text-align:center'>103$</td>
-                            <td style='text-align:center'>Not Delivered yet</td>
-                            </tr>
-                            </br>
-
+                            ?>
+                            
+                            <div>
+                                <tr class = "tabelrow" > 
+                                    <td colspan="7" >NO ORDERS TO SHOW</td>       
+                                </tr>
+                            </div>
+                            <?php
+                            }
+                           ?>
                         </tbody>    
 
                     </table>
@@ -264,4 +253,4 @@
 
     <!-- -----------------------------------------  -->
 
-    <?php include $tpl."footer.php"; ?>
+    <?php require $tpl."footer.php"; ?>

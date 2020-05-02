@@ -57,18 +57,20 @@ class Db_Control
     /*
     *   perform SELECT statement to return count of data in table only , if you want data use function fetch 
     */
-    public function select($table, $where = '', $fields = '*', $order = '')
+    public function select($table, $where = '', $fields = '*', $order = '' , $type = ' ASC ')
     {
         $query  =  'SELECT ' . $fields . ' FROM ' . $table
                     . (($where) ? ' WHERE ' . $where : '')
-                    . (($order) ? ' ORDER BY ' . $order : '');
+                    . (($order) ? ' ORDER BY ' . $order .$type  : '');
 
        $this->query($query);
        return $this->countRows();
     }
 
-    /*
+    /**
     * search if username exist
+    * @param table name && where condition to search
+    * @return int count rows that exist 
     */
     public function searchusername($table,$where = '')
     {
@@ -90,7 +92,7 @@ class Db_Control
         $values = implode(',', array_map(array($this , 'quoteValue') , array_values($data))); // to avoid sql injection 
         $query = 'INSERT INTO ' . $table .' (' .  $fields . ') ' . ' VALUES (' .$values. ')';
         $this->query($query);
-        return true;
+        return $this->getInsertId();
     }
     /*
     *   Perform UPDATE statement
