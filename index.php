@@ -23,6 +23,7 @@
                     </div>
                 </div>
             </div>
+           
             <div class="single_slider  d-flex align-items-center slider_bg_2 overlay">
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
@@ -54,115 +55,65 @@
                     </div>
                 </div>
             </div>
+
+             
+
             <div class="row">
+            <!-- Products Here --> 
+            <?php
+                $count = 0;
+
+                $pro = new products();
+                $products = $pro->getProducts();
+                
+                if(!empty($products))
+                {
+                    //loop the data 
+                    foreach($products as $row)
+                    {
+                        //to display just 6 product only
+                        $count++;
+                        if($count == 7)
+                        {
+                        break;
+                        }
+                        //to skip Special products (Larg Photo)
+                        if($row['Special'] == 1 )
+                        {
+                            continue;
+                        }
+
+                        //to skip not avaliable products 
+                        if($row['Pro_Statue'] == 0 )
+                        {
+                            continue;
+                        }
+                        
+                ?>
                 <div class="col-xl-6 col-md-6 col-lg-6">
                     <div class="single_delicious d-flex align-items-center">
                         <div class="thumb">
-                            <img src="<?= $img ?>burger/1.png" alt="">
+                        <img src="<?= $uploaded.$row['Pro_Img']?>">
                         </div>
                         <div class="info">
-                            <h3>Beefy Burgers</h3>
-                            <p>burger + Egg + lettuce + Ketchup and mayonnaise + beards.</p>
-                            <span>$5</span>
-                            <a href="Cart.php" class="boxed-btn3">Order Now</a>
+                            <h3><?=$row['Pro_Name'] ?></h3>
+                            <p><?=$row['Pro_Desc'] ?></p>
+                            <span><?=$row['Pro_Price'] ?> $</span>
+                            <a href="<?= "user/Cart_Process.php?id=".$row['Pro_Id'] ?>" class="boxed-btn3">Order Now</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="<?= $img ?>burger/2.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Burger Boys</h3>
-                            <p>burger + Egg + lettuce + Ketchup and mayonnaise + beards.</p>
-                            <span>$5</span>
-                            <a href="Cart.php" class="boxed-btn3">Order Now</a>
-
-                        </div>
+                <?php  
+                    }
+                }else
+                {   
+                ?>
+                    <div class="section_title text-center mb-80" style="margin-left: 450px">
+                        <span>No Products Yet</h3></span>
                     </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="<?= $img ?>burger/3.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Burger Bizz</h3>
-                            <p>burger + Egg + lettuce + Ketchup and mayonnaise + beards.</p>
-                            <span>$5</span>
-                            <a href="Cart.php" class="boxed-btn3">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="<?= $img ?>burger/4.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Crackles Burger</h3>
-                            <p>burger + Egg + lettuce + Ketchup and mayonnaise + beards.</p>
-                            <span>$5</span>
-                            <a href="Cart.php" class="boxed-btn3">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="<?= $img ?>burger/5.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Bull Burgers</h3>
-                            <p>burger + Egg + lettuce + Ketchup and mayonnaise + beards.</p>
-                            <span>$5</span>
-                            <a href="Cart.php" class="boxed-btn3">Order Now</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="<?= $img ?>burger/6.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Rocket Burgers</h3>
-                            <p>burger + Egg + lettuce + Ketchup and mayonnaise + beards.</p>
-                            <span>$5</span>
-                            <a href="Cart.php" class="boxed-btn3">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="<?= $img ?>burger/7.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Smokin Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                            
-                            <a href="Cart.php" class="boxed-btn3">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="<?= $img ?>burger/8.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Delish Burger</h3>
-                            <p>burger + Egg + lettuce + Ketchup and mayonnaise + beards.</p>
-                            <span>$5</span>
-                            <a href="Cart.php" class="boxed-btn3">Order Now</a>
-                        </div>
-                    </div>
-                </div>
+               <?php
+                }
+                ?>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -173,39 +124,41 @@
             </div>
         </div>
     </div>
-    <!-- features_room_startt -->
-    <div class="Burger_President_area">
+     <!-- features_room_startt -->
+     <div class="Burger_President_area">
             <div class="Burger_President_here">
+                <?php
+                    foreach($products as $row)
+                    {
+                        if($row['Special'] == 1)
+                        {
+                            //to skip not avaliable products 
+                            if($row['Pro_Statue'] == 0 )
+                            {
+                                continue;
+                            }
+                ?>
                 <div class="single_Burger_President">
                     <div class="room_thumb">
-                        <img src="<?= $img ?>burger/S1.png" alt="">
+                    <img src="<?= $uploaded.$row['Pro_Img']?>">
                         <div class="room_heading d-flex justify-content-between align-items-center">
                             <div class="room_heading_inner">
-                                <span>$20</span>
-                                <h3>The Burger President</h3>
-                                <p>Great way to make your business appear trust <br> and relevant.</p>
-                                <a href="Cart.php" class="boxed-btn3">Order Now</a>
+                                <span><?=$row['Pro_Price'] ?> $</span>
+                                <h3><?=$row['Pro_Name'] ?></h3>
+                                <p><?=$row['Pro_Desc'] ?></p>
+                                <a href="<?= "user/Cart_Process.php?id=".$row['Pro_Id'] ?>" class="boxed-btn3">Order Now</a>
                             </div>
                             
                         </div>
                     </div>
-                </div>
-                <div class="single_Burger_President">
-                    <div class="room_thumb">
-                        <img src="<?= $img ?>burger/S2.png" alt="">
-                        <div class="room_heading d-flex justify-content-between align-items-center">
-                            <div class="room_heading_inner">
-                                <span>$20</span>
-                                <h3>The Burger President</h3>
-                                <p>Great way to make your business appear trust <br> and relevant.</p>
-                                <a href="Cart.php" class="boxed-btn3">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>  
+                <?php
+                        }
+                    }
+                ?>
             </div>
-        </div>
-        <!-- features_room_end -->
+    </div>
+    <!-- features_room_end -->
         
     <!-- about_area_start -->
     <div class="about_area">
