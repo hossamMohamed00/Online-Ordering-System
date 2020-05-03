@@ -1,46 +1,63 @@
 <?php 
 
-require_once 'init.php';
- session_start();
- $arr_error= array();
-if ($_SERVER['REQUEST_METHOD'] == "POST") 
-{
-   if (!isset($_POST['name'])) {
-        $arr_error[]="name";
-    }
-
-    if (!isset($_POST['username'])) {
-        $arr_error[]="username";
-    }
-    if (!isset($_POST['password'])) {
-        $arr_error[]="password";
-    }
-    if (!isset($_POST['phonenumber'])) {
-        $arr_error[]="phonenumber";
-    }
-    if (!isset($_POST['Address'])) {
-        $arr_error[]="Address";
-    }
-
-    if (!$arr_error) {
-    $add=new Admin();
-        $Name=$_POST['name'];
-        $Username=$_POST['username'];
-        $Password=$_POST['password'];
-        $Phonenumber=$_POST['phonenumber'];
-        $Address=$_POST['Address'];
-        $User_Type_Id =2;
-        if ($add->checkUserName($Username)) {
-            $info = array('Name' =>$Name,'User_Name'=>$Username ,'Password'=>$Password ,'Phone'=>$Phonenumber,'Address'=>$Address,'User_Type_Id'=> $User_Type_Id );
-
+require 'init.php';
+session_start();
+    $arr_error= array();
+    if ($_SERVER['REQUEST_METHOD'] == "POST") 
+    {
+        //Validation
+        if(! (isset($_POST['name']) &&  preg_match("/^[a-zA-Z ]*$/", $_POST['name']) && strlen($_POST['name']) >= 3))
+        {
+            $arr_error[] = "name";
         }
-        if ($add->addUser($info)) {
-            header("location: login.php");
 
-            # code...
+        if(! (isset($_POST['username']) && filter_var($_POST['username'], FILTER_VALIDATE_EMAIL)))
+        {
+            $arr_error[]="username";
         }
-}
-}
+
+        if(! (isset($_POST['password']) && strlen($_POST['password']) >= 4)) 
+        {
+            $arr_error[]="password";
+        }
+
+        if(! (isset($_POST['phonenumber']) && is_numeric($_POST['phonenumber'])))
+         {
+            $arr_error[]="phonenumber";
+        }
+
+        if(! (isset($_POST['Address']) && !empty($_POST['Address'])))
+        {
+            $arr_error[]="Address";
+        }
+
+        //if no errors
+        if (!$arr_error) 
+        {
+            $admin=new Admin(); //create admin object
+
+            $Name=$_POST['name'];
+            $Username=$_POST['username'];
+            $Password=$_POST['password'];
+            $Phonenumber=$_POST['phonenumber'];
+            $Address=$_POST['Address'];
+
+            //check if this username exist or not
+            if ($admin->checkUserName($Username))
+             {
+                $info = array('Name' =>$Name,'User_Name'=>$Username ,'Password'=>$Password ,'Phone'=>$Phonenumber,'Address'=>$Address);
+
+                if ($admin->addUser($info))
+                {
+                    header("location: login.php");
+                    exit();//stop script
+                }   
+            }else
+            {
+                 $error_fields[] = "username";
+            }
+        }
+    }
 
  ?>
 <!doctype html>
@@ -75,10 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     <link rel="stylesheet" href="<?= $css ?>animate.css">
     <link rel="stylesheet" href="<?= $css ?>slicknav.css">
     <link rel="stylesheet" href="<?= $css ?>style.css">
-    <!--here signuo only -->
-
-    <!-- <link rel="stylesheet" href="<?= $css ?>responsive.css"> -->
-</head>
+    
+    </head>
 
 <body>
 
@@ -119,21 +134,26 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             <h2 class="h_signup">Sign Up</h2>
             <form action="Register.php"  method="post">
                 Name: <br>
-                <input class="Form_input" type="text" name="name" placeholder="Type your Name..." value="<?= (isset($_POST['name']))? $_POST['name'] : ''?>" required><br>
+                <input class="Form_input" type="text" name="name" placeholder="Type your Name..." value="<?= (isset($_POST['name']))? $_POST['name'] : ''?>" ><br>
+                <?php if(in_array("name" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid Name [must be > 3 char] </P>" ?>
                 
                 User Name:<br>
-                <input class="Form_input" type="text" name="username" placeholder="Choose you own user name..." value="<?= (isset($_POST['username']))? $_POST['username'] : ''?>" required><br>
+                <input class="Form_input" type="text" name="username" placeholder="Choose you own user name..." value="<?= (isset($_POST['username']))? $_POST['username'] : ''?>" ><br>
+                <?php if(in_array("username" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter Unique username [must be username@mail.com]</P>" ?>
+
                 Password:<br>
-                <input class="Form_input" type="password" name="password" placeholder="Choose you own Password..."  value="<?= (isset($_POST['password']))? $_POST['password'] : ''?>" required><br>
+                <input class="Form_input" type="password" name="password" placeholder="Choose you own Password..."  value="<?= (isset($_POST['password']))? $_POST['password'] : ''?>" ><br>
+                <?php if(in_array("password" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid password [must be >= 4 digit]</P>" ?>
                 
                 Phone Number:<br>
-                <input class="Form_input" type="text" name="phonenumber" placeholder="Type your Phone Number..." maxlength="11"  value="<?= (isset($_POST['phonenumber']))? $_POST['phonenumber'] : ''?>" required><br>
+                <input class="Form_input" type="text" name="phonenumber" placeholder="Type your Phone Number..." maxlength="11"  value="<?= (isset($_POST['phonenumber']))? $_POST['phonenumber'] : ''?>" ><br>
+                <?php if(in_array("phonenumber" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid phone number</P>" ?>
                 
                 Address:<br>
-                <input class="Form_input" type="text" name="Address" placeholder="Type your Address..." maxlength="11"  value="<?= (isset($_POST['Address']))? $_POST['Address'] : ''?>" required><br>
+                <input class="Form_input" type="text" name="Address" placeholder="Type your Address..."   value="<?= (isset($_POST['Address']))? $_POST['Address'] : ''?>" ><br>
+                <?php if(in_array("Address" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid address</P>" ?>
 
                 <input class="Form_input2" type="submit" name="Signup" value="Sign up-100% free">
-                <input class="Form_input2" type="reset" name="reset" value="reset all fields">
                 <P class="login_p">Already created an account? <a class="span" href="login.php">Log In</a></P>
             </form>
             

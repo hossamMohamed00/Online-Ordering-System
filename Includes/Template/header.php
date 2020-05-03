@@ -3,7 +3,6 @@
     session_start();
     if(!isset($_SESSION['Id']))
     {
-        
         header("Location: login.php");
     }
 ?>
@@ -44,7 +43,6 @@
             default :
                 echo 'Online Food System';    
         }
-    
     ?>
     </title>
     <meta name="description" content="">
@@ -93,13 +91,16 @@
                         </div>
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="../index.php">
+                                <a href="index.php">
                                     <img src="<?= $img ?>logo.png" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-5 d-none d-lg-block">
                             <div class="book_room">
+                            	<?php
+                            	if($_SESSION['User_Type_Id'] == 1) 
+                                    { ?>
                                 <div class="socail_links">
                                     <ul>
                                         <li>
@@ -125,14 +126,16 @@
                                     </ul>
                                 </div>
                                 <div class="book_btn d-none d-xl-block" style="margin-right: 1px">
-                                <?php
-                                    if($_SESSION['User_Type_Id'] == 1) 
-                                    { ?>
-                                        <a class="towHomeBtn" style="margin: 40px" href="<?=$adminHome ?>">Admin</a>
+                                
+                                    <a class="towHomeBtn" style="margin: 40px" href="<?=$adminHome ?>">Admin</a>
                                    <?php
                                    }else
                                    { ?>
-                                    <a class="towHomeBtn"  href="<?=$userHome ?>">MyAccount</a>
+                                   	<div class="book_btn d-none d-xl-block" style="margin-right: 1px">
+                                    <a class="towHomeBtn"  href="<?=$userHome ?>">My_Account</a>
+                                    <div class="book_btn d-none d-xl-block" style="margin-left: -150px;margin-top: -25px">
+                                   		 <a class="towHomeBtn" href="Cart.php" >My_Cart</a>
+                                	</div>
                                   <?php
                                    }
 

@@ -30,5 +30,6 @@
         require_once $classes.'Admin.php';
         require_once $classes.'Person.php';
         require_once $classes.'Products.php';
+        require_once $classes.'Orders.php';
 
         
