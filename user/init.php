@@ -22,4 +22,4 @@
         require_once $classes.'Person.php';
         require_once $classes.'User.php';
         require_once $classes.'Products.php';
-       // require_once $classes.'Orders.php';
+        require_once $classes.'Orders.php';
