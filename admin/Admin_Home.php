@@ -400,6 +400,7 @@
             { 
             ?>
             <p style="color: black" class="login_p"> * Here You can Show Waiting Orders and change it's statue from dropdown list * </p>
+            <form class="form-horizontal" action="ChangeStatue.php" method="POST"  >
 
             <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px" >
                 <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
@@ -438,16 +439,16 @@
                     ?> 
                 </tbody>	
             </table>
+            <!-- Save Changes Button Hre --> 
+            <div class="form-group">        
+                <div class="col-sm-offset-2 col-sm-10" style="margin-left: 650px">
+                    <button type="submit" class="btn btn-default">Save Changes</button>
+                </div>
+            </div>
         </div>
     </div>  
        
-   <!-- Save Changes Button Hre --> 
-   <form class="form-horizontal" action="ChangeStatue.php" method="POST"  >
-        <div class="form-group">        
-            <div class="col-sm-offset-2 col-sm-10" style="margin-left: 650px">
-                <button type="submit" class="btn btn-default">Save Changes</button>
-            </div>
-        </div>
+   
         <?php 
             }//if End
             else{
