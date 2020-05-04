@@ -391,36 +391,42 @@
     <div class="panel-heading">
         <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Wating Orders<i class="fa fa-caret-down"></i></a></h4>
     </div>
-    <form class="form-horizontal" action="ChangeStatue.php" method="POST"  >
+
     <div id="collapse-checkout-confirm" class="panel-collapse collapse in" aria-expanded="true" >
         <div class="panel-body">
-            <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px ;>
+
+            <?php
+            if(!empty($waiting_Orders))
+            { 
+            ?>
+            <p style="color: black" class="login_p"> * Here You can Show Waiting Orders and change it's statue from dropdown list * </p>
+
+            <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px" >
                 <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
                     <tr style="background-color:#F54300 ;color:white;"> 
                         <th style="text-align: center;width: 5px">Order ID</th>
                         <th style="text-align: center;width: 5px">Customer ID</th>
-	                    <th style="text-align: center;">Order Desc.</th>
+	                    <th style="text-align: center;font-size: 35px">Order Description</th>
 	                    <th style="text-align: center;">Date</th>
 	                    <th style="text-align: center;">Total Cost</th>
 	                    <th style="text-align: center;">Statue</th>
 	                </tr>
 	            </thead>
                     <?php  
-                    if(!empty($waiting_Orders)){
                         foreach($waiting_Orders as $row)
                         {?>
                     
                 <tbody>
 	                <tr class = "tabelrow">
-                            <td style='text-align:center'><?= $row['Order_Id'] ?></td>
-                            <td style='text-align:center'><?= $row['Cust_Id'] ?></td>
-                            <td style='text-align:center'><?= $row['Order_Desc']  ?></td>
-                            <td style='text-align:center'><?= $row['Order_Date'] ?></td>
-                            <td style='text-align:center'><?= $row['Total_Cost'] ?></td>
-                        <td style="width: 19%">
+                        <td style='text-align:center'><?= $row['Order_Id'] ?></td>
+                        <td style='text-align:center'><?= $row['Cust_Id'] ?></td>
+                        <td style='text-align:center'><?= $row['Order_Desc']  ?></td>
+                        <td style='text-align:center'><?= $row['Order_Date'] ?></td>
+                        <td style='text-align:center'><?= $row['Total_Cost'] ?> $</td>
+                        <td style="width: 13%">
                             <div class="col-sm-10" style="padding: px">
                                 <select name = "Statue[]" id = "Statue[]"  style="width: 120%;height: 35px ;font-family: 'Bellota';font-size: 20px;color: black;border: 0px; ">
-                                        <option value="Waiting"  >Waiting</option>
+                                        <option value="Waiting" >Waiting</option>
                                         <option value="Delivered" >Delivered</option>
                                         <option value="Canceled" >Canceled</option>
                                 </select>
@@ -428,29 +434,37 @@
                     	</td>
 	                </tr>
                     <?php
-                     }
-                 }
+                     }//loop end
                     ?> 
-
                 </tbody>	
             </table>
         </div>
-	</div>
-    <button type="submit" class="btn btn-default style="height: 30px">Save Changes</button>
+    </div>  
+       
+   <!-- Save Changes Button Hre --> 
+   <form class="form-horizontal" action="ChangeStatue.php" method="POST"  >
+        <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10" style="margin-left: 650px">
+                <button type="submit" class="btn btn-default">Save Changes</button>
+            </div>
+        </div>
+        <?php 
+            }//if End
+            else{
+            ?>
+                <h4 style="color: black;margin-left: 500px">No Waiting Orders For Now</td>       
+
+         </div>
+    </div>
+    <?php
+        }//else end
+    ?>
     </form>
 </div>
 
-
-<!-- Wating orders end -->
+<!-- Waiting orders end -->
 
 <!-- All Orders start -->
-
-<?php 
-    $order = new Orders();
-    $All_Order = $order->getFinishedOrders();//Return All Finished Orders
-
-    
-?>
 
 <div class="panel panel-default" style="margin-bottom: 50px ">
     <div class="panel-heading">
@@ -465,40 +479,29 @@
 
                     <th style="text-align: center;width: 5px">Order ID</th>
                     <th style="text-align: center;width: 5px">Customer ID</th>
-                    <th style="text-align: center;">Order Desc.</th>
+                    <th style="text-align: center;font-size: 35px">Order Description</th>
                     <th style="text-align: center;">Date</th>
                     <th style="text-align: center;">Total Cost</th>
                     <th style="text-align: center;">Statue</th>
 
                 </tr>
             </thead>
-            <?php  
-                  if(!empty($All_Order))
-                  {
-
-                    foreach ($All_Order as $row) 
-                        {?>
-                  
+           
             <tbody>
                 <tr class = "tabelrow">
-                            <td style='text-align:center'><?= $row['Order_Id'] ?></td>
-                            <td style='text-align:center'><?= $row['Cust_Id'] ?></td>
-                            <td style='text-align:center'><?= $row['Order_Desc']  ?></td>
-                            <td style='text-align:center'><?= $row['Order_Date'] ?></td>
-                            <td style='text-align:center'><?= $row['Total_Cost'] ?></td>
-                            <td style='text-align:center'><?= $row['Order_Statue'] ?></td>
-                            
+                    <td style='text-align:center'>1</td>
+                    <td style='text-align:center'>1</td>
+                    <td style='text-align:center'>1</td>
+                    <td style='text-align:center'>1</td>
+                    <td style='text-align:center'>1 $</td>
+                    <td style='text-align:center'>1</td>   
                 </tr>
-                <?php
-                     }
-                 }
-                    ?>   
+                 
             </tbody>	
         </table>
         </div>
 	</div>
 </div>
-
 
 <!-- All orders end -->
 

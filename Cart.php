@@ -33,7 +33,7 @@
                              <td> <input style="border:none ;text-align:center;" type="number" size="20" value="1" name="<?= $id ?>">
 
                             <td style='text-align:center'>5 $</td>   
-                            <td> <a href="<?='user/Cart_Process.php?Did='.$id ?>" ><img src="<?= $img ?>delete-icon.png" width=22px></a>
+                            <td> <a href="<?='user/Cart_Process.php?Did='.$id ?>" ><img src="<?= $img ?>cancel.png" width=35px title="Delete From Cart"></a>
                          </tr>
                         </br>
                         

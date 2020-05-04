@@ -46,9 +46,21 @@
 
     public function getWatingOrders()
     {
-        $this->select($this->_table , ' Order_Statue = \'Waiting\'' , '*' , 'Order_Date' , ' DESC ');
+        $this->select($this->_table , ' Order_Statue = \'Waiting\'' , '*' , 'Order_Date' , ' ASC ');
         return $this->fetchAll(); 
     }
+
+    /*
+    *  Show all orders that not delivered yet for spicified user
+    *  @return array 
+    */
+
+    public function getWatingOrdersForUser($user_Id)
+    {
+        $this->select($this->_table , ' Cust_Id = ' . $user_Id . ' AND Order_Statue = \'Waiting\'' , '*' , 'Order_Date' , ' ASC ');
+        return $this->fetchAll(); 
+    }
+
     /**
      *Place New Order
      * @param array $user_data Associative array containing column and value

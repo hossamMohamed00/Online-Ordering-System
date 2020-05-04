@@ -17,13 +17,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- <link rel="icomanifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="<?= $img ?>favicon.png">
     <!-- Place favicon. in the root directory -->
 
-     <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Bellota&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bellota&display=swap" rel="stylesheet">
 
     <!-- CSS here -->
     <link rel="stylesheet" href="<?= $css ?>bootstrap.min.css">
@@ -37,17 +36,25 @@
     <link rel="stylesheet" href="<?= $css ?>slicknav.css">
     <link rel="stylesheet" href="<?= $css ?>style.css">
     <link rel="stylesheet"  href="<?= $css ?>bootstrap.min2.css"/>
-
-        <link rel="stylesheet" type="text/css" href="<?= $css ?>style2.css"/> 
-        <link rel="stylesheet" href="<?= $css ?>owl-carousel.css"/>
-
-    <!--  -----------------  -->
-    <!--  -----------------  -->
+    <link rel="stylesheet" type="text/css" href="<?= $css ?>style2.css"/> 
+    <link rel="stylesheet" href="<?= $css ?>owl-carousel.css"/>
     <link rel="stylesheet"  href="<?= $css ?>bootstrap2.min.css"/>
-        <link rel="stylesheet"  href="<?= $css ?>AdminStyle.css"/> 
-    <!-- <link rel="stylesheet" href="<?= $css ?>responsive.css"> -->
+    <link rel="stylesheet"  href="<?= $css ?>AdminStyle.css"/> 
     <link rel="stylesheet" type="text/css" href="<?= $css ?>Stylesheet.css">
 
+    <!--  JS HERE  -->
+    <!-- JS Here-->
+    <script>
+        function Cancel_Confirm (id)
+        {
+            if(confirm("You Are Going To Cancel This Order , are you sure?"))
+            {
+                window.location.href = 'Cancel_Order.php?id= ' + id ;
+                return true;
+            }
+            return false;
+        }
+    </script>
 </head>
 
 <body>
@@ -105,7 +112,7 @@
 <h2 class="helloAdmin" >Welcome <?=$_SESSION['Name'] ?></h2>
 
 <!-- User Info start -->
-<div class="panel panel-default" style="margin-bottom: 50px">
+<div class="panel panel-default" >
     <div class="panel-heading">
         <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">User Information <i class="fa fa-caret-down"></i></a></h4>
     </div>
@@ -169,10 +176,78 @@
 
 <!-- User Info end -->
 
+<!-- Pending Orders start -->
+<?php 
+    $order = new Orders();
+    // 
+    $waiting_Orders = $order->getWatingOrdersForUser($_SESSION['Id']);
+?>
+
+<div class="panel panel-default" >
+    <div class="panel-heading">
+        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Pending Orders<i class="fa fa-caret-down"></i></a></h4>
+    </div>
+    <div id="collapse-checkout-confirm" class="panel-collapse collapse in" aria-expanded="true" >
+        <div class="panel-body">
+
+            <?php
+                if(!empty($waiting_Orders))
+                { 
+            ?>
+            <p style="color: black" class="login_p"> * Here You can Show Your Pending Orders and Cancel it if you want * </p>
+
+            <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px" >
+                <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
+                    <tr style="background-color:#F54300 ;color:white;"> 
+                        <th style="text-align: center;width: 5px">Order ID</th>
+	                    <th style="text-align: center;font-size: 35px">Order Description</th>
+	                    <th style="text-align: center;">Date</th>
+	                    <th style="text-align: center;">Total Cost</th>
+                        <th style="text-align: center;">Statue</th>
+                        <th style="text-align: center;">Cancel</th>
+	                </tr>
+	            </thead>
+                    <?php  
+
+                    foreach($waiting_Orders as $row)
+                    {?>
+                    
+                <tbody>
+	                <tr class = "tabelrow">
+                        <td style='text-align:center'><?= $row['Order_Id'] ?></td>
+                        <td style='text-align:center'><?= $row['Order_Desc']  ?></td>
+                        <td style='text-align:center'><?= $row['Order_Date'] ?></td>
+                        <td style='text-align:center'><?= $row['Total_Cost'] ?> $</td>
+                        <td style="width: 13%">Pending</td>
+                        <td> 
+                            <!-- Add onClick to show confirm msg before cancel order -->
+                            <a  onclick="Cancel_Confirm(<?= $row['Order_Id']; ?>)">
+                                <img src="<?= $img ?>cancel_order.png" width=50px title="Cancel This Order">
+                            </a>
+                        </td>
+	                </tr>
+                    <?php
+                     }//loop end
+                    ?> 
+                </tbody>	
+            </table>
+            <?php 
+            }//if End
+            else{
+            ?>
+                <h4 style="color: black;margin-left: 500px">No Pending Orders For Now</td>  
+            <?php
+                }//else end
+            ?>                   
+        </div>
+    </div>
+</div>
+
+<!-- Pending Orders end -->
 
 <!-- All Users Orders start -->
 
-<div class="panel panel-default" style="margin-bottom: 50px;margin-top: -30px">
+<div class="panel panel-default" style="margin-bottom: 50px;">
     <div class="panel-heading">
         <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History <i class="fa fa-caret-down"></i></a></h4>
     </div>
