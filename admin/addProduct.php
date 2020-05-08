@@ -37,22 +37,38 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         //Upload the photo
         $uploads_dir =$_SERVER['DOCUMENT_ROOT'].$fromRoot.$uploaded;//get from init.php
         $avatar = '';
-
+        $allowed_ext = array("jpg" , "png");//allowed image type array 
+        
         if($_FILES['image']['error'] == UPLOAD_ERR_OK)
         {
-            $tmp_name = $_FILES['image']['tmp_name'];
-            $avatar = basename($_FILES['image']['name']);
-            move_uploaded_file($tmp_name,"$uploads_dir/$foodName.$avatar");
-            $img_name = $foodName.$avatar;
-            //prepare the data 
+        	$ext = end(explode( '.', $_FILES['image']['name']));
 
-            $data = array(" Pro_Name " => $foodName , " Pro_Desc  " => $foodDesc , " Pro_Price " => $foodPrice , " 	Pro_Img " => $img_name , " Pro_Statue " => $Availability , " Special " => $Special);
+        	if(in_array($ext, $allowed_ext))//check for valid extention
+        	{
+        		$tmp_name = $_FILES['image']['tmp_name'];
+	            $avatar = basename($_FILES['image']['name']);
 
-            if($product->addProduct($data))
-            {
-                $_SESSION['Stat'] = 'Added';
+	     	   //to remove white spaces
+	            $food = preg_replace('/\s+/', '', $foodName);
+
+	            move_uploaded_file($tmp_name,"$uploads_dir/$food$avatar");
+	            $img_name = $food+$avatar;
+
+	            //prepare the data to save on DB
+	            $data = array(" Pro_Name " => $foodName , " Pro_Desc  " => $foodDesc , " Pro_Price " => $foodPrice , " 	Pro_Img " => $img_name , " Pro_Statue " => $Availability , " Special " => $Special);
+
+	            if($product->addProduct($data))
+	            {
+	                $_SESSION['Stat'] = 'Added';
+	                header("Location: Admin_Home.php");
+	            }
+        	}
+        	else
+        	{
+        		$_SESSION['Stat'] = 'Not Added [Invalid image type]';
+    			echo "<script>alert('Invalid Image Type') </script>";
                 header("Location: Admin_Home.php");
-            }
+        	}
         }
     }
     else

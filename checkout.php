@@ -6,7 +6,49 @@
             header("Location: ../login.php");
         }
     
-    
+    //if customer press Place order
+      if(isset($_POST['submit']))
+      {
+        $user_Id = $_SESSION['Id'];
+        $Payment = $_POST['payment'];//to get Payment Method
+        $order = new orders();
+
+        $orderDetails = array();//to hold order details
+        //get order Details
+        $total_price = $_SESSION['total']; // get the total price from seesion(defined in cart.php)
+        $Desc = '';
+        
+        //loop the data to prepare order description
+        foreach($_SESSION['cart'] as $id => $data)
+        {   
+            //prepare order description for table orders
+            $Desc.= $data['qty'] . ' Of '.$data['name'] . ' , ';
+            
+        }
+
+        //prepare data for Insert
+        $data = array("Order_Desc" => $Desc, "Total_Cost" => $total_price , "Cust_Id" => $user_Id , "Payment_Method" => $Payment);
+                
+        if($order_Id = $order->placeOrder($data))
+        { 
+            foreach($_SESSION['cart'] as $id => $data)
+            {   
+                //set data to order_details table
+                $orderDetails = array("Order_Id" =>$order_Id , "Pro_Id" => $data['id'] , "Quantity" => $data['qty']);
+                $order->setOrderData($orderDetails);
+
+                $orderDetails = array();
+                
+            }
+            //save order id to use it in ThanksPage.php
+            $_SESSION['Order_Id'] = $order_Id; 
+            //save order Desc to send to mail
+            $_SESSION['Order_Desc'] = $Desc;
+            unset($_SESSION['cart']);//to empty the cart
+            header("Location: ThanksPage.php");
+            exit();//to stop the script
+        }
+      }
 ?>
 
 <!doctype html>
@@ -207,20 +249,20 @@
         <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="margin-top: 25px">
                 <div class="panel-body">
 
+                <form class="form-horizontal"   method="post" >
 					<div class="col-sm-10">
-                		<input type="radio" value="igotnone" name="payment"  onclick="hide()">
+                		<input type="radio" value="COD" name="payment"  onclick="hide()">
                 	
                       	<label  style="margin-top: 15px;margin-bottom: 60px;margin-left: 20px; font-size: 22px;color:black ;font-family: 'Bellota', cursive;">Cash on delivery (COD)</label>
                     </div>
 
                     
                 	<div class="col-sm-10">
-                		<input type="radio" value="igotnone" checked="checked" name="payment" onclick="show()">
+                		<input type="radio" value="Credit" checked="checked" name="payment" onclick="show()">
 
                       	<label  style="margin-top: 15px;margin-bottom: 60px;margin-left: 20px;font-size: 22px;color:black ;font-family: 'Bellota', cursive;">Credit or Debit Cards</label>
                     </div>
 
-                    <form class="form-horizontal"  method="post" >
                     	<div id ="MyForm">
 	                        <img src="<?= $img ?>paypal.png" width="800px" height="80px" style="margin-left: 250px;margin-bottom: 50px">
 	                        <div class="form-group">

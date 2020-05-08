@@ -92,5 +92,18 @@
         $data = array("Order_Statue"  => $Stat);
 
         return $this->update($this->_table , $data , ' Order_Id = '.$order_Id);
-    } 
-}
+    }
+
+        /**
+         * Filter Orders
+         * @param date $from_date && $to_date
+         * @return array all orders that matched this Date and that not has statue waiting
+         */
+        public function Filter_Orders($from_date , $to_date)
+        {
+            $query ="SELECT * FROM orders WHERE  Order_Statue <> 'Waiting' AND  Order_Date BETWEEN '" . $from_date ."' AND '" .$to_date ."'  ORDER BY Order_Date ASC";
+            $this->query($query);
+            return $this->fetchAll();
+        }
+
+    }

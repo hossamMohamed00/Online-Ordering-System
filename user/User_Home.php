@@ -161,6 +161,14 @@
                             <input type="text" class="form-control" value="<?= $_SESSION['Address'] ?>" name="address" required>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email</label>
+  
+                    <div class="col-sm-10">
+                            <input type="text" class="form-control" value="<?= $_SESSION['Email'] ?>" name="email" required>
+                    </div>
+                </div>
                            
                 <div class="form-group">        
                     <div class="col-sm-offset-2 col-sm-10">
@@ -187,7 +195,7 @@
     <div class="panel-heading">
         <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Pending Orders<i class="fa fa-caret-down"></i></a></h4>
     </div>
-    <div id="collapse-checkout-confirm" class="panel-collapse collapse in" aria-expanded="true" >
+    <div id="collapse-checkout-confirm1" class="panel-collapse collapse in" aria-expanded="true" >
         <div class="panel-body">
 
             <?php
@@ -203,6 +211,7 @@
 	                    <th style="text-align: center;font-size: 35px">Order Description</th>
 	                    <th style="text-align: center;">Date</th>
 	                    <th style="text-align: center;">Total Cost</th>
+                        <th style="text-align: center;">Payment</th>
                         <th style="text-align: center;">Statue</th>
                         <th style="text-align: center;">Cancel</th>
 	                </tr>
@@ -218,6 +227,7 @@
                         <td style='text-align:center'><?= $row['Order_Desc']  ?></td>
                         <td style='text-align:center'><?= $row['Order_Date'] ?></td>
                         <td style='text-align:center'><?= $row['Total_Cost'] ?> $</td>
+                        <td style='text-align:center'><?= $row['Payment_Method'] ?></td>
                         <td style="width: 13%">Pending</td>
                         <td> 
                             <!-- Add onClick to show confirm msg before cancel order -->
@@ -252,7 +262,7 @@
         <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History <i class="fa fa-caret-down"></i></a></h4>
     </div>
 
-    <div id="collapse-checkout-confirm" class="panel-collapse collapse in" aria-expanded="true" >
+    <div id="collapse-checkout-confirm1" class="panel-collapse collapse in" aria-expanded="true" >
         <div class="panel-body">
 
             <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px; margin-top: 0px" >
@@ -264,20 +274,46 @@
                         <th style="text-align: center;">Order Desc.</th>
                         <th style="text-align: center;">Date</th>
                         <th style="text-align: center;">Total Cost</th>
+                        <th style="text-align: center;">Payment</th>
                         <th style="text-align: center;">Statue</th>
                     </tr>
 
                 </thead>
 
-                <tbody>    
+                <tbody>  
+                 <?php
+                    $user_id = $_SESSION['Id'];
+                    $order = new orders();
+
+                    $all_orders = $order->getOrders($user_id);
+                    
+                    if(!empty($all_orders))
+                    {
+                         //loop the data 
+                         foreach($all_orders as $row)
+                    {
+                ?>  
 
                     <tr class = "tabelrow">
-                        <td style='text-align:center'>1</td>
-                        <td style='text-align:center'>1</td>
-                        <td style='text-align:center'>1</td>
-                        <td style='text-align:center'>1 $</td>
-                        <td style='text-align:center'>1</td>
-                    </tr>  
+                            <td style='text-align:center'><?= $row['Order_Id'] ?></td>
+                            <td style='text-align:center'><?= $row['Order_Desc'] ?></td>
+                            <td style='text-align:center'><?= $row['Order_Date'] ?></td>
+                            <td style='text-align:center'><?= $row['Total_Cost'] ?> $</td>
+                            <td style='text-align:center'><?= $row['Payment_Method'] ?></td>
+                            <td style='text-align:center'><?= $row['Order_Statue'] ?></td>
+                    </tr>
+                    <?php
+                        }
+                        }else{
+                    ?>
+                    <div>
+                        <tr class = "tabelrow" > 
+                            <td colspan="7" >NO ORDERS TO SHOW</td>       
+                        </tr>
+                    </div>
+                    <?php
+                        }
+                   ?>
 
                 </tbody>    
 

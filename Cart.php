@@ -2,8 +2,6 @@
     include 'init.php';
     include $tpl.'header.php';
 ?>
-                     
-
     <div class="signup" >
             <h2 class="h_signup">Shopping Cart</h2>
     </div>    
@@ -26,23 +24,39 @@
                     </thead>
 
                     <tbody>
+                            <?php
+                                $total_Price = 0;
+                                $counter = 1;
+                                //get cart data from session
+                                if(isset($_SESSION['cart']))
+                                {
+                                    foreach($_SESSION['cart'] as $id => $data)
+                                    {
+                                
+                            ?>
                         <tr class = "tabelrow" >
-                             <td style='text-align:center'>1</td>
-                             <td style='text-align:center'>1</td>
-                             <td style='text-align:center'>1</td>
-                             <td> <input style="border:none ;text-align:center;" type="number" size="20" value="1" name="<?= $id ?>">
+                             <td style='text-align:center'><?= $counter ?></td>
+                             <td style='text-align:center'><?= $data['name'] ?></td>
+                             <td style='text-align:center'><?= $data['desc'] ?></td>
+                             <td> <input style="border:none ;text-align:center;" type="number" size="20" value="<?=$data['qty']?>" name="<?= $id ?>">
 
-                            <td style='text-align:center'>5 $</td>   
-                            <td> <a href="<?='user/Cart_Process.php?Did='.$id ?>" ><img src="<?= $img ?>cancel.png" width=35px title="Delete From Cart"></a>
+                            <td style='text-align:center'><?= $data['price']  ?> $</td>   
+                            <td> <a href="<?='user/Cart_Process.php?Did='.$id ?>" ><img src="<?= $img ?>delete-icon.png" width=22px></a>
                          </tr>
-                        </br>
-                        
-                         
+                        <?php
+                                $total_Price = $total_Price + ($data['qty'] * $data['price']); 
+                                $counter++;
+                            }
+                        }
+                         ?>
                          <tr>
-                                <td colspan="5" align="right">
-                                <h4 style="font-family: East Sea Dokdo;font-size: 30px">.Total Bill </h4>
-                                </td>
-                                <td> <h4> 5 $ </h4></td>
+                            <td colspan="5" align="right">
+                            <h4 style="font-family: East Sea Dokdo;font-size: 30px">.Total Bill </h4>
+                            </td>
+                            <td> <h4> <?= $total_Price?> $ </h4></td>
+                            
+                            <?php $_SESSION['numOfPro'] = $counter - 1 ;
+                            $_SESSION['total'] = $total_Price ?>
                         </tr>
                     </tbody>
                                                           

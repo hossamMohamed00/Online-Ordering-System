@@ -15,6 +15,7 @@ class person extends Db_Control
     private $password;
     public $phone;
     public $address;
+    public $Email;
     public $usertype;
 
     /**

@@ -69,4 +69,40 @@ class products extends Db_Control
         return $this->update($this->_table , $pro_data , 'Pro_Id = ' . $pro_Id);
 
     }
+
+    /**
+     * Search for Products
+     * @param string $keyword
+     * @return  int Number of affected rows
+     * @return array Returns every user row as array of associative array
+     */
+    public function searchProducts($keyword)
+    {
+        $query ='';
+        
+        if($keyword == 'Avaliable' || $keyword == 'avaliable')
+        {
+            $query  = "  Pro_Statue = 1 " ;
+        }
+        else if ($keyword == 'not Avaliable' || $keyword == 'Not Avaliable' || $keyword == 'Not avaliable' || $keyword == 'not avaliable')
+        {
+            $query  = " Pro_Statue = 0 ";
+        }  
+        else if(is_numeric($keyword))
+        {
+            $query = " Pro_Id = ".$keyword;
+            
+        }
+         else if($keyword == 'all' || $keyword == 'All')
+        {
+            $query = '';
+        }
+        else
+        {
+            $query = " Pro_Name LIKE '%$keyword%' ";
+        }
+
+        $this->select($this->_table  , $query,'*','Pro_Price');
+        return $this->fetchAll();
+    }
 }

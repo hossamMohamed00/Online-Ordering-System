@@ -3,11 +3,35 @@
     include $tpl.'header.php'; 
 ?>
 
+
+
 <!-- bradcam_area_start -->
 <div class="bradcam_area breadcam_bg overlay">
     <h3>Menu</h3>
 </div>
 <!-- bradcam_area_end -->
+
+<!-- Search Box -->
+<div class="container">
+    <br/>
+<div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+                <div class="card-body row no-gutters align-items-center">
+                    
+                    <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" type="search" id="search_text" placeholder="Search For Food">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-success" onclick="Filter_Products()"  type="submit">Search</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+        </div>
+        <!--end of col-->
+    </div>
+</div>
+
 
 <!-- best_burgers_area_start  -->
 <div class="best_burgers_area" style="margin-top: -90px">
@@ -21,7 +45,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id = "products_table">
         <!-- Products Here --> 
         <?php
             $pro = new products();
@@ -44,7 +68,7 @@
                         continue;
                     }
             ?>
-            <div class="col-xl-6 col-md-6 col-lg-6">
+            <div class="col-xl-6 col-md-6 col-lg-6" >
                 <div class="single_delicious d-flex align-items-center">
                     <div class="thumb">
                         <!--  Product Img Here  -->
@@ -168,3 +192,33 @@
     <!-- Include Footer -->
     <?php include $tpl."footer.php"; ?>
 
+<!-- JS HERE   -->
+<!-- Search Products -->
+
+</script>
+ <!-- Filter Products -->
+    <script >
+        function Filter_Products()
+        {
+            var key = document.getElementById("search_text").value
+
+            if(key != '')
+            {
+                $.ajax({
+                    url:"user/Filter_Products.php",
+                    method:"POST",
+                    data:{search:key},
+                    
+                    success:function(data)
+                    {
+                        $('#products_table').html(data);
+                    }
+
+                });
+            }else
+            {
+                alert("Please Enter Somthing To Search For");
+            }
+        }
+
+    </script>

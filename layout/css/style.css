@@ -12,6 +12,15 @@
   -ms-flex-pack: start;
   justify-content: start;
 }
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
 
 /* Normal desktop :1200px. */
 /* Normal desktop :992px. */
