@@ -3,8 +3,6 @@
     include $tpl.'header.php'; 
 ?>
 
-
-
 <!-- bradcam_area_start -->
 <div class="bradcam_area breadcam_bg overlay">
     <h3>Menu</h3>
@@ -32,7 +30,6 @@
     </div>
 </div>
 
-
 <!-- best_burgers_area_start  -->
 <div class="best_burgers_area" style="margin-top: -90px">
     <div class="container">
@@ -48,8 +45,8 @@
         <div class="row" id = "products_table">
         <!-- Products Here --> 
         <?php
-            $pro = new products();
-            $products = $pro->getProducts();
+            $admin = new Admin();
+            $products = $admin->getAllProducts();
             
             if(!empty($products))
             {

@@ -2,7 +2,7 @@
 class Db_Control
 {
 
-    protected $_config = array();
+    protected $_config = array();//store connection configuration
     protected $link; //store connection
     protected $_result; //store result from select statement
 
@@ -13,7 +13,7 @@ class Db_Control
     {
         if(count($config) != 4)
         {
-            throw new InvalidArgumentException('Invalid number of connection parameters');
+            die('Invalid number of connection parameters');
         }
         $this->_config = $config;
     }

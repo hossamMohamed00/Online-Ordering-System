@@ -6,9 +6,9 @@
 
         $key = $_POST['search'];//to get the keyword to search for it
 
-        $product = new products();
+        $admin = new Admin();
 
-        $Filtered_Products = $product->searchProducts($key);//will return array of all users that matched this keyword
+        $Filtered_Products = $admin->searchPro($key);//will return array of all users that matched this keyword
         
         //prepare the table to print it
         $output .= '

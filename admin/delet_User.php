@@ -14,11 +14,9 @@
 
         $id = $_POST['user_id'];//get user id 
 
-       if($admin->deleteUser($id));//delete this user from db 
-
+        $admin->deleteUser($id);//delete this user from db 
     }
     else
     {
-        echo("<script language='javascript'>alert('Unable to access this page directly')</script>");
-        
+        echo("<script language='javascript'>alert('Unable to access this page directly')</script>"); 
     }

@@ -9,11 +9,11 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'GET')
     {
-        $order = new orders();
+        $admin = new Admin();
 
         $id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
 
-        if($order->changeStatue($id , "Canceled"))
+        if($admin->changeStatue($id , "Canceled"))
         {
             header("Location: User_Home.php");
             exit;

@@ -25,7 +25,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
     if(!$error_fields)
     {
-        $product = new products();
+        //taking object from class admin to call function which will add product
+        $admin = new Admin();
 
         //Get All Data
         $foodName = $_POST['foodName'];
@@ -52,12 +53,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	            $food = preg_replace('/\s+/', '', $foodName);
 
 	            move_uploaded_file($tmp_name,"$uploads_dir/$food$avatar");
-	            $img_name = $food+$avatar;
+                $img_name = $food;
+                $img_name .= $avatar;
 
 	            //prepare the data to save on DB
 	            $data = array(" Pro_Name " => $foodName , " Pro_Desc  " => $foodDesc , " Pro_Price " => $foodPrice , " 	Pro_Img " => $img_name , " Pro_Statue " => $Availability , " Special " => $Special);
 
-	            if($product->addProduct($data))
+	            if($admin->addPro($data))
 	            {
 	                $_SESSION['Stat'] = 'Added';
 	                header("Location: Admin_Home.php");

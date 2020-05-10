@@ -329,8 +329,8 @@
 <!-- All Food start -->
 
 <?php 
-    $pro = new products();
-    $All_Products = $pro->getProducts();
+    $admin = new Admin();
+    $All_Products = $admin->getAllProducts();
 ?>
 <div class="panel panel-default">
     <div class="panel-heading" >
@@ -509,9 +509,9 @@
 
 <!-- Wating Orders start -->
 <?php 
-    $order = new Orders();
+    $admin = new Admin();
     // 
-    $waiting_Orders = $order->getWatingOrders();
+    $waiting_Orders = $admin->getWatingOrders();
 ?>
 
 <div class="panel panel-default" >
@@ -618,14 +618,15 @@
         <div class="panel-body" id = "order_table">
             <?php
 
-            $order = new Orders ();
+            $admin = new Admin ();
 
-            $Finishing_Orders = $order->getFinishedOrders();
-            if(!empty ($Finishing_Orders)){
-
+            $Finishing_Orders = $admin->getAllOrders();
+            if(!empty ($Finishing_Orders))
+            {
+                
             ?>
 
-        <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px ;"   >
+        <table border='1' style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px ;"   >
             <thead style="font-family: 'East Sea Dokdo', cursive; font-size: 25px">
                 <tr style="background-color:#F54300 ;color:white;"> 
 

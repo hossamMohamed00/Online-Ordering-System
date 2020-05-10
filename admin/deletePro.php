@@ -10,11 +10,11 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        $product = new products();
+        $admin = new Admin();
 
         $id = $_POST['pro_id'];
 
-        $product->deleteProduct($id);
+        $admin->deletePro($id);
     }
     else
     {

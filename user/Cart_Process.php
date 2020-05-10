@@ -21,8 +21,8 @@
 
        if( $flage == 0)
        {
-        $pro = new products();
-        $pro_data = $pro->getProduct($id);
+        $admin = new Admin();
+        $pro_data = $admin->getProData($id);
 
         //add product data to session
         $_SESSION['cart'][] = array('id'=>$pro_data['Pro_Id'] ,

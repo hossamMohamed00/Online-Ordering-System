@@ -7,7 +7,7 @@
         header("Location: login.php");
     }
 
-    $pro = new products();
+    $admin = new Admin();
 
     $error_fields = array();
 
@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         $data = array(" Pro_Name " => $name ," Pro_Desc " => $desc, " Pro_Price " => $price , " Pro_Statue " => $availability);
         
         //Update the data in DB
-        if($pro->updatePro($data ,$Pro_id))
+        if($admin->updateProduct($data ,$Pro_id))
         {
             echo("<script language='javascript'>alert('Product Updated Successfuly')</script>");
             header("Location: Edit_Pro.php?id=".$Pro_id);
@@ -184,7 +184,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
     <?php
         //get product Data
-        $this_product = $pro->getProduct($id);
+        $this_product = $admin->getProData($id);
     ?>
   <div class="panel panel-default" style="margin-bottom: 50px">
         <div class="panel-heading">

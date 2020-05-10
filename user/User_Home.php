@@ -186,9 +186,9 @@
 
 <!-- Pending Orders start -->
 <?php 
-    $order = new Orders();
+    $user = new User();
     // 
-    $waiting_Orders = $order->getWatingOrdersForUser($_SESSION['Id']);
+    $waiting_Orders = $user->getWatingOrdersForUser($_SESSION['Id']);
 ?>
 
 <div class="panel panel-default" >
@@ -283,9 +283,9 @@
                 <tbody>  
                  <?php
                     $user_id = $_SESSION['Id'];
-                    $order = new orders();
+                    $user = new User();
 
-                    $all_orders = $order->getOrders($user_id);
+                    $all_orders = $user->getOrders($user_id);
                     
                     if(!empty($all_orders))
                     {

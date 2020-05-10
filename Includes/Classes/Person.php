@@ -3,12 +3,13 @@
     require 'config.php';
     require 'Db_Control.php';
     require 'Products.php';
+    require 'Orders.php';
 
 class person extends Db_Control
 {   
     //set the table name
     protected $_table = 'users';	// This is the name of the table on DB
-
+    //Attributes
     private $Id;
     public  $Name;
     private $username;
@@ -30,7 +31,7 @@ class person extends Db_Control
         // Call the parent constructor
     	parent::__construct($config);
     }
-
+    //Setter && Getters
     public function setId($id)
     {
         $this->Id = $id;
@@ -119,7 +120,8 @@ class person extends Db_Control
 
         return $this->fetch(); //func return one row || false if no user 
     }
-   
+    
+    
 }
 
 ?>

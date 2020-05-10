@@ -7,6 +7,16 @@ class products extends Db_Control
     //set the table name
     public $_table = 'products';
     
+    //Attributes
+    private $Pro_Id;
+    private $Pro_Name;
+    private $Pro_Desc;
+    private $Pro_Price;
+    private $Pro_Img;
+    private $Pro_Statue;
+    private $Special;
+
+
     public function __construct() 
     {
         // Add from config.php file
@@ -14,6 +24,70 @@ class products extends Db_Control
 
         // Call the parent constructor
     	parent::__construct($config);
+    }
+
+    //Setter && Getters
+    public function setId($id)
+    {
+        $this->Pro_Id = $id;
+    }
+    public function getId()
+    {
+        return $this->Pro_Id;
+    }
+
+    public function setName($name)
+    {
+        $this->Pro_Name = $name;
+    }
+    public function getName()
+    {
+        return $this->Pro_Name;
+    }
+
+    public function setProDesc($Desc)
+    {
+        $this->Pro_Desc = $Desc;
+    }
+    public function getProDesc()
+    {
+        return $this->Pro_Desc;
+    }
+    
+    public function setProPrice($price)
+    {
+        $this->Pro_Price = $price;
+    }
+    public function getProPrice()
+    {
+        return $this->Pro_Price;
+    }
+
+    public function setProImg($Img)
+    {
+        $this->Pro_Img = $Img;
+    }
+    public function getProImg()
+    {
+        return $this->Pro_Img;
+    }
+
+    public function setProStatue($Pro_Statue)
+    {
+        $this->Pro_Statue = $Pro_Statue;
+    }
+    public function getProStatue()
+    {
+        return $this->Pro_Statue;
+    }
+
+    public function setSpecial($Special)
+    {
+        $this->Special = $Special;
+    }
+    public function isSpecial()
+    {
+        return $this->Special;
     }
 
     /*

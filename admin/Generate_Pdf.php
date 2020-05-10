@@ -2,9 +2,9 @@
 
 
   /**
-      This Page Will Genertate Pdf File Contains Orders History 
+    This Page Will Genertate Pdf File Contains Orders History 
 
-      will generate this pdf when admin click on Generate button which in Admin Home Section Orders History 
+    will generate this pdf when admin click on Generate button which in Admin Home Section Orders History 
   */
 
 
@@ -34,14 +34,14 @@ if(isset($_POST["create_pdf"]))
       $content = '';  
 
       //get the data 
-       $order = new Orders ();
+       $admin = new Admin ();
 
        $total_profit = 0;
 
        //first check admin filter orders or not !! if filter it --> generate pdf about filtered orders only
        if(! isset($_SESSION['filterOrder']['from_date']))
        {
-          $Finishing_Orders = $order->getFinishedOrders();
+          $Finishing_Orders = $admin->getAllOrders();
           if(!empty ($Finishing_Orders)){
 
               $content .= '  
@@ -101,7 +101,7 @@ if(isset($_POST["create_pdf"]))
         $from_Date = date("Y-m-d",strtotime($_SESSION['filterOrder']['from_date'])); 
         $to_Date = date("Y-m-d",strtotime($_SESSION['filterOrder']['to_date']));
 
-        $filtered_Orders = $order->Filter_Orders($from_Date, $to_Date);
+        $filtered_Orders = $admin->Filter_Orders($from_Date, $to_Date);
 
         if(!empty($filtered_Orders))
         {

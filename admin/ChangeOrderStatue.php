@@ -10,11 +10,11 @@
 
      if($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-          $order = new Orders();
+          $admin = new Admin();
 
           $Stat=$_POST['Statue'];//To get All Statues for the orders
                
-          $waiting_Orders = $order->getWatingOrders();//Return All Orders that have Statue (Waiting)
+          $waiting_Orders = $admin->getWatingOrders();//Return All Orders that have Statue (Waiting)
 
           $Orders_Id =  array();//Declare Array to hold all waiting order Id
 
@@ -31,7 +31,7 @@
           // for loop to change statue of all Orders_id in the array
           for ($i = 0; $i < $Size ; $i++) 
           { 
-               $order->changeStatue($Orders_Id[$i],"$Stat[$i]");
+               $admin->changeStatue($Orders_Id[$i],"$Stat[$i]");
           }
           //Navigate Admin Home Page
           header("location:".$adminHome);

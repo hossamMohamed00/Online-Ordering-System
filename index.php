@@ -2,7 +2,6 @@
     include 'init.php';
     include $tpl.'header.php'; 
 ?>
-
 <!-- slider_area_start -->
 <div class="slider_area">
     <div class="slider_active owl-carousel">
@@ -61,8 +60,8 @@
         <?php
             $count = 0;
 
-            $pro = new products();
-            $products = $pro->getProducts();
+            $admin = new Admin();
+            $products = $admin->getAllProducts();
             
             if(!empty($products))
             {
@@ -71,7 +70,7 @@
                 {
                     //to display just 6 product only
                     $count++;
-                    if($count == 7)
+                    if($count == 8)
                     {
                     break;
                     }
@@ -85,8 +84,7 @@
                     if($row['Pro_Statue'] == 0 )
                     {
                         continue;
-                    }
-                    
+                    }     
             ?>
             <div class="col-xl-6 col-md-6 col-lg-6">
                 <div class="single_delicious d-flex align-items-center">

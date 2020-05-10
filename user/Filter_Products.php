@@ -6,9 +6,9 @@
 
         $key = $_POST['search'];//to get the keyword to search for it
 
-        $product = new products();
+        $user = new User();
 
-        $Filtered_Products = $product->searchProducts($key);//will return array of all Products that matched this keyword
+        $Filtered_Products = $user->searchPro($key);//will return array of all Products that matched this keyword
         
 
         if(!empty($Filtered_Products))

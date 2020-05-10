@@ -55,7 +55,7 @@
         {
             $output .= '
                 <tr class = "tabelrow" > 
-                    <td colspan="7" >No User Found</td>       
+                    <td colspan="8" >No User Found</td>       
                 </tr>
                 ';
         }

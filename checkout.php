@@ -11,7 +11,7 @@
       {
         $user_Id = $_SESSION['Id'];
         $Payment = $_POST['payment'];//to get Payment Method
-        $order = new orders();
+        $user = new User();
 
         $orderDetails = array();//to hold order details
         //get order Details
@@ -29,15 +29,15 @@
         //prepare data for Insert
         $data = array("Order_Desc" => $Desc, "Total_Cost" => $total_price , "Cust_Id" => $user_Id , "Payment_Method" => $Payment);
                 
-        if($order_Id = $order->placeOrder($data))
+        if($order_Id = $user->placeOrder($data))
         { 
             foreach($_SESSION['cart'] as $id => $data)
             {   
                 //set data to order_details table
                 $orderDetails = array("Order_Id" =>$order_Id , "Pro_Id" => $data['id'] , "Quantity" => $data['qty']);
-                $order->setOrderData($orderDetails);
+                $user->setOrderData($orderDetails);
 
-                $orderDetails = array();
+                $orderDetails = array();//to empty the array againe
                 
             }
             //save order id to use it in ThanksPage.php

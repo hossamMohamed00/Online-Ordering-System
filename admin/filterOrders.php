@@ -13,9 +13,9 @@
         $from_Date = date("Y-m-d",strtotime($_POST['from_date'])); 
         $to_Date = date("Y-m-d",strtotime($_POST['to_date']));
 
-        $orders = new orders();
+        $admin = new Admin();
 
-        $allOrders = $orders->Filter_Orders($from_Date, $to_Date);
+        $allOrders = $admin->Filter_Orders($from_Date, $to_Date);
 
         $output .= '
         <table border="1" style="border-color:gray ; width:1200px ; text-align: center; margin-left: 35px ;margin-top: 0px"   >
