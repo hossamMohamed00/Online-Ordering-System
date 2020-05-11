@@ -1,25 +1,19 @@
 <?php
 class Admin extends person 
 {
-    //Attributes
-    public $product ;
-    public $order;
+    
     /**
     *   Constructor
     *   just call parent Constructor
     */
     public function __construct() 
     {
-        //taking object from clsss Products to use its function 
-        $this->product = new products();
-        $this->order = new orders();
-
+        //call the parent constructor
         parent::__construct();
-
     }
 
     //Product Section
-
+    
     /**
      * Add New Product
      * @param array $pro_data  Associative array containing column and value
@@ -82,7 +76,6 @@ class Admin extends person
         return $this->product->searchProducts($keyword);
     }
    
-
     //User Section
     
     /*

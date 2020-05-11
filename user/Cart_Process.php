@@ -6,9 +6,11 @@
    {
       $flage = 0 ;
       $i = 0;
-       $id = $_GET['id'];
+      $id = $_GET['id'];
 
-       //check if this product already exist on cart or not
+      if(isset($_SESSION['cart']))
+      {
+        //check if this product already exist on cart or not
        for ($i = 0 ; $i < sizeof( $_SESSION['cart']); $i++)
         {
           if($_SESSION['cart'][$i]['id'] == $id)
@@ -18,6 +20,8 @@
           }
          
         }
+      }
+       
 
        if( $flage == 0)
        {
