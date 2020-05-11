@@ -2,16 +2,9 @@
     require_once 'Person.php';
 class User extends person
 {
-    //Attributes
-    public $product ;
-    public $order;
-    
     public function __construct() 
     {
-        //taking instances from clsss Products and order
-        $this->product = new products();
-        $this->order = new orders();
-
+        //call the parent constructor
     	parent::__construct();
     }
 

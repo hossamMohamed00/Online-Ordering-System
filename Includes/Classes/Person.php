@@ -7,11 +7,16 @@
 
 class person 
 {  
+    //Attributes to hold the instance of the classes
+    protected $product ;
+    protected $order;
+
     //get instance of db control(singltone class)
     protected $DB;
 
     //set the table name
-    protected $_table = 'users';	// This is the name of the table on DB
+    protected $_table = 'users';    // This is the name of the table on DB
+
     //Attributes
     private $Id;
     public  $Name;
@@ -28,10 +33,14 @@ class person
     */
     public function __construct() 
     {
-        // Add from config.php file
-        global $config;
+        //taking instances from clsss Products and order
+        $this->product = new products();
+        $this->order = new orders();
 
-        //get instance of db control(singltone class)
+        // get from config.php file
+        global $config; //the configuration of the DB 
+
+        //get instance of DB_control (singltone class)
         $this->DB = Db_Control::getInstance($config);
     }
     //Setter && Getters
