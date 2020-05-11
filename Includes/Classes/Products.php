@@ -2,8 +2,11 @@
     require_once 'config.php';
     require_once 'Db_Control.php';
 
-class products extends Db_Control
+class products 
 {
+    //get instance of db control(singltone class)
+    protected $DB;
+
     //set the table name
     public $_table = 'products';
     
@@ -22,8 +25,8 @@ class products extends Db_Control
         // Add from config.php file
         global $config;
 
-        // Call the parent constructor
-    	parent::__construct($config);
+        //get instance of db control(singltone class)
+        $this->DB = Db_Control::getInstance($config);
     }
 
     //Setter && Getters
@@ -96,8 +99,8 @@ class products extends Db_Control
     */
     public function getProducts()
     {
-        $this->select($this->_table,'','*','Pro_Price');
-        return $this->fetchAll();
+        $this->DB->select($this->_table,'','*','Pro_Price');
+        return $this->DB->fetchAll();
     }
 
     /*
@@ -108,8 +111,8 @@ class products extends Db_Control
 
     public function getProduct($pro_Id)
     {
-        $this->select($this->_table , ' Pro_Id = '.$pro_Id);
-        return $this->fetch(); //func return one row 
+        $this->DB->select($this->_table , ' Pro_Id = '.$pro_Id);
+        return $this->DB->fetch(); //func return one row 
     }
 
     /**
@@ -119,7 +122,7 @@ class products extends Db_Control
      */
     public function addProduct($product_data)
     {
-        return $this->insert($this->_table,$product_data);
+        return $this->DB->insert($this->_table,$product_data);
     }
 
      /**
@@ -129,7 +132,7 @@ class products extends Db_Control
      */
     public function deleteProduct($pro_Id)
     {
-        return $this->delete($this->_table  , 'Pro_Id = '.$pro_Id);
+        return $this->DB->delete($this->_table  , 'Pro_Id = '.$pro_Id);
     }
 
     /**
@@ -140,7 +143,7 @@ class products extends Db_Control
      */
     public function updatePro($pro_data , $pro_Id)
     {
-        return $this->update($this->_table , $pro_data , 'Pro_Id = ' . $pro_Id);
+        return $this->DB->update($this->_table , $pro_data , 'Pro_Id = ' . $pro_Id);
 
     }
 
@@ -176,7 +179,7 @@ class products extends Db_Control
             $query = " Pro_Name LIKE '%$keyword%' ";
         }
 
-        $this->select($this->_table  , $query,'*','Pro_Price');
-        return $this->fetchAll();
+        $this->DB->select($this->_table  , $query,'*','Pro_Price');
+        $this->DB->fetchAll();
     }
 }

@@ -8,7 +8,7 @@ class User extends person
     
     public function __construct() 
     {
-        //taking object from clsss Products to use its function 
+        //taking instances from clsss Products and order
         $this->product = new products();
         $this->order = new orders();
 
@@ -23,7 +23,7 @@ class User extends person
      */
     public function updateUser($user_data , $user_Id)
     {
-        return $this->update($this->_table , $user_data , 'Id = ' . $user_Id);
+        return $this->DB->update($this->_table , $user_data , 'Id = ' . $user_Id);
 
     }
 

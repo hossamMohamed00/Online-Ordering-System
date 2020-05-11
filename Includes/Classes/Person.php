@@ -5,8 +5,11 @@
     require 'Products.php';
     require 'Orders.php';
 
-class person extends Db_Control
-{   
+class person 
+{  
+    //get instance of db control(singltone class)
+    protected $DB;
+
     //set the table name
     protected $_table = 'users';	// This is the name of the table on DB
     //Attributes
@@ -28,8 +31,8 @@ class person extends Db_Control
         // Add from config.php file
         global $config;
 
-        // Call the parent constructor
-    	parent::__construct($config);
+        //get instance of db control(singltone class)
+        $this->DB = Db_Control::getInstance($config);
     }
     //Setter && Getters
     public function setId($id)
@@ -103,9 +106,9 @@ class person extends Db_Control
 
     public function getUser($user_Id)
     {
-        $this->select($this->_table , 'Id = '.$user_Id);
+        $this->DB->select($this->_table , 'Id = '.$user_Id);
 
-        return $this->fetch(); //func return one row 
+        return  $this->DB->fetch(); //func return one row 
     }
 
     /**
@@ -115,12 +118,11 @@ class person extends Db_Control
      */
     public function getUserForLogin($username , $password)
     {
-    	//call functio select and pass tableName and the where statement to search for this user
-        $this->select($this->_table , "User_Name = '" . $username . "' AND Password = ".$password);
+    	//call function select and pass tableName and the where statement to search for this user
+        $this->DB->select($this->_table , "User_Name = '" . $username . "' AND Password = ".$password);
 
-        return $this->fetch(); //func return one row || false if no user 
+        return  $this->DB->fetch(); //func return one row || false if no user 
     }
-    
     
 }
 
