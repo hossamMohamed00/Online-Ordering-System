@@ -16,6 +16,10 @@
     $adminHome = '../admin/Admin_Home.php';    //Admin Home page
 
     $classes = '../Includes/Classes/';
+
+    $fromRoot = '/PHP/FCIH Projects/SW Projects/gitHup/Online Ordering System/'; //to get project from root(htocs)
+
+    $uploaded = 'layout/img/burger'; //uploaded imgs Directory
         
 
     //Require

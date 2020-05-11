@@ -130,6 +130,34 @@
         </div>
     </header>
 <!-- header-end -->
+    
+<!-- Sending Confirmation Email  To User-->
+<?php
+    
+    //get user email from session
+    $user_email = $_SESSION['Email'];
+
+    //get order id
+    $order_id = $_SESSION['Order_Id'];
+
+    //get order Description
+    $Desc = $_SESSION['Order_Desc'];
+
+    //Validate the email address first
+    if(filter_var($user_email, FILTER_VALIDATE_EMAIL))
+    {
+            $to = $user_email;
+            $subject = "Online Ordering Done";
+
+            $message = "Your Order Id is " . $order_id;
+            $message .= "\n Your Order Was : " .$Desc ;
+            $message .= "\n Thanks for visiting us , your order will be delivered to you as soon as possible";
+
+            $Admin = new Admin();
+
+            $Admin-> SendMail($user_email , $subject , $message);         
+    }
+?>
 
 <!--           -->
         <h2 class="helloAdmin" style="font-size: 85px;margin-bottom: -120px">Ordering Done</h2>
@@ -137,7 +165,7 @@
 
         <h2 class="helloAdmin" style="font-size: 45px;font-family: 'Bellota'">Thanks for your order</h2>
     </br></br></br>
-        <h2 class="helloAdmin" style="font-size: 45px;font-family: 'Bellota'">Your order id is 5</h2>
+        <h2 class="helloAdmin" style="font-size: 45px;font-family: 'Bellota'">Your order id is <?= $_SESSION['Order_Id'] ?></h2>
 
         <h2 class="helloAdmin" style="font-size: 30px;padding-top: 60px;font-family: 'Bellota'">It will be delivered to you as soon as possible</h2>
 

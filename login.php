@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             $_SESSION['Password']=$userdata['Password'];
             $_SESSION['Phone']=$userdata['Phone'];
             $_SESSION['Address']=$userdata['Address'];
+            $_SESSION['Email']=$userdata['Email'];
             $_SESSION['User_Type_Id']=$userdata['User_Type_Id'];
 
         

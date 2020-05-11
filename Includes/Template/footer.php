@@ -33,7 +33,7 @@
                                         </h3>
                                         <form action="#" class="newsletter_form">
                                            
-                                            <button type="submit" style="font-family: 'East Sea Dokdo'"><a href="<?=($_SESSION['User_Type_Id'] == 1) ? $adminHome : $userHome ?>">My Account</a></button>
+                                            <button type="submit" style="font-family: 'East Sea Dokdo'"><a href="<?php if(isset($_SESSION['User_Type_Id']) AND  $_SESSION['User_Type_Id']== 1) { echo $adminHome; }else{echo $userHome; }  ?>">My Account</a></button>
 
                                         </form>
                                         <p class="newsletter_text">Stay connect with us to get exclusive offer!</p>

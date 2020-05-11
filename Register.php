@@ -30,6 +30,10 @@ session_start();
         {
             $arr_error[]="Address";
         }
+        if(! (isset($_POST['email']) && !empty($_POST['email'])))
+        {
+            $arr_error[]="email";
+        }
 
         //if no errors
         if (!$arr_error) 
@@ -41,11 +45,12 @@ session_start();
             $Password=$_POST['password'];
             $Phonenumber=$_POST['phonenumber'];
             $Address=$_POST['Address'];
+            $Email=$_POST['email'];
 
             //check if this username exist or not
             if ($admin->checkUserName($Username))
              {
-                $info = array('Name' =>$Name,'User_Name'=>$Username ,'Password'=>$Password ,'Phone'=>$Phonenumber,'Address'=>$Address);
+                $info = array('Name' =>$Name,'User_Name'=>$Username ,'Password'=>$Password ,'Phone'=>$Phonenumber,'Address'=>$Address , "Email"=>$Email);
 
                 if ($admin->addUser($info))
                 {
@@ -54,7 +59,7 @@ session_start();
                 }   
             }else
             {
-                 $error_fields[] = "username";
+                 $arr_error[] = "username";
             }
         }
     }
@@ -152,6 +157,10 @@ session_start();
                 Address:<br>
                 <input class="Form_input" type="text" name="Address" placeholder="Type your Address..."   value="<?= (isset($_POST['Address']))? $_POST['Address'] : ''?>" ><br>
                 <?php if(in_array("Address" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid address</P>" ?>
+
+                Email:<br>
+                <input class="Form_input" type="text" name="email" placeholder="Type your Address..."   value="<?= (isset($_POST['email']))? $_POST['email'] : ''?>" ><br>
+                <?php if(in_array("email" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid Email</P>" ?>
 
                 <input class="Form_input2" type="submit" name="Signup" value="Sign up-100% free">
                 <P class="login_p">Already created an account? <a class="span" href="login.php">Log In</a></P>

@@ -32,6 +32,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $error_fields[] = "address";
     }
+    if(!(isset($_POST['email']) && !empty($_POST['email']))) 
+    {
+        $error_fields[] = "email";
+    }
 
     if(!$error_fields)
     {
@@ -41,9 +45,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         $password =$_POST['password'];
         $phone =$_POST['phone'];
         $address = $_POST['address'];
+        $email = $_POST['email'];
 
         //prepare data for update
-        $data = array("Id" => $id , "Name" => $name ,"User_Name" => $username, "Password" => $password , "Phone" => $phone ,"Address" => $address);
+        $data = array("Id" => $id , "Name" => $name ,"User_Name" => $username, "Password" => $password , "Phone" => $phone ,"Address" => $address , "Email" =>$email);
         
         //Update the data in DB
         if($user->updateUser($data , $id))
@@ -52,6 +57,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             $_SESSION['Password'] = $data['Password'];
             $_SESSION['Phone'] = $data['Phone'];
             $_SESSION['Address'] = $data['Address'];
+            $_SESSION['Email'] = $data['Email'];
             $_SESSION['User_Type_Id'] = $data['User_Type_Id'];
 
             header("Location: User_Home.php");

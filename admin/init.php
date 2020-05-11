@@ -16,7 +16,8 @@
     $adminHome = '../admin/Admin_Home.php';    //Admin Home page
 
     $classes = '../Includes/Classes/';
-    
+
+    $userHome = '../user/User_Home.php';
 
     $fromRoot = '/PHP/FCIH Projects/SW Projects/gitHup/Online Ordering System/'; //to get project from root(htocs)
 

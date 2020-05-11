@@ -3,18 +3,28 @@
     require 'config.php';
     require 'Db_Control.php';
     require 'Products.php';
+    require 'Orders.php';
 
-class person extends Db_Control
-{   
+class person 
+{  
+    //Attributes to hold the instance of the classes
+    protected $product ;
+    protected $order;
+
+    //get instance of db control(singltone class)
+    protected $DB;
+
     //set the table name
-    protected $_table = 'users';	// This is the name of the table on DB
+    protected $_table = 'users';    // This is the name of the table on DB
 
+    //Attributes
     private $Id;
     public  $Name;
     private $username;
     private $password;
     public $phone;
     public $address;
+    public $Email;
     public $usertype;
 
     /**
@@ -23,13 +33,17 @@ class person extends Db_Control
     */
     public function __construct() 
     {
-        // Add from config.php file
-        global $config;
+        //taking instances from clsss Products and order
+        $this->product = new products();
+        $this->order = new orders();
 
-        // Call the parent constructor
-    	parent::__construct($config);
+        // get from config.php file
+        global $config; //the configuration of the DB 
+
+        //get instance of DB_control (singltone class)
+        $this->DB = Db_Control::getInstance($config);
     }
-
+    //Setter && Getters
     public function setId($id)
     {
         $this->Id = $id;
@@ -101,9 +115,9 @@ class person extends Db_Control
 
     public function getUser($user_Id)
     {
-        $this->select($this->_table , 'Id = '.$user_Id);
+        $this->DB->select($this->_table , 'Id = '.$user_Id);
 
-        return $this->fetch(); //func return one row 
+        return  $this->DB->fetch(); //func return one row 
     }
 
     /**
@@ -113,12 +127,12 @@ class person extends Db_Control
      */
     public function getUserForLogin($username , $password)
     {
-    	//call functio select and pass tableName and the where statement to search for this user
-        $this->select($this->_table , "User_Name = '" . $username . "' AND Password = ".$password);
+    	//call function select and pass tableName and the where statement to search for this user
+        $this->DB->select($this->_table , "User_Name = '" . $username . "' AND Password = ".$password);
 
-        return $this->fetch(); //func return one row || false if no user 
+        return  $this->DB->fetch(); //func return one row || false if no user 
     }
-   
+    
 }
 
 ?>
