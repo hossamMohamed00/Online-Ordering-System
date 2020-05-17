@@ -45,6 +45,8 @@
             //save order Desc to send to mail
             $_SESSION['Order_Desc'] = $Desc;
             unset($_SESSION['cart']);//to empty the cart
+            unset($_SESSION['FastOrder']);//to empty the FastOrder
+            unset($_SESSION['cancelFastOrder']);//to empty the cancelFastOrder
             header("Location: ThanksPage.php");
             exit();//to stop the script
         }
