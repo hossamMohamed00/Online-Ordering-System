@@ -139,27 +139,33 @@ session_start();
             <h2 class="h_signup">Sign Up</h2>
             <form action="Register.php"  method="post">
                 Name: <br>
-                <input class="Form_input" type="text" name="name" placeholder="Type your Name..." value="<?= (isset($_POST['name']))? $_POST['name'] : ''?>" ><br>
+                <input class="Form_input" type="text" name="name" placeholder="Type your Name..." 
+                value="<?= (isset($_POST['name']))? $_POST['name'] : ''?>" ><br>
                 <?php if(in_array("name" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid Name [must be > 3 char] </P>" ?>
                 
                 User Name:<br>
-                <input class="Form_input" type="text" name="username" placeholder="Choose you own user name..." value="<?= (isset($_POST['username']))? $_POST['username'] : ''?>" ><br>
+                <input class="Form_input" type="text" name="username" placeholder="Choose you own user name..." 
+                value="<?= (isset($_POST['username']))? $_POST['username'] : ''?>" ><br>
                 <?php if(in_array("username" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter Unique username [must be username@mail.com]</P>" ?>
 
                 Password:<br>
-                <input class="Form_input" type="password" name="password" placeholder="Choose you own Password..."  value="<?= (isset($_POST['password']))? $_POST['password'] : ''?>" ><br>
+                <input class="Form_input" type="password" name="password" placeholder="Choose you own Password..."  
+                value="<?= (isset($_POST['password']))? $_POST['password'] : ''?>" ><br>
                 <?php if(in_array("password" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid password [must be >= 4 digit]</P>" ?>
                 
                 Phone Number:<br>
-                <input class="Form_input" type="text" name="phonenumber" placeholder="Type your Phone Number..." maxlength="11"  value="<?= (isset($_POST['phonenumber']))? $_POST['phonenumber'] : ''?>" ><br>
+                <input class="Form_input" type="text" name="phonenumber" placeholder="Type your Phone Number..." maxlength="11"  
+                value="<?= (isset($_POST['phonenumber']))? $_POST['phonenumber'] : ''?>" ><br>
                 <?php if(in_array("phonenumber" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid phone number</P>" ?>
                 
                 Address:<br>
-                <input class="Form_input" type="text" name="Address" placeholder="Type your Address..."   value="<?= (isset($_POST['Address']))? $_POST['Address'] : ''?>" ><br>
+                <input class="Form_input" type="text" name="Address" placeholder="Type your Address..."   
+                value="<?= (isset($_POST['Address']))? $_POST['Address'] : ''?>" ><br>
                 <?php if(in_array("Address" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid address</P>" ?>
 
                 Email:<br>
-                <input class="Form_input" type="text" name="email" placeholder="Type your Address..."   value="<?= (isset($_POST['email']))? $_POST['email'] : ''?>" ><br>
+                <input class="Form_input" type="text" name="email" placeholder="Type your Address..."  
+                 value="<?= (isset($_POST['email']))? $_POST['email'] : ''?>" ><br>
                 <?php if(in_array("email" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid Email</P>" ?>
 
                 <input class="Form_input2" type="submit" name="Signup" value="Sign up-100% free">

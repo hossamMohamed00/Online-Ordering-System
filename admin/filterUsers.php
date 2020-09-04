@@ -1,13 +1,10 @@
 <?php
     include 'init.php';
-    if(isset($_POST['search'] ))
-    {
+    if(isset($_POST['search'] )){
         $output = '';//to hold the table to display it
-
         $key = $_POST['search'];//to get the keyword to search for it
 
         $admin = new Admin();
-
         $Users = $admin->searchUsers($key);//will return array of all users that matched this keyword
         
         //prepare the table to print it
@@ -27,12 +24,9 @@
                 </thead>
                 <tbody>               
         ';
-
-        if(!empty($Users))
-        {
+        if(!empty($Users)) {
             //loop the data
-            foreach($Users as $row)
-            {
+            foreach($Users as $row) {
                 $type = ($row['User_Type_Id'] == 1) ? 'Admin' : 'User';
                 $output .= "
                 <tr class = \"tabelrow\" id = 'user".$row['Id']."' > 
@@ -51,8 +45,7 @@
                 ";
             }
         }
-        else
-        {
+        else {
             $output .= '
                 <tr class = "tabelrow" > 
                     <td colspan="8" >No User Found</td>       

@@ -114,7 +114,8 @@
 <!-- User Info start -->
 <div class="panel panel-default" >
     <div class="panel-heading">
-        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">User Information <i class="fa fa-caret-down"></i></a></h4>
+        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" 
+        href="#collapse-checkout-confirm" aria-expanded="true">User Information <i class="fa fa-caret-down"></i></a></h4>
     </div>
 
     <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="margin-top: 25px">
@@ -193,7 +194,8 @@
 
 <div class="panel panel-default" >
     <div class="panel-heading">
-        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Pending Orders<i class="fa fa-caret-down"></i></a></h4>
+        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" 
+        href="#collapse-checkout-confirm" aria-expanded="true">Pending Orders<i class="fa fa-caret-down"></i></a></h4>
     </div>
     <div id="collapse-checkout-confirm1" class="panel-collapse collapse in" aria-expanded="true" >
         <div class="panel-body">
@@ -256,10 +258,10 @@
 <!-- Pending Orders end -->
 
 <!-- All Users Orders start -->
-
 <div class="panel panel-default" style="margin-bottom: 50px;">
     <div class="panel-heading">
-        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History <i class="fa fa-caret-down"></i></a></h4>
+        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse"
+         href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History <i class="fa fa-caret-down"></i></a></h4>
     </div>
 
     <div id="collapse-checkout-confirm1" class="panel-collapse collapse in" aria-expanded="true" >

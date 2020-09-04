@@ -125,10 +125,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             <form action="<?= $_SERVER['PHP_SELF'] ?>"  method="POST">
                 
                 User Name:<br>
-                <input class="Form_input" type="text" name="username" placeholder="Type your username..."  value="<?= (isset($_POST['username'])) ? $_POST['username'] : '' ?>" required><br>
+                <input class="Form_input" type="text" name="username" placeholder="Type your username..."  
+                value="<?= (isset($_POST['username'])) ? $_POST['username'] : '' ?>" required><br>
 
                 Password:<br>
-                <input class="Form_input" type="password" id = "pass" name="password" placeholder="Type your password..." value="<?= (isset($_POST['password'])) ? $_POST['password'] : '' ?>" required><br>
+                <input class="Form_input" type="password" id = "pass" name="password" placeholder="Type your password..."
+                 value="<?= (isset($_POST['password'])) ? $_POST['password'] : '' ?>" required><br>
                 
                 <input type="checkbox" onclick="showPass()" style="margin-left: -220px">    Show Password <br />
 

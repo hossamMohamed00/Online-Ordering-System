@@ -8,9 +8,7 @@
 
         $user = new User();
 
-        $Filtered_Products = $user->searchPro($key);//will return array of all Products that matched this keyword
-        
-
+        $Filtered_Products = $user->searchPro($key);//will return array of all Products that matched this keyword        
         if(!empty($Filtered_Products))
         {
             //loop the data

@@ -55,7 +55,6 @@
                          </tr>
                         <?php
       
-                              
                                 $total_Price = $total_Price + ($data['qty'] * $data['price']); 
                                 $counter++;
                             }

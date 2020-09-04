@@ -1,4 +1,5 @@
 <?php
+/* Edit User Information*/
 require_once 'init.php';
 session_start();
 //To prevent opening this page directly
