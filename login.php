@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             $_SESSION['Address']=$userdata['Address'];
             $_SESSION['Email']=$userdata['Email'];
             $_SESSION['User_Type_Id']=$userdata['User_Type_Id'];
-
+            
         
             if ($userdata['User_Type_Id'] == 1) {
                 header("location: ".$adminHome);
