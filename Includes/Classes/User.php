@@ -38,7 +38,8 @@ class User extends person
      * @param array $user_data Associative array containing column and value
      * @return bool Returns true if added successfully
      */
-    public function placeOrder($data){
+    public function placeOrder($data)
+    {
         return $this->order->placeOrder($data);
     }
 

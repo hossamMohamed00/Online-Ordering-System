@@ -10,7 +10,26 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         $password = $_POST['password'];
 
         $user = new User();
-        $userdata = $user ->getUserForLogin($username,$password);
+        
+                // Store the cipher method 
+                $ciphering = "AES-128-CTR"; 
+
+                // Use OpenSSl Encryption method 
+                $iv_length = openssl_cipher_iv_length($ciphering); 
+                $options = 0; 
+
+                // Non-NULL Initialization Vector for encryption 
+                $encryption_iv = '1234567891011121'; 
+
+                // Store the encryption key 
+                $encryption_key = "encryption"; 
+
+                // Use openssl_encrypt() function to encrypt the data 
+                $encryption_Password = openssl_encrypt($password, $ciphering, 
+                            $encryption_key, $options, $encryption_iv); 
+            
+        $userdata = $user ->getUserForLogin($username,$encryption_Password);
+
 
         if (!empty($userdata))
         {
@@ -22,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             $_SESSION['Address']=$userdata['Address'];
             $_SESSION['Email']=$userdata['Email'];
             $_SESSION['User_Type_Id']=$userdata['User_Type_Id'];
-            
+
         
             if ($userdata['User_Type_Id'] == 1) {
                 header("location: ".$adminHome);
@@ -125,12 +144,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             <form action="<?= $_SERVER['PHP_SELF'] ?>"  method="POST">
                 
                 User Name:<br>
-                <input class="Form_input" type="text" name="username" placeholder="Type your username..."  
-                value="<?= (isset($_POST['username'])) ? $_POST['username'] : '' ?>" required><br>
+                <input class="Form_input" type="text" name="username" placeholder="Type your username..."  value="<?= (isset($_POST['username'])) ? $_POST['username'] : '' ?>" required><br>
 
                 Password:<br>
-                <input class="Form_input" type="password" id = "pass" name="password" placeholder="Type your password..."
-                 value="<?= (isset($_POST['password'])) ? $_POST['password'] : '' ?>" required><br>
+                <input class="Form_input" type="password" id = "pass" name="password" placeholder="Type your password..." value="<?= (isset($_POST['password'])) ? $_POST['password'] : '' ?>" required><br>
                 
                 <input type="checkbox" onclick="showPass()" style="margin-left: -220px">    Show Password <br />
 

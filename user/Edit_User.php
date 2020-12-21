@@ -1,5 +1,4 @@
 <?php
-/* Edit User Information*/
 require_once 'init.php';
 session_start();
 //To prevent opening this page directly
@@ -48,8 +47,26 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         $address = $_POST['address'];
         $email = $_POST['email'];
 
+        // Store the cipher method 
+                $ciphering = "AES-128-CTR"; 
+
+                // Use OpenSSl Encryption method 
+                $iv_length = openssl_cipher_iv_length($ciphering); 
+                $options = 0; 
+
+                // Non-NULL Initialization Vector for encryption 
+                $encryption_iv = '1234567891011121'; 
+
+                // Store the encryption key 
+                $encryption_key = "encryption"; 
+
+                // Use openssl_encrypt() function to encrypt the data 
+                $encryption_Password = openssl_encrypt($password, $ciphering, 
+                            $encryption_key, $options, $encryption_iv); 
+      
+
         //prepare data for update
-        $data = array("Id" => $id , "Name" => $name ,"User_Name" => $username, "Password" => $password , "Phone" => $phone ,"Address" => $address , "Email" =>$email);
+        $data = array("Id" => $id , "Name" => $name ,"User_Name" => $username, "Password" => $encryption_Password , "Phone" => $phone ,"Address" => $address , "Email" =>$email);
         
         //Update the data in DB
         if($user->updateUser($data , $id))

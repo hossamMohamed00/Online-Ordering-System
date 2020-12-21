@@ -173,7 +173,8 @@ class Db_Control
     /*
     *   Fetch a single row from the current result set  (as an associative array)
     */
-    public function fetch() {
+    public function fetch()
+    {
         if ($this-> _result != null)
         {
             if(($row = mysqli_fetch_array($this->_result , MYSQLI_ASSOC)) === false)
@@ -189,7 +190,8 @@ class Db_Control
     /*
     *   Fetch all rows from the current result set  (as an associative array)
     */
-    public function fetchAll() {
+    public function fetchAll()
+    {
         if ($this-> _result != null)
         {
             if(($all = mysqli_fetch_all($this->_result , MYSQLI_ASSOC)) === false)
@@ -210,6 +212,8 @@ class Db_Control
     {
         return $this->link !== null ? mysqli_insert_id($this->link) : null ;
     }
+
+    
 
     /*
     * Get the number of rows returned by the current result set 

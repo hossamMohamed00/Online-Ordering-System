@@ -246,8 +246,7 @@
 <div class="panel panel-default">
     <!-- Header Title -->   
     <div class="panel-heading">
-        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" 
-        href="#collapse-shipping-address" aria-expanded="true">ADD NEW Food <i class="fa fa-caret-down"></i></a></h4>
+        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-shipping-address" aria-expanded="true">ADD NEW Food <i class="fa fa-caret-down"></i></a></h4>
     </div>  
 
     <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="margin-top: 25px">
@@ -328,14 +327,14 @@
 <!--Add food End-->
 
 <!-- All Food start -->
+
 <?php 
     $admin = new Admin();
     $All_Products = $admin->getAllProducts();
 ?>
 <div class="panel panel-default">
     <div class="panel-heading" >
-         <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" 
-         href="#collapse-shipping-method" >ALL Food <i class="fa fa-caret-down"></i></a></h4>
+         <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-shipping-method" >ALL Food <i class="fa fa-caret-down"></i></a></h4>
     </div>
 
     <div id="collapse-shipping-method" class="panel-collapse collapse in" aria-expanded="true" >
@@ -344,9 +343,7 @@
         <div style="padding: 15px;margin-left: 35px">
             <div class="form-group" style="width: 90%;margin-bottom: -20px">
                 <div class="col-sm-10">
-                    <input type="text"  class="form-control" id ="Search_Product"
-                     placeholder="Type To Search [ONLY SEARCH BY ID , NAME , AVAILABILITY] , 
-                     Or type [ All ] to show all Products" name="search"  >
+                    <input type="text"  class="form-control" id ="Search_Product" placeholder="Type To Search [ONLY SEARCH BY ID , NAME , AVAILABILITY] , Or type [ All ] to show all Products" name="search"  >
                 </div>  
 
                 <div class="col-sm-5"  style="margin-top: -50px;margin-left: 650px;">
@@ -399,11 +396,9 @@
 
                             <td style='text-align:center'> <?= ($row['Special']) ? 'Yes' : 'No' ?> </td>
 
-                            <td style="width: 7%"><a href="Edit_Pro.php?id=<?=$row['Pro_Id']; ?>">
-                            <img src="<?= $img ?>edit.png" title="Edit this Product" width="55px" style="margin-left: 5px;"></a>
+                            <td style="width: 7%"><a href="Edit_Pro.php?id=<?=$row['Pro_Id']; ?>"><img src="<?= $img ?>edit.png" title="Edit this Product" width="55px" style="margin-left: 5px;"></a>
 
-                            <td style="width: 7%"><a  onclick="DELETE_PRODUCT(<?= $row['Pro_Id'];?> )" >
-                            <img src="<?= $img ?>drop-icon.png" title="Delete This Product" width="35px" style="margin-left: 5px;"></a>
+                            <td style="width: 7%"><a  onclick="DELETE_PRODUCT(<?= $row['Pro_Id'];?> )" ><img src="<?= $img ?>drop-icon.png" title="Delete This Product" width="35px" style="margin-left: 5px;"></a>
 
                         </tr>
                <?php
@@ -426,16 +421,18 @@
 <!--  All Food end -->
 
 <!--All User start -->
+
 <?php 
     $admin = new Admin();
     $users = $admin->getUsers();//Return All Users    
 ?>
+
 <!--                                All users Table                             -->
+
 <div class="panel panel-default">
     <!-- Header Title -->
     <div class="panel-heading">
-        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse"
-         href="#collapse-payment-method" aria-expanded="true">All USERS <i class="fa fa-caret-down"></i></a></h4>
+        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-payment-method" aria-expanded="true">All USERS <i class="fa fa-caret-down"></i></a></h4>
     </div>
 
     <div id="collapse-payment-method" class="panel-collapse collapse in" aria-expanded="true" style="">
@@ -443,8 +440,7 @@
         <div style="padding: 15px;margin-left: 35px">
             <div class="form-group" style="width: 90%;margin-bottom: -20px">
                 <div class="col-sm-10">
-                    <input type="text"  class="form-control" id ="search_user" 
-                    placeholder="Type To Search [ONLY SEARCH BY ID , NAME , USER TYPE] , Or type [ All ] to show all" name="search"  >
+                    <input type="text"  class="form-control" id ="search_user" placeholder="Type To Search [ONLY SEARCH BY ID , NAME , USER TYPE] , Or type [ All ] to show all" name="search"  >
                 </div>  
 
                 <div class="col-sm-5" h style="margin-top: -50px;margin-left: 650px;">
@@ -486,8 +482,7 @@
                         <td style='text-align:center'><?= $row['Phone'] ?></td>
                         <td style='text-align:center'><?= $row['Address'] ?></td>
                         <td style='text-align:center'><?= $row['Email'] ?></td>
-                        <td style="width: 7%"><a  onclick='DELETE_USER(<?= $row['Id']; ?>)' >
-                        <img src="<?= $img ?>drop-icon.png" title="" width="35px" style="margin-left: 5px;"></a>
+                        <td style="width: 7%"><a  onclick='DELETE_USER(<?= $row['Id']; ?>)' ><img src="<?= $img ?>drop-icon.png" title="" width="35px" style="margin-left: 5px;"></a>
                     
                     </tr>
                     <?php
@@ -518,15 +513,18 @@
     // 
     $waiting_Orders = $admin->getWatingOrders();
 ?>
+
 <div class="panel panel-default" >
     <div class="panel-heading">
-        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse"
-         href="#collapse-checkout-confirm" aria-expanded="true">Wating Orders<i class="fa fa-caret-down"></i></a></h4>
+        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Wating Orders<i class="fa fa-caret-down"></i></a></h4>
     </div>
+
     <div id="collapse-checkout-confirm" class="panel-collapse collapse in" aria-expanded="true" >
         <div class="panel-body" >
+
             <?php
-            if(!empty($waiting_Orders)){ 
+            if(!empty($waiting_Orders))
+            { 
             ?>
             <p style="color: black" class="login_p"> * Here You can Show Waiting Orders and change it's statue from dropdown list * </p>
             <form action="ChangeOrderStatue.php" method="POST">
@@ -543,7 +541,9 @@
 	                </tr>
 	            </thead>
                     <?php  
-                        foreach($waiting_Orders as $row){?>
+                        foreach($waiting_Orders as $row)
+                        {?>
+                    
                 <tbody>
 	                <tr class = "tabelrow" >
                         <td style='text-align:center'><?= $row['Order_Id'] ?></td>
@@ -595,8 +595,7 @@
 
 <div class="panel panel-default" style="margin-bottom: 50px ">
     <div class="panel-heading">
-        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse"
-         href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History<i class="fa fa-caret-down"></i></a></h4>
+        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History<i class="fa fa-caret-down"></i></a></h4>
     </div>
     <div id="collapse-checkout-confirm" class="panel-collapse collapse in" aria-expanded="true" >
         <!-- Filter Orders By Date -->
