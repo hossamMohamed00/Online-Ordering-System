@@ -5,6 +5,17 @@
     {
         header("Location: ../login.php");
     }
+    $decryption_iv = '1234567891011121';
+                              $ciphering = "AES-128-CTR"; 
+                             $options = 0; 
+
+
+                            // Store the decryption key 
+                            $decryption_key = "encryption"; 
+
+                            // Use openssl_decrypt() function to decrypt the data 
+                            $decryption_pass =openssl_decrypt ( $_SESSION['Password'], $ciphering, 
+                                    $decryption_key, $options, $decryption_iv);  
 
 ?>
 <!doctype html>
@@ -143,7 +154,7 @@
                     <label class="control-label col-sm-2" for="Password">Password</label>
 
                     <div class="col-sm-10">
-                        <input type="text" class="form-control"  value="<?= $_SESSION['Password'] ?>"  name="password" required>
+                        <input type="text" class="form-control"  value="<?= $decryption_pass ?>"  name="password" required>
                     </div>
                 </div>
 

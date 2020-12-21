@@ -10,7 +10,7 @@
     protected $DB;
 
     //set the table name
-    protected string $_table = 'orders';	// This is the name of the table on DB
+    protected  $_table = 'orders';	// This is the name of the table on DB
 
     //Attributes
     private $Order_Id ;

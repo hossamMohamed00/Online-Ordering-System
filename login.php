@@ -10,7 +10,23 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         $password = $_POST['password'];
 
         $user = new User();
-        $userdata = $user ->getUserForLogin($username,$password);
+                 // Store the cipher method 
+                $ciphering = "AES-128-CTR"; 
+
+                // Use OpenSSl Encryption method 
+                $iv_length = openssl_cipher_iv_length($ciphering); 
+                $options = 0; 
+
+                // Non-NULL Initialization Vector for encryption 
+                $encryption_iv = '1234567891011121'; 
+
+                // Store the encryption key 
+                $encryption_key = "encryption"; 
+
+                // Use openssl_encrypt() function to encrypt the data 
+                $encryption_Password = openssl_encrypt($password, $ciphering, 
+                            $encryption_key, $options, $encryption_iv); 
+        $userdata = $user ->getUserForLogin($username,$encryption_Password);
 
         if (!empty($userdata))
         {

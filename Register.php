@@ -46,11 +46,26 @@ session_start();
             $Phonenumber=$_POST['phonenumber'];
             $Address=$_POST['Address'];
             $Email=$_POST['email'];
+            $ciphering = "AES-128-CTR"; 
+
+                // Use OpenSSl Encryption method 
+                $iv_length = openssl_cipher_iv_length($ciphering); 
+                $options = 0; 
+
+                // Non-NULL Initialization Vector for encryption 
+                $encryption_iv = '1234567891011121'; 
+
+                // Store the encryption key 
+                $encryption_key = "encryption"; 
+
+                // Use openssl_encrypt() function to encrypt the data 
+                $encryption_Password = openssl_encrypt($Password, $ciphering, 
+                            $encryption_key, $options, $encryption_iv); 
 
             //check if this username exist or not
             if ($admin->checkUserName($Username))
              {
-                $info = array('Name' =>$Name,'User_Name'=>$Username ,'Password'=>$Password ,'Phone'=>$Phonenumber,'Address'=>$Address , "Email"=>$Email);
+                $info = array('Name' =>$Name,'User_Name'=>$Username ,'Password'=>$encryption_Password ,'Phone'=>$Phonenumber,'Address'=>$Address , "Email"=>$Email);
 
                 if ($admin->addUser($info))
                 {
