@@ -126,9 +126,12 @@ class person
      * @return  array userData
      */
     public function getUserForLogin($username , $password)
+
     {
+      
+
     	//call function select and pass tableName and the where statement to search for this user
-        $this->DB->select($this->_table , "User_Name = '" . $username . "' AND Password = ".$password);
+        $this->DB->select($this->_table , "User_Name = '" . $username . "' AND Password = '" . $password . "'");
 
         return  $this->DB->fetch(); //func return one row || false if no user 
     }

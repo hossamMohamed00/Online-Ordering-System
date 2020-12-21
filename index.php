@@ -101,6 +101,7 @@
                         <!-- Order Now Button Here  -->
                         <a href="<?= "user/Cart_Process.php?id=".$row['Pro_Id'] ?>" class="boxed-btn3">Order Now</a>
                     </div>
+
                 </div>
             </div>
             <?php  
@@ -195,14 +196,7 @@
                                 in your City</h3>
                     </div>
 
-                    <p>There are many variations of passages of Lorem Ipsum available,
-                         but the majority have suffered alteration in some form, by injected humour,
-                          or randomised words which don't look even slightly believable.
-                           If you are going to use a passage of Lorem Ipsum,
-                            you need to be sure there isn't anything embarrassing hidden in the middle of text.
-                             All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, 
-                             making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,
-                              combined with a handful of model sentence structures, to generate</p>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate</p>
                     <div class="img_thumb">
                         <img src="<?= $img ?>jessica-signature.png" alt="">
                     </div>
@@ -230,10 +224,13 @@
     </div>
 </div>
 <!-- video_area_end -->
+
+   
 <!-- instragram_area_start -->
 <div class="instragram_area">
     <div class="container">
         <div class="row">
+
             <div class="col-lg-3 col-md-6">
                 <div class="single_instagram">
                     <img src="<?= $img ?>instragram/1.png" alt="">
@@ -244,6 +241,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-3 col-md-6">
                 <div class="single_instagram">
                     <img src="<?= $img ?>instragram/2.png" alt="">
@@ -254,6 +252,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-3 col-md-6">
                 <div class="single_instagram">
                     <img src="<?= $img ?>instragram/3.png" alt="">
@@ -264,7 +263,17 @@
                     </div>
                 </div>
             </div>
-            
+
+            <div class="col-lg-3 col-md-6">
+                <div class="single_instagram">
+                    <img src="<?= $img ?>instragram/4.png" alt="">
+                    <div class="ovrelay">
+                        <a href="">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

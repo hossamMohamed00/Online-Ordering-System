@@ -10,7 +10,7 @@
     protected $DB;
 
     //set the table name
-    protected string $_table = 'orders';	// This is the name of the table on DB
+    protected  $_table = 'orders';	// This is the name of the table on DB
 
     //Attributes
     private $Order_Id ;
@@ -133,11 +133,13 @@
     *  Show all orders that not delivered yet for spicified user
     *  @return array 
     */
+
     public function getWatingOrdersForUser($user_Id)
     {
         $this->DB->select($this->_table , ' Cust_Id = ' . $user_Id . ' AND Order_Statue = \'Waiting\'' , '*' , 'Order_Date' , ' ASC ');
         return  $this->DB->fetchAll(); 
     }
+
     /**
      *Place New Order
      * @param array $user_data Associative array containing column and value
@@ -147,6 +149,7 @@
     {
         return  $this->DB->insert($this->_table,$data);
     }
+
     /**
      *Add order details
      * @param array $data Associative array containing column and value
@@ -156,6 +159,7 @@
     {
         return $this->DB->insert('orders_details',$data);
     }   
+
     /**
      *change Order Statue
      * @param array $data Associative array containing column and value

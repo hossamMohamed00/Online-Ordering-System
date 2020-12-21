@@ -45,8 +45,6 @@
             //save order Desc to send to mail
             $_SESSION['Order_Desc'] = $Desc;
             unset($_SESSION['cart']);//to empty the cart
-            unset($_SESSION['FastOrder']);//to empty the FastOrder
-            unset($_SESSION['cancelFastOrder']);//to empty the cancelFastOrder
             header("Location: ThanksPage.php");
             exit();//to stop the script
         }
@@ -196,8 +194,7 @@
     <div class="panel panel-default" >
             
         <div class="panel-heading">
-            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse"
-             href="#collapse-shipping-address" aria-expanded="true">  Step 1 : Delivery Details <i class="fa fa-caret-down"></i></a></h4>
+            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-shipping-address" aria-expanded="true">  Step 1 : Delivery Details <i class="fa fa-caret-down"></i></a></h4>
         </div>    
         <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="margin-top: 25px">
                 <div class="panel-body">
@@ -243,11 +240,11 @@
     <!--add food end-->
     <!-- -----------------------------------------  -->
     <!-- Payment Method start-->
+
     <div class="panel panel-default"  style="margin-bottom: 50px">
             
         <div class="panel-heading">
-            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" 
-            href="#collapse-shipping-address" aria-expanded="true">Step 2 : Payment Method <i class="fa fa-caret-down"></i></a></h4>
+            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-shipping-address" aria-expanded="true">Step 2 : Payment Method <i class="fa fa-caret-down"></i></a></h4>
         </div>    
         <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="margin-top: 25px">
                 <div class="panel-body">
@@ -313,6 +310,9 @@
                           </div>
                         </div>
                     </form>	
+                  
+					
+
                 </div>                                           
              </div>
     </div>    

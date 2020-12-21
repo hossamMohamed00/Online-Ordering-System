@@ -5,6 +5,17 @@
     {
         header("Location: ../login.php");
     }
+       $decryption_iv = '1234567891011121';
+                              $ciphering = "AES-128-CTR"; 
+                             $options = 0; 
+
+
+                            // Store the decryption key 
+                            $decryption_key = "encryption"; 
+
+                            // Use openssl_decrypt() function to decrypt the data 
+                            $decryption_pass =openssl_decrypt ( $_SESSION['Password'], $ciphering, 
+                                    $decryption_key, $options, $decryption_iv);  
 
 ?>
 <!doctype html>
@@ -114,8 +125,7 @@
 <!-- User Info start -->
 <div class="panel panel-default" >
     <div class="panel-heading">
-        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" 
-        href="#collapse-checkout-confirm" aria-expanded="true">User Information <i class="fa fa-caret-down"></i></a></h4>
+        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">User Information <i class="fa fa-caret-down"></i></a></h4>
     </div>
 
     <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="margin-top: 25px">
@@ -143,7 +153,9 @@
                     <label class="control-label col-sm-2" for="Password">Password</label>
 
                     <div class="col-sm-10">
-                        <input type="text" class="form-control"  value="<?= $_SESSION['Password'] ?>"  name="password" required>
+                        
+
+                        <input type="text" class="form-control"  value="<?= $decryption_pass ?>"  name="password" required>
                     </div>
                 </div>
 
@@ -194,8 +206,7 @@
 
 <div class="panel panel-default" >
     <div class="panel-heading">
-        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" 
-        href="#collapse-checkout-confirm" aria-expanded="true">Pending Orders<i class="fa fa-caret-down"></i></a></h4>
+        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Pending Orders<i class="fa fa-caret-down"></i></a></h4>
     </div>
     <div id="collapse-checkout-confirm1" class="panel-collapse collapse in" aria-expanded="true" >
         <div class="panel-body">
@@ -258,10 +269,10 @@
 <!-- Pending Orders end -->
 
 <!-- All Users Orders start -->
+
 <div class="panel panel-default" style="margin-bottom: 50px;">
     <div class="panel-heading">
-        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse"
-         href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History <i class="fa fa-caret-down"></i></a></h4>
+        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">ORDERS History <i class="fa fa-caret-down"></i></a></h4>
     </div>
 
     <div id="collapse-checkout-confirm1" class="panel-collapse collapse in" aria-expanded="true" >

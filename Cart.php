@@ -1,16 +1,6 @@
 <?php
     include 'init.php';
     include $tpl.'header.php';
-      if (isset($_POST['FastOrder'])) {
-        $_SESSION['FastOrder']=true;
-        $_SESSION['cancelFastOrder']=false;
-
-    }
-    if (isset($_POST['cancelFastOrder'])) {
-        $_SESSION['cancelFastOrder']=true;
-        $_SESSION['FastOrder']=false;
-
-    }
 ?>
     <div class="signup" >
             <h2 class="h_signup">Shopping Cart</h2>
@@ -54,7 +44,6 @@
                             <td> <a href="<?='user/Cart_Process.php?Did='.$id ?>" ><img src="<?= $img ?>delete-icon.png" width=22px></a>
                          </tr>
                         <?php
-      
                                 $total_Price = $total_Price + ($data['qty'] * $data['price']); 
                                 $counter++;
                             }
@@ -64,23 +53,10 @@
                             <td colspan="5" align="right">
                             <h4 style="font-family: East Sea Dokdo;font-size: 30px">.Total Bill </h4>
                             </td>
-                            <?php  
-                             if (isset($_SESSION['FastOrder'])&&$_SESSION['FastOrder']==true) {
-                                $total_Price=$total_Price+20;
-                                } 
-                            if (isset($_SESSION['cancelFastOrder'])&&$_SESSION['cancelFastOrder']==true) {
-                                $total_Price=$total_Price;
-                                }
-                            ?>
                             <td> <h4> <?= $total_Price?> $ </h4></td>
                             
                             <?php $_SESSION['numOfPro'] = $counter - 1 ;
-                            
-                            $_SESSION['total'] = $total_Price
-                            
-                            
-?>
-
+                            $_SESSION['total'] = $total_Price ?>
                         </tr>
                     </tbody>
                                                           
@@ -89,22 +65,9 @@
                 <center>
 
                     <input class="btn btn-default" type="submit" value=" Re-Calculate "  style="margin-top: -30px" >
-                    <br>
-
                
                 </center>
             </form>
-        <center>
-            
-             <form action="Cart.php" method="POST">
-                    <input type="checkbox" id="FastOrder" name="FastOrder" value="FastOrder">
-                    <label > Fast order</label><br>
-                    <input type="checkbox" id="cancelFastOrder" name="cancelFastOrder" value="cancelFastOrder">
-                    <label >cancel Fast order</label><br>
-                    <button type="submit" name="submit" class="btn btn-primary reg_button" style="margin-right: 0px;background-color: #F54300" >submit</a></button> 
-            </form>
-        </center>
-
         </div>
                 
     </div>
