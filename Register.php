@@ -16,12 +16,12 @@ session_start();
             $arr_error[]="username";
         }
 
-        if(! (isset($_POST['password']) && strlen($_POST['password']) >= 4)) 
+        if(! (isset($_POST['password']) && strlen($_POST['password']) >= 4 && preg_match('@[A-Z]@', $_POST['password']) && preg_match('@[^\w]@', $_POST['password']))) 
         {
             $arr_error[]="password";
         }
 
-        if(! (isset($_POST['phonenumber']) && is_numeric($_POST['phonenumber'])))
+        if(! (isset($_POST['phonenumber']) && is_numeric($_POST['phonenumber']) && strlen($_POST['phonenumber']) >= 11 ))
          {
             $arr_error[]="phonenumber";
         }
@@ -165,7 +165,7 @@ session_start();
 
                 Password:<br>
                 <input class="Form_input" type="password" name="password" placeholder="Choose you own Password..."  value="<?= (isset($_POST['password']))? $_POST['password'] : ''?>" ><br>
-                <?php if(in_array("password" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid password [must be >= 4 digit]</P>" ?>
+                <?php if(in_array("password" , $arr_error)) echo "<P class=\"login_p\" style=\"color: red\">Please enter valid password [must be >= 4 digit] and have UPPER letter and spical letter (@,$,%,!)</P>" ?>
                 
                 Phone Number:<br>
                 <input class="Form_input" type="text" name="phonenumber" placeholder="Type your Phone Number..." maxlength="11"  value="<?= (isset($_POST['phonenumber']))? $_POST['phonenumber'] : ''?>" ><br>
