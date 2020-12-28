@@ -9,5 +9,5 @@ Software Engineering Project
     and a second file called `readme.txt` --> this is a the guidelines to follow to setup the db on your machine
  5. If you use a path like i mentioned previously, So go to `http://localhost/PHP/Online%20Ordering%20System/login.php`
  6. Register as a new user or go to the database to get a username and password, or use the following:
-    - username:`hossam@mail.com` , password:`1234` ***to login as Admin***.
-    - username:`Kaboo@mail.com`, password:`1234` ***to login as normal user***
+    - username:`admin@mail.com` , password:`1234` ***to login as Admin***.
+    - username:`ebraam@mail.com`, password:`1234` ***to login as normal user***
