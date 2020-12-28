@@ -1,5 +1,5 @@
 # Online-Ordering-System
-Software Engineering Project
+FCIAH Project
 
 ## Installation
  1. After cloning the repository on path like `C:\xampp\htdocs\PHP\Online Ordering System`
