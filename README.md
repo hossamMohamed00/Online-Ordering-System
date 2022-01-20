@@ -1,5 +1,5 @@
 # Online-Ordering-System
-FCIAH Project
+The main objective of online food ordering system is to automate the existing manual system with the help of advance computerized software so, that valuable data can be stored for longer period with easy accessing and manipulation of the same. The registered user can access the account with valid credentials. User can surf the food items according to categories, Cart and online payment options are available to user. User can track their orders with the food details. In Online Food Ordering System Admin can handle the functionalities like add new food items, edit/delete food items, Enable/Disable the food items according to season and availability. Admin have authority to view order details and update the delivery status of food. The payment transaction and user details are also viewable to admin.
 
 ## Installation
  1. After cloning the repository on path like `C:\xampp\htdocs\PHP\Online Ordering System`
